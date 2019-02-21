@@ -1,0 +1,13 @@
+
+server:
+ servlet:
+   context-path: /springboot
+ port: 8080
+
+fastdfs:
+  properties:
+    connect-timeout-in-seconds: 5
+    network-timeout-in-seconds: 30
+    charset: UTF-8
+    tracker-servers: x.x.x.x:22122
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.encryption.dao.PlatformIdKeyMapper">
+    <resultMap id="BaseResultMap" type="com.encryption.entity.PlatformIdkey">
+        <result column="platform_name" jdbcType="VARCHAR" property="platformName"/>
+        <result column="platform_id" jdbcType="INTEGER" property="platformId"/>
+        <result column="platform_key" jdbcType="DATE" property="platformKey"/>
+    </resultMap>
+
+
+    <select id="selectAllPlatformIdkey" resultMap="BaseResultMap" resultType="com.encryption.entity.PlatformIdkey">
+        SELECT *
+        FROM platform_id_key
+    </select>
+
+
+</mapper>

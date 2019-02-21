@@ -1,0 +1,32 @@
+
+
+
+
+# 默认记载/security/*.yml
+spring:
+  profiles:
+    active: dev
+
+  # ------------------------------------ 热加载等配置 BEGIN ------------------------------------
+  # 指定热加载触发器, main文件修改后,不会立马热加载, 手动修改resources/application-trigger.yml出发
+  devtools:
+    restart:
+      trigger-file: application-trigger.yml
+  banner: # 启动图文字符
+    image:
+      location: banner.txt
+  # ------------------------------------ 热加载等配置 END ------------------------------------
+
+  # ------------------------------------ thymeleaf配置 BEGIN ------------------------------------
+  thymeleaf:
+    cache: true
+    mode: HTML5
+    prefix: classpath:/templates/
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    suffix: .html
+  # ------------------------------------ thymeleaf配置 END ------------------------------------
+
+
+
