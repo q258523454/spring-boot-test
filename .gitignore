@@ -24,3 +24,4 @@
 /.nb-gradle/
 /build/
 /spring-post-encryption-log/
+/spring-boot-fastdfs/src/main/resources/config/application-prod.yml

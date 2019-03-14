@@ -6,9 +6,11 @@ import com.fastdfs.service.impl.FastDFSClientImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.UrlPathHelper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,12 +27,15 @@ import java.nio.file.Files;
  */
 
 @RestController
-public class Controller_FastDFS {
+public class FastDfsController_Test {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private FastDFSConfig fastDFSConfig;
+
+    private UrlPathHelper urlPathHelper = new UrlPathHelper();
+
 
     // 测试字节上传文件
     @GetMapping(value = "/testUploadFileByte", produces = "application/json; charset=UTF-8")
@@ -77,22 +82,12 @@ public class Controller_FastDFS {
     }
 
 
-    // 查看(查)
+    // 查看(查),返回文件在服务器的信息
     @GetMapping(value = "/getFileInfo", produces = "application/json; charset=UTF-8")
     public String getFileInfo(HttpServletRequest request, String storageFilePath) throws Exception {
-        FastDFSClientImpl fastDFSClientImpl = new FastDFSClientImpl(fastDFSConfig);
-        String fileInfo = fastDFSClientImpl.getFileInfo(storageFilePath);
+        FastDFSClientImpl fileClient = new FastDFSClientImpl(fastDFSConfig);
+        String fileInfo = fileClient.getFileInfo(storageFilePath);
         return JSONObject.toJSONString(fileInfo);
-    }
-
-
-    // 删除(删)
-    @GetMapping(value = "/deleteFile", produces = "application/json; charset=UTF-8")
-    public String deleteFile(HttpServletRequest request, String storageFilePath) throws Exception {
-        FastDFSClientImpl fastDFSClientImpl = new FastDFSClientImpl(fastDFSConfig);
-        Integer result = fastDFSClientImpl.deleteFile(storageFilePath);
-        String response = result == -1 ? ("delete failed:[" + result + "]") : ("delete success:[" + result + "]");
-        return JSONObject.toJSONString(response);
     }
 
     // 下载
@@ -113,6 +108,16 @@ public class Controller_FastDFS {
             out.flush();
             out.close();
         }
+    }
+
+
+    // 删除(删)
+    @GetMapping(value = "/deleteFile", produces = "application/json; charset=UTF-8")
+    public String deleteFile(HttpServletRequest request, String storageFilePath) throws Exception {
+        FastDFSClientImpl fastDFSClientImpl = new FastDFSClientImpl(fastDFSConfig);
+        Integer result = fastDFSClientImpl.deleteFile(storageFilePath);
+        String response = result == -1 ? ("delete failed:[" + result + "]") : ("delete success:[" + result + "]");
+        return JSONObject.toJSONString(response);
     }
 
 }

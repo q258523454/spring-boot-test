@@ -3,5 +3,5 @@
 # 默认记载/security/*.yml
 spring:
   profiles:
-    active: dev
+    active: prod
 
