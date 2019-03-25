@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,25 @@
 </head>
 <body>
 <h1>spring-boot-fastdfs</h1>
-<img src="http://localhost:8080/springboot/getFileInfoByByte/group1/M00/00/04/CgEAaVyJ-OyARG6sAAF-SBVqisw66.JPEG">
+<input id="url" type="text" value="group1/M00/00/04/CgEAaVyYSqOAZX-jAAF-SBVqisw93.JPEG">
+<button onclick="submit()">先上传,用路径提交并显示</button>
+
+<form method="post" action="/springboot/uploadFile?width=50&height=50"
+      enctype="multipart/form-data">
+    <label>上传图片</label>
+    <input type="file" name="file"/>
+    <input type="submit" value="上传"/>
+</form>
+
+<img id="myImg" src="/springboot/getFileInfoByByte/group1/M00/00/04/CgEAaVyYSqOAZX-jAAF-SBVqisw93.JPEG">
 </body>
 </html>
+
+<script>
+    function submit () {
+        var url = document.getElementById('url').value;
+        document.getElementById('myImg').setAttribute('src', '\/springboot\/getFileInfoByByte\/' + url)
+    }
+</script>
+
+

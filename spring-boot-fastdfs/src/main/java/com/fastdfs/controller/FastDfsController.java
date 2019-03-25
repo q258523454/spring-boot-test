@@ -65,9 +65,11 @@ public class FastDfsController {
                     throw new IllegalArgumentException("图片长宽参数必须有值.");
                 }
                 if (height == 0 && width == 0) {
-                    storageFilePath = client.uploadFile(bos.toByteArray(), fileExtName);
+                    // 无需做压缩转换, 直接file
+                    storageFilePath = client.uploadFile(file.getBytes(), fileExtName);
                 } else if (height > 0 && width > 0) {
                     Thumbnails.of(file.getInputStream()).size((int) width, (int) height).keepAspectRatio(false).outputQuality(1.0f).toOutputStream(bos);
+                    storageFilePath = client.uploadFile(bos.toByteArray(), fileExtName);
                 } else if (width == 0) {
                     double ratio = (double) height / heightOrg;
                     double heightFinal = height;
@@ -86,6 +88,7 @@ public class FastDfsController {
                 //("文件上传失败");
             }
         }
+        System.out.println("文件存储地址:" + storageFilePath);
         return "文件上传成功";
     }
 
@@ -109,6 +112,8 @@ public class FastDfsController {
         }
         return imgBytes;
     }
+
+
 
     /**
      * 获取文件后缀

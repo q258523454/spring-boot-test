@@ -25,3 +25,4 @@
 /build/
 /spring-post-encryption-log/
 /spring-boot-fastdfs/src/main/resources/config/application-prod.yml
+/spring-boot-fastdfs/src/main/resources/application-trigger.yml
