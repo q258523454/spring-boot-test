@@ -1,9 +1,0 @@
-
-CREATE DATABASE IF NOT EXISTS springBootTest;
-
-CREATE TABLE `student` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `age` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
