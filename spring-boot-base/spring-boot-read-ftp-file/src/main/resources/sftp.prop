@@ -1,0 +1,25 @@
+#============================================================================
+# SFTP Client Setting
+#============================================================================
+# 协议
+sftp.client.protocol=sftp
+# ip地址
+sftp.client.host=127.0.0.1
+# 端口
+sftp.client.port=22
+# 用户名
+sftp.client.username=sftp
+# 密码
+sftp.client.password=sftp
+# 根路径
+sftp.client.root=/home/sftp/
+# 密钥文件路径
+sftp.client.privateKey=
+# 密钥的密码
+sftp.client.passphrase=
+#
+sftp.client.sessionStrictHostKeyChecking=no
+# session连接超时时间
+sftp.client.sessionConnectTimeout=15000
+# channel连接超时时间
+sftp.client.channelConnectedTimeout=15000
