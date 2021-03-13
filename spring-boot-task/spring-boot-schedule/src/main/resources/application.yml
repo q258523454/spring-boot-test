@@ -1,0 +1,4 @@
+dynamic-scheduled-config:
+  beanName: dynamicScheduleTask
+  cron: '*/30 * * * * MON-FRI'
+  method: method

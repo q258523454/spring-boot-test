@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    host: 55.10.24.36
+    port: 5672
+    username: 9e888dfc-2099-4963-90f9-22a63f00bba7
+    password: 770dd4d7-cd09-4ec7-8099-39660bed476e
+    virtual-host: 5590ccaa-6892-4fe3-9639-59091501c66e
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 100
+        acknowledge-mode: manual
+        concurrency: 3 #每个@RabbitListener开启几个线程去处理数据,即多少个channel
+        max-concurrency: 6
