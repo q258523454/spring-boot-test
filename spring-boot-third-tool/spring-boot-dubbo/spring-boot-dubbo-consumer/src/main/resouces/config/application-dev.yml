@@ -1,0 +1,29 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+# -------------------- Dubbo 配置 BEGIN --------------------
+dubbo:
+  #  registry: # 单注册中心,注意属性级别:dubbo.registry
+  #    register: false # true(默认), false:表示服务不注册到注册中心(只订阅,直连服务正常),且dubbo-admin不显示
+  #    address: zookeeper://127.0.0.1:2181
+  registries: # 多注册中心
+    consumer1:
+      register: true # 默认 true,false:表示服务不注册到注册中心(只订阅,直连服务正常),dubbo-admin不显示,fasle:消费者的ip有效性不会检测
+      address: zookeeper://55.x.47.82:2181
+    consumer2:
+      register: true
+      address: zookeeper://55.x.47.196:2181
+    consumer3:
+      register: true
+      address: zookeeper://55.x.48.139:2181
+  application:
+    name: myConsumer
+  scan:
+    base-packages: com.com.consumer.com.multi.service
+  consumer:
+    timeout: 3000
+    check: false  # 默认true.服务启动时候检查是否可用,服务不可用时无法启动项目, false则不检查
+    retries: 2    # 服务重试次数
+# -------------------- Dubbo 配置 END --------------------
