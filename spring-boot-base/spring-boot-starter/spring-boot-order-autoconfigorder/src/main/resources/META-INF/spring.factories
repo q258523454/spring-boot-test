@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.order.config.StarterConfig,\
+com.order.config.AutoConfigOrder1,\
+com.order.config.AutoConfigOrder2

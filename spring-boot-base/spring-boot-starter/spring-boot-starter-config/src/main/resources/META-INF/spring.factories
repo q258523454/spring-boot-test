@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.example.config.AutoConfig,\
+  com.example.entity.SingleEntity,\
+  com.example.entity.SingleEntity2,\
+  com.example.entity.SingleEntity3

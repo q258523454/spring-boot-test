@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /spring-boot-read-multi-file
+  port: 8080
+
+
+
