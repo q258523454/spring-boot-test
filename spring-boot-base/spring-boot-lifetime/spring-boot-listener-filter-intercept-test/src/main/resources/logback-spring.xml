@@ -6,7 +6,7 @@
     <!-- 项目名称, 用于日志打印前缀 -->
     <property name="PROJECT_NAME" value="SpringBootTest"/>
     <!-- 日志文件路径 -->
-    <property name="LOG_PATH" value="/Data/logs"/>
+    <property name="LOG_PATH" value="/Users/mac/Documents/JavaProject_My_GitHub/spring-boot-test/spring-boot-base/spring-boot-lifetime/spring-boot-listener-filter-intercept-test/logs"/>
     <!-- info日志文件名 -->
     <property name="INFO_FILE" value="SpringBootTest-info.log"/>
     <!-- error日志文件名 -->
