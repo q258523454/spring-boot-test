@@ -7,21 +7,19 @@ server:
     context-path: /
   port: 8086
 
-my:
-  open: true
-  msg: 'asdas'
 
-single:
-  zhang: 'single.zhang'
-  open: false
-
-single2: # 没有该属性的时候, 无法实例化 (注意:此时spring.factories无效)
+# bean初始化条件
+# 1.没有该配置项的时候,由spring.factories初始化bean
+# 2.当配置不为空, 属性 open 必须等于 havingVlue:true 才初始化bean, 否则不初始化为bean (注意:此时spring.factories无效)
+match-if-missing-true:
   open: true # 该属性不为 true的时候, 无法实例化 (注意:此时spring.factories无效)
-  zhang: 'single2.zhang'
 
-# 1.single3整个属性为空的时候,由spring.factories初始化bean
-# 2.当single3不为空的时候, 属性 open:true才初始化bean, 否则不初始化为bean (注意:此时spring.factories无效)
-single3:
-  open: false
-  zhang: 'single3.zhang'
+# 1.整个配置项为空,不会实例化
+# 2.属性值不等于 havingValue,不会实例化
+match-if-missing-false:
+  open: true # 属性值必须为true才会实例化
+
+
+my3:
+  auto: true
 

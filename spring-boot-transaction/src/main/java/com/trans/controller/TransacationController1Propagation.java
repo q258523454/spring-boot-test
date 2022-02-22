@@ -61,7 +61,7 @@ public class TransacationController1Propagation {
      *      如果想内部事务不受外部事务异常的影响，内层可用required_new和not_supported
      */
 
-    // 非事务方法调用事务方法, 事务方法中的异常只回滚事务方法, 外层非事务方法不回滚.
+    // 非事务方法调用事务方法, 事务方法中的异常只回滚事务方法, 外层方法没有事务, 不回滚.
     @RequestMapping(value = "/transaction1", method = RequestMethod.GET)
     public String transaction1() throws Exception {
         Student student = new Student("transaction1", "123", new Date());
@@ -107,7 +107,7 @@ public class TransacationController1Propagation {
         return "1";
     }
 
-    // 在事务方法内调用事务方法(REQUIRED)无论哪个方法出现异常都全部回滚
+    // 在事务方法内调用事务方法(REQUIRED)无论哪个方法出现异常都全部回滚,即使捕获了内部是方法的异常.
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "/propagationTest_SUB_NO_TRANSCATIONAL3", method = RequestMethod.GET)
     public String propagationTest_SUB_NO_TRANSCATIONAL3() throws Exception {

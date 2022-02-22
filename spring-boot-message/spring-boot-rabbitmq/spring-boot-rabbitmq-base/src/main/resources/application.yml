@@ -9,7 +9,12 @@ spring:
     publisher-returns: true
     listener:
       simple:
-        prefetch: 100
-        acknowledge-mode: manual
-        concurrency: 3 #每个@RabbitListener开启几个线程去处理数据,即多少个channel
+        # prefetch默认值以前是1，这可能会导致高效使用者的利用率不足。
+        # 从spring-amqp 2.0版开始，默认的prefetch值是250，这将使消费者在大多数常见场景中保持忙碌，从而提高吞吐量。
+        # 不过在有些情况下，尤其是处理速度比较慢的大消息，消息可能在内存中大量堆积，消耗大量内存；
+        # 对于一些严格要求顺序的消息，prefetch的值应当设置为1。
+        # 对于低容量消息和多个消费者的情况,希望在多个使用者之间实现更均匀的消息分布，建议在手动ack下并设置prefetch=1。
+        prefetch: 100             # 限流作用,每个消费线程从RabbitMQ预获取的消息数量,即一个消费者最多可处理的nack消息数量, 如果有事务的话，必须>=transaction数量.
+        acknowledge-mode: manual  # 表示消息确认方式，其有三种配置方式，分别是none、manual和auto；默认auto
+        concurrency: 3            # 每个@RabbitListener开启几个线程去处理数据,即多少个channel
         max-concurrency: 6

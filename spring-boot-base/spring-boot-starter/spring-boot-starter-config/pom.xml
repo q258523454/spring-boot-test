@@ -4,14 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>zhang.example</groupId>
     <artifactId>spring-boot-starter-config</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>spring-boot-starter-config</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -29,6 +27,14 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <!-- 智能补全自定义Springboot-Starter的配置, 否则引用这个jar的项目中yml无提示,optional=true:编译阶段干活  -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -42,13 +48,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.68</version>
-        </dependency>
-
-        <dependency>
-            <!-- 智能补全自定义Springboot-Starter的配置, 否则yml无提示  -->
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <dependency>

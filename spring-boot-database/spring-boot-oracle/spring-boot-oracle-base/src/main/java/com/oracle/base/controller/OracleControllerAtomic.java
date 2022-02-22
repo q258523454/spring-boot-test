@@ -95,6 +95,19 @@ public class OracleControllerAtomic {
         return "ok";
     }
 
+    @GetMapping(value = "/student/update/batch")
+    public String updateList2(String id) {
+        List<Student> studentList = studentService.selectAll();
+        List<Student> list = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Student student = getStudent(id + "");
+            list.add(student);
+        }
+        studentService.updateListByIdBatch(list);
+        return "ok";
+    }
+
+
     // --------------------------------------------- 事务分割线 ---------------------------------------------
     // 有事务管理, 要么全部成功, 要么全部失败
     @GetMapping(value = "/transaction/student/insert/for")

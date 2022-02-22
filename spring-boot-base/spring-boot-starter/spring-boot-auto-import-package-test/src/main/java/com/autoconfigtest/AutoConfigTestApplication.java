@@ -25,8 +25,11 @@ import org.springframework.context.annotation.FilterType;
         // useDefaultFilters 默认是true,默认会扫描所有的@Component,当不需要扫描@Component时候必须设置为false
         // useDefaultFilters = true;
         excludeFilters = {
-//                @ComponentScan.Filter(type = FilterType.REGEX, pattern = "com\\.config\\.bean\\.exclude\\..*")
+                // 排除扫描指定package
                 @ComponentScan.Filter(type = FilterType.REGEX, pattern = "com.config.bean.exclude.*")
+
+                // 排除扫描指定类
+                // @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = XXXXX.class)
         }
 )
 public class AutoConfigTestApplication {

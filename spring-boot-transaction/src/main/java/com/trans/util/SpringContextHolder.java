@@ -79,4 +79,17 @@ public class SpringContextHolder implements ApplicationContextAware {
         applicationContext = null;
     }
 
+    /**
+     * 打印对应Class的Bean是否注入到容器
+     */
+    public static <T> void printBean(Class<T> requiredType) {
+        assertContextInjected();
+        T instance = null;
+        try {
+            instance = SpringContextHolder.getBean(requiredType);
+        } catch (Exception ex) {
+            logger.warn("bean:" + requiredType.getSimpleName() + " is null");
+        }
+        logger.info(requiredType.getSimpleName() + ":{}", instance != null ? instance.toString() : "null");
+    }
 }
