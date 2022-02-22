@@ -1,7 +1,0 @@
-server:
-  port: 8081
-
-# 进入debug模式
-logging:
-  level:
-    org.springframework.security: DEBUG

@@ -4,13 +4,13 @@
     <!-- ==================== 自定义配置项 BEGIN ==================== -->
     <!-- 定义变量,引用${var} -->
     <!-- 项目名称, 用于日志打印前缀 -->
-    <property name="PROJECT_NAME" value="spring-boot-cache-caffeine"/>
-    <!-- 全局日志文件路径前缀 -->
-    <property name="LOG_PATH" value="/Data/logs"/>
+    <property name="PROJECT_NAME" value="PROJECT"/>
+    <!-- 日志文件路径 -->
+    <property name="LOG_PATH" value="logs"/>
     <!-- info日志文件名 -->
-    <property name="INFO_FILE" value="spring-boot-cache-caffeine-info.log"/>
+    <property name="INFO_FILE" value="app.log"/>
     <!-- error日志文件名 -->
-    <property name="ERROR_FILE" value="spring-boot-cache-caffeine-error.log"/>
+    <property name="ERROR_FILE" value="app-error.log"/>
 
     <!-- ==================== 自定义配置项 END ==================== -->
 

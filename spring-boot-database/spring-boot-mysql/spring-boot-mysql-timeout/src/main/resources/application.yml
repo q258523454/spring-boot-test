@@ -1,0 +1,37 @@
+# 默认记载/security/*.yml
+spring:
+  profiles:
+    active: dev
+
+# ------------------------------------ mybatis相关配置 BEGIN ------------------------------------
+mybatis:
+  configuration:
+    # 打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 单位s, XML中 单条SQL 执行的超时时间, 注意与事务超时时间的区别, 可在mapper.xml对sql单独设置
+    default-statement-timeout: 5
+  # 配置mapper映射和entity映射, MapperScan位置在Application中配置
+  # 注意： classpath*：不仅在本地项目resources中查找,还包括jar包中的， classpath则只包含本地的
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  type-handlers-package: com.handler.typehandle
+# ------------------------------------ mybatis相关配置 END ------------------------------------
+
+# ====================================== User-defined parameters BEGIN ======================================
+# --------------------- 数据库全局配置 BEGIN ---------------------
+global.druid.db:
+  initial-size: 1
+  min-idle: 1
+  max-active: 20 # 默认8
+  max-wait: 6000 # 默认-1
+  validation-query: SELECT 1
+  validation-query-oracle: SELECT 1 FROM DUAL
+  test-on-borrow: false # 默认false
+  test-while-idle: true # 默认true
+  test-on-return: false # 默认false
+  time-between-eviction-runs-millis: 60000 # 默认60000
+  min-evictable-idle-time-millis: 360000  # 默认1800000
+  remove-abandoned: true # 默认 false
+  remove-abandoned-timeout: 1800 # 默认 300
+  log-abandoned: false # 默认false
+# --------------------- 数据库全局配置 END ---------------------
+# ====================================== User-defined parameters END ======================================

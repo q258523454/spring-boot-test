@@ -3,3 +3,52 @@ spring:
   profiles:
     active: dev
 
+
+# starter注解, 会自动提示
+lj08:
+  encrypt:
+    open: true                                # 当且仅当该配置存在,且open:true 才会注入工具bean,对代码零侵入
+    debug: true                               # 是否开启日志，默认false
+    body-encoding: 'UTF-8'                    # 指定 body 串的字符编码格式, 与加解密的编码无关
+    aes:
+      key: 'c407284e6249948fa80c040e5859a135' # 全局配置密钥, 注意:优先使用注解配置的key
+      mode: 'CBC'                             # 算法模式,AES 默认 ECB
+      padding: 'PKCS5Padding'                 # 补码方式,AES 默认 PKCS5Padding
+      block-size: 128                         # 密钥数据块大小 128,192,256, 默认128
+      charset: 'UTF-8'                        # 字符编码, 默认 UTF-8
+      # 偏移量/盐值设置
+      iv:
+        salt: '0123456789123456'              # 盐值, 计算会转字节,字节salt[offset,offset+len]
+        offset: 0                             # 偏移量,默认0
+        len: 16                               # 从偏移量开始,取字节数目大小,默认16个字节长度
+    des:
+      key: 'Bw1/ECrpwmQ='
+    rsa:
+      # 注意这里一定要用双引号,因为有换行符'\'
+      public-key: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCkvcCFKMoOAwG9mSnGOAZqn+2AZBbmLHKk9YSq\
+                   llwrpzRHxRlOSTQ1HemRulF8YZNrRpb9YLmPLmDKc4PYiU9U3ZHZnEPAhbwm2vf0XTYG16jlLgQq\
+                   L8YT2zJ2j69kgbEcPBvEenRTbxGKCtdopRZR93/KsfgO7j+sCAxkpcSbaQIDAQAB"
+      private-key: "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKS9wIUoyg4DAb2ZKcY4Bmqf7YBk\
+                    FuYscqT1hKqWXCunNEfFGU5JNDUd6ZG6UXxhk2tGlv1guY8uYMpzg9iJT1TdkdmcQ8CFvCba9/Rd\
+                    NgbXqOUuBCovxhPbMnaPr2SBsRw8G8R6dFNvEYoK12ilFlH3f8qx+A7uP6wIDGSlxJtpAgMBAAEC\
+                    gYBdnkOYqHxiiAzmLPMTZOUolKfILZjhxuKDoc55jqbkW8mW+4gM+AbGJLCGEwaZk23OKbhGV0A8\
+                    ANQaWJjVZfqBS1KfpDJkJAVIepBSR7TdAh6aB0jS0zpzdTsR4ZQBKJhkTRiAOpg15F0Xhllb+yq4\
+                    3kpe7B8JEGbFIOrZtkhIgQJBANEYCc7G2fW6lCLrbrxuEAEhHIM3WfmwkFMVAr11l7nASoc57Fe3\
+                    nVbVqFJJcwlnpYRcwgNjJkw/rFm80WjuzpECQQDJspplCmih07GxdxgUnC/lt54QdtXcdHomtAII\
+                    /y6jik+vjm+HqWnMduMQrVfBUXqPT5FQwwYK7edA73t5XZtZAkEAsgtTBqTiodBfJaDt6TubGysT\
+                    uVPfpLLJIkXI0IUaTkxD6gPTkRnDu1YxfugWMZL1KNFHT1UVHmY1nzAd7Mk0UQJAQPGfQRV+50xw\
+                    lMHSISDBU2gyHv8EkX13r2qalScFb2cjjVWBl972z/0f08jczsRbgDWQhr6k/XPo2EHEMinv0QJB\
+                    AKYUlxGKni46f7V717swYh3sd5qprOFCRp9O2kBTeiV+ZLWGBOBg74ngWPX6FwgAxXNyoNtwsa2s\
+                    KrAL1Z8uoZw="
+      mode: 'ECB'             # AES 算法模式,默认 ECB
+      padding: 'PKCS1Padding' # 补码方式,默认 PKCS1Padding
+      charset: 'UTF-8'        # 传输报文 字符编码, 默认 UTF-8
+    sm2:
+      public-key: "BEK0DTGVppmBIovgcaSNT3fASg8G9YgqXnfMe0277bYFVF/vNTrWSxg+b2HYp46rGxyM3QVCiwfS\
+                    xqJNEyFCHcI="
+      private-key: "P+53tdVFQz7xY3JjT2FyvddqK+eW3mIQKsVPNqCeo98="
+    sm4:
+      key: '0123456789123456'   # 密钥(必须是16字节)
+      mode: 'ECB'               # SM4国密算法-对称; 算法模式, 默认:ECB, 可选 ECB,CBC,CFB,OFB,CTR
+      iv: ''                    # 初始向量,偏移向量, (如果有,必须是16字节)
+      charset: 'UTF-8'          # 密钥,偏移量 字符编码, 默认 UTF-8

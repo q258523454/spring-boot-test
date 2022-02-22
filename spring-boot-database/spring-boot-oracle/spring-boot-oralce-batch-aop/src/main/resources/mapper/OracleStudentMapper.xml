@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.batch.dao.OracleStudentMapper">
-    <resultMap id="BaseResultMap" type="com.batch.entity.Student">
+<mapper namespace="com.aop.dao.OracleStudentMapper">
+    <resultMap id="BaseResultMap" type="com.aop.entity.Student">
         <id column="ID" jdbcType="INTEGER" property="id"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="NAME2" jdbcType="VARCHAR" property="name2"/>
@@ -34,7 +34,7 @@
         ORDER BY ID
     </select>
 
-    <insert id="insert" parameterType="com.batch.entity.Student">
+    <insert id="insert" parameterType="com.aop.entity.Student">
         INSERT INTO STUDENT(
             ID,
             NAME,
@@ -77,7 +77,7 @@
         </foreach>
     </insert>
 
-    <update id="update" parameterType="com.batch.entity.Student">
+    <update id="update" parameterType="com.aop.entity.Student">
         update STUDENT
         set
             NAME=#{name},

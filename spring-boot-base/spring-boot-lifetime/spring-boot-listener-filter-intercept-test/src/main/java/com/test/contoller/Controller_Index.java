@@ -14,8 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class Controller_Index {
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
+        return "ok";
+    }
+
+    /**
+     *
+     * 参数类型必须是 @RequestBody,才能触发 RequestBodyAdvice
+     * 同理 @ResponseBody 触发 ResponseBodyAdvice
+     */
+    @RequestMapping(value = "/index2", method = RequestMethod.GET)
+    public String test(String str, @RequestBody String index) {
         return "ok";
     }
 

@@ -22,5 +22,4 @@ public class Controller_FilterLogin {
         log.info("login success.");
         return "login success";
     }
-
 }

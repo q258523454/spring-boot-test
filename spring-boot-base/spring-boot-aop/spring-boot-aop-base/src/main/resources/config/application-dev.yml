@@ -3,3 +3,6 @@ server:
     context-path: /
   port: 8080
 
+spring:
+  aop:
+    proxy-target-class: false # 默认 true:Cglib代理, false:jdk

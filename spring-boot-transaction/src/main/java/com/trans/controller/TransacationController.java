@@ -70,8 +70,8 @@ public class TransacationController {
         return "1";
     }
 
-    // ----------------------- 非运行时异常不回滚 BEGIN -----------------------
-    // 默认为运行时异常回归, 检查异常,如IOException, 则无效
+    // ------------------------- BEGIN -------------------------------
+    // 默认为运行时异常回归, 检查异常,如IOException, 则无效. 如果想要回滚,需指定 rollbackFor = Exception.class
     @Transactional
     @RequestMapping(value = "/transactionOrgIOException", method = RequestMethod.GET)
     public String transactionOrgIOException() throws Exception {
@@ -85,57 +85,43 @@ public class TransacationController {
         teacherService.insertTeacher(teacher); // ②不会插入
         return "1";
     }
-
-    // 默认为运行时异常回滚, 检查异常,如IOException, 则无效, 修改事务rollbackFor的级别为Exception.class, 有效
-    @Transactional(rollbackFor = Exception.class)
-    @RequestMapping(value = "/transactionOrgIOException2", method = RequestMethod.GET)
-    public String transactionOrgIOException2() throws Exception {
-        Student student = new Student("transactionOrgIOException2", "123", new Date());
-        Teacher teacher = new Teacher("transactionOrgIOException2", "123", new Date());
-        System.out.println(JSONObject.toJSONString(student));
-        System.out.println(JSONObject.toJSONString(teacher));
-        studentService.insertStudent(student); // ①不会插入
-        FileInputStream fileInputStream = new FileInputStream("/User/no.txt");
-        teacherService.insertTeacher(teacher); // ②不会插入
-        return "1";
-    }
-    // ----------------------- 非运行时异常不回滚 END -----------------------
+    // ------------------------- END -------------------------------
 
 
-    // ----------------------------------------------------------------------------------------
-    // ----------------------- 普通方法自我调用(自己所在类的) @Transactional 方法无效 BEGIN -----------------------
-    // 通过 Controller 普通方法直接调用 Controller (自己所在类的)事务注解的方法(不通过bean的方式),无效
-    // 注意：如果是调用不是自我调用,而是通过其他Bean的普通方法调用其他bean的 @Transactional 是有效的
+    // ------------------------- BEGIN -------------------------------
+    // 同类方法自我调用,事务无效 (前提:注解声明式事务,没有走Spring代理. 编程式事务不会受该规则影响)
+    // 因为Spring的注解事务是通过代理对象生效的,对象自我调用没有触发Spring代理机制
     @RequestMapping(value = "/callOwnTransMethod", method = RequestMethod.GET)
     public void callOwnTransMethod() throws Exception {
-        // 事务不会生效, 异常后执行的SQL不会回滚, 因为Spring的注解事务是通过代理对象生效的,对象自我调用没有触发Spring代理机制
-        // 如果是手动开启事务,调用内部方法，事务当然生效 eg:inner_requires_new_man()
+        // 如果是手动开启事务(编程式事务),调用内部方法，事务当然生效
+        // eg:inner_requires_new_man()
         transactionOrg();
     }
 
-    // 通过 Service 的普通方法, 调用 Service (自己所在类的)事务注解的方法B,无效
-    // 注意：如果是调用不是自我调用,而是通过其他Bean的普通方法调用其他bean的 @Transactional 是有效的
+    // 同类方法自我调用,事务无效 (前提:注解声明式事务,没有走Spring代理. 编程式事务不会受该规则影响)
     @RequestMapping(value = "/callServiceTransInterfaceByInnerMethod", method = RequestMethod.GET)
     public void callServiceTransMethodByInnerMethod() throws Exception {
-        // service的普通方法->service自己的注解事务，相当于内部调用自己的注解方法, 没有走Spring代理, 事务不生效
+        // 原理同上
         transactionalService.callOwnPublicMethod();
     }
-    // ----------------------- 普通方法 调用 @Transactional 方法无效 END -----------------------
+    // ------------------------- END -------------------------------
 
 
-    // ----------------------- 通过Bean的方式调用 @Transactional 方法有效 BEGIN -----------------------
+    // ------------------------- BEGIN -------------------------------
     // 通过spring bean, 直接调用注解方法, 有效 【常用】
     @RequestMapping(value = "/callServiceTransMethod", method = RequestMethod.GET)
     public void callServiceTransMethod() throws Exception {
         transactionalService.publicMethod();
     }
 
-    // 通过 beanA 的普通方法间接调用  beanB 的注解方法, 而 beanB 是直接调用的注解方法, 有效
+    // 通过beanA, 间接调用beanB注解方法, 有效 【常用】
+    // 只要是跨service开启事务调用,都是有效的, 例如下面的 beanA普通方法->beanA事务方法->beanB事务方法
     @RequestMapping(value = "/publicCallPrivateWhichCallSpringBeanTrans", method = RequestMethod.GET)
     public void publicCallPrivateWhichCallSpringBeanTrans() throws Exception {
+        // 有效
         otherService.publicCallPrivateWhichCallSpringBeanTrans();
     }
-    // ----------------------- 通过Bean的方式调用 @Transactional 方法有效 END -----------------------
+    // ------------------------- END -------------------------------
 
 
     // 注解@Transactional方法上, 无论子方法是私有还是公有方法, 都有效
@@ -145,6 +131,9 @@ public class TransacationController {
     }
 
 
+    /**
+     * 编程式事务(手动事务),不走spring代理,直接生效
+     */
     public void inner_requires_new_man() throws Exception {
         PlatformTransactionManager wPlatformTransactionManager = SpringContextHolder.getBean(PlatformTransactionManager.class);
         TransactionStatus wTransactionStatus = wPlatformTransactionManager.getTransaction(new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_REQUIRES_NEW));
