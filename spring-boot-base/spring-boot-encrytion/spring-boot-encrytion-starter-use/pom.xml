@@ -76,10 +76,9 @@
         </dependency>
 
         <dependency>
-            <groupId>LJ08</groupId>
+            <groupId>zhang</groupId>
             <artifactId>encrypt</artifactId>
-            <version>1.0.2-RELEASE</version>
+            <version>1.0.0-RELEASE</version>
         </dependency>
-
     </dependencies>
 </project>

@@ -1,0 +1,68 @@
+server:
+  port: 8080
+
+# -------------------- 数据库变量 BEGIN --------------------
+this.druid.mysql:
+  username: root
+  password: 123456
+  url: jdbc:mysql://localhost:3306/zhang?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+
+this.druid.oracle:
+  username: apphigh
+  password: apphigh
+  url: jdbc:oracle:thin:@localhost:1521/lj08rac
+# -------------------- 数据库变量 END --------------------
+
+
+
+spring:
+  datasource: # 多数据源
+    # mysql库
+    mysql:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${this.druid.mysql.url}
+      username: ${this.druid.mysql.username}
+      password: ${this.druid.mysql.password}
+      # 配置初始值
+      initial-size: "${global.druid.db.initial-size}"
+      min-idle: "${global.druid.db.min-idle}"
+      max-active: "${global.druid.db.max-active}"
+      # 获取连接等待超时时间
+      max-wait: "${global.druid.db.max-wait}"
+      # 监控关闭空闲连接时间间隔
+      time-between-eviction-runs-millis: "${global.druid.db.time-between-eviction-runs-millis}"
+      # 每个连接池最小的生命周期
+      min-evictable-idle-time-millis: "${global.druid.db.min-evictable-idle-time-millis}"
+      validation-query: "${global.druid.db.validation-query}"
+      test-while-idle: "${global.druid.db.test-while-idle}"
+      test-on-borrow: "${global.druid.db.test-on-borrow}"
+      test-on-return: "${global.druid.db.test-on-return}"
+      remove-abandoned: "${global.druid.db.remove-abandoned}"
+      remove-abandoned-timeout: "${global.druid.db.remove-abandoned-timeout}"
+      log-abandoned: "${global.druid.db.log-abandoned}"
+    # oracle库
+    oracle:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: oracle.jdbc.OracleDriver
+      # 注意不是jdbcUrl, Durid是url
+      url: ${this.druid.oracle.url}
+      username: ${this.druid.oracle.username}
+      password: ${this.druid.oracle.password}
+      # 配置初始值
+      initial-size: "${global.druid.db.initial-size}"
+      min-idle: "${global.druid.db.min-idle}"
+      max-active: "${global.druid.db.max-active}"
+      # 获取连接等待超时时间
+      max-wait: "${global.druid.db.max-wait}"
+      # 监控关闭空闲连接时间间隔
+      time-between-eviction-runs-millis: "${global.druid.db.time-between-eviction-runs-millis}"
+      # 每个连接池最小的生命周期
+      min-evictable-idle-time-millis: "${global.druid.db.min-evictable-idle-time-millis}"
+      validation-query: "${global.druid.db.validation-query-oracle}"
+      test-while-idle: "${global.druid.db.test-while-idle}"
+      test-on-borrow: "${global.druid.db.test-on-borrow}"
+      test-on-return: "${global.druid.db.test-on-return}"
+      remove-abandoned: "${global.druid.db.remove-abandoned}"
+      remove-abandoned-timeout: "${global.druid.db.remove-abandoned-timeout}"
+      log-abandoned: "${global.druid.db.log-abandoned}"

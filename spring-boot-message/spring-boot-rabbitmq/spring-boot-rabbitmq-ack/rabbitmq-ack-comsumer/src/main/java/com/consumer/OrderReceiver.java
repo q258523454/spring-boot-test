@@ -48,10 +48,6 @@ public class OrderReceiver {
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
         /**
          * 消息已经成功处理,直接确认删除
-         * 一般只允许消息重复投递一次.
-         * 先判断是否首次消费,业务成功后 ack, 失败则重新投递
-         * 如果非首次消费, 业务成功后ack, 失败则丢弃到DLX
-         * 如果不ack, mq中不会删除这个消息,启动会再次pull
          */
         channel.basicAck(deliveryTag, false);
     }

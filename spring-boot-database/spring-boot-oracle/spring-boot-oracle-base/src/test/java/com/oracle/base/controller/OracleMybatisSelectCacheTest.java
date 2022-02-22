@@ -32,8 +32,21 @@ public class OracleMybatisSelectCacheTest extends BaseJunit {
     }
 
     /**
-     * 开启事务的情况下，在子事务对a数据进行修改后.
-     * 外层事务仍然是查询的之前未修改的数据(走缓存) [mysql,oracle一致], 解决办法:该查询通过新开事务查询
+     * 一级缓存有效
+     */
+    @Test
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void test0() {
+        for (int i = 0; i < 5; i++) {
+            Student student = studentService.selectByPrimaryKey(new BigDecimal("2"));
+            log.info("注解开启事务， 第{}次查询结果:{}", i, JSON.toJSONString(student));
+        }
+    }
+
+    /**
+     * 嵌套事务更新, 外层事务一级缓存有效
+     * 开启事务的情况下，在子事务对a数据进行修改后.外层事务仍然是查询的之前未修改的数据(走缓存) [mysql,oracle都存在]
+     * 解决办法:该查询通过新开事务查询
      */
     @Test
     @Transactional(propagation = Propagation.REQUIRED)
@@ -46,8 +59,7 @@ public class OracleMybatisSelectCacheTest extends BaseJunit {
         log.info("查询id{}，结果:{}", id, JSON.toJSONString(studentService.selectByPrimaryKey(id)));
         // 更新后:{"id":xx,"username":"xiugai"}
         requiredNew(id);
-        // 查询结果:{"id":xx,"username":"123"},
-        // 原因: 走的缓存
+        // 查询结果:{"id":xx,"username":"123"}, 原因: 走的缓存
         log.info("查询id{}，结果:{}", id, JSON.toJSONString(studentService.selectByPrimaryKey(id)));
         // 不走缓存的查询结果:
         // mysql:{"id":xx,"username":"123"}         —— mysql可重复读, 数据未更新
@@ -57,8 +69,9 @@ public class OracleMybatisSelectCacheTest extends BaseJunit {
 
     /**
      * 外层没有事务
-     * 开启事务的情况下，在子事务对a数据进行修改后.
-     * 外层查询的是最新的数据(不走缓存)[mysql,oracle一致]
+     * 内层开启事务的情况下，在子事务对a数据进行修改后.
+     * 外层查询不带事务,因此每次查询都是最新的数据(不走缓存)[mysql,oracle一样]
+     * 原因：外层不带事务,每次mapper操作是一个新的sqlsession,破坏了一级缓存条件
      */
     @Test
     public void test2() {

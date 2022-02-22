@@ -37,6 +37,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 智能补全自定义Springboot-Starter的配置, 否则yml无提示  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -73,9 +74,20 @@
 
         <!--  方式二 -->
         <dependency>
-            <groupId>com.example</groupId>
+            <groupId>zhang.example</groupId>
             <artifactId>spring-boot-starter-config</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.0</version>
         </dependency>
     </dependencies>
 

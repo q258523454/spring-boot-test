@@ -1,5 +1,9 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.example.config.AutoConfig,\
-  com.example.entity.SingleEntity,\
-  com.example.entity.SingleEntity2,\
-  com.example.entity.SingleEntity3
+  com.example.use0.entity.MatchIfMissingFalse,\
+  com.example.use0.entity.MatchIfMissingTrue,\
+  com.example.use1_base.config.AutoConfig1,\
+  com.example.use1_base.conditionabean.ConditionalBean2,\
+  com.example.use2_selector_bean.config.SelectBeanConfig1,\
+  com.example.use3_selector_bean2.config.SelectBeanConfig2,\
+  com.example.use4_nested_properties.config.DatabaseAutoConfig
+

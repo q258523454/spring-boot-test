@@ -1,0 +1,71 @@
+server:
+  servlet:
+    context-path: /
+  port: 8080
+
+# -------------------- 数据库变量 --------------------
+this.druid.db:
+  username: root
+  password: 123456
+  url: jdbc:mysql://localhost:3306/seckill?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+
+
+spring:
+  # ------------------------------------ rabbitmq ------------------------------------
+  rabbitmq:
+    host: 55.10.24.36
+    port: 5672
+    username: 9e888dfc-2099-4963-90f9-22a63f00bba7
+    password: 770dd4d7-cd09-4ec7-8099-39660bed476e
+    virtual-host: 5590ccaa-6892-4fe3-9639-59091501c66e
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 20              # 限流作用,每个消费线程从RabbitMQ预获取的消息数量,即一个消费者最多可处理的nack消息数量, 如果有事务的话，必须>=transaction数量.
+        acknowledge-mode: manual  # 表示消息确认方式，其有三种配置方式，分别是none、manual和auto；默认auto
+        concurrency: 20           # 每个@RabbitListener开启几个线程去处理数据,即多少个channel
+        max-concurrency: 50       # 最大的消费线程数量
+  # ------------------------------------ redis ------------------------------------
+  redis:
+    database: 1
+    host: 55.14.4.26
+    port: 26379
+    password: rap2019
+    timeout: 3000s #时(h)分(m)秒(s)天(d)
+    jedis:
+      pool:
+        min-idle: 500       # 最小空闲连接池 default=0
+        max-idle: 500       # 最大空闲连接池 default=8
+        max-active: 2000    # 最大可用连接数 default=-1 (永不限制)
+        max-wait: 1000s     # 连接最大持续时间 default=-1 (永不超时)
+
+  # ------------------------------------数据库基本配置  ------------------------------------
+  datasource:
+    #readSize为从库数量
+    name: mySqlName
+    # 配置第三方数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${this.druid.db.url}
+      username: "${this.druid.db.username}"
+      password: "${this.druid.db.password}"
+      # 配置初始值
+      initial-size: "${global.druid.db.initial-size}"
+      min-idle: "${global.druid.db.min-idle}"
+      max-active: "${global.druid.db.max-active}"
+      # 获取连接等待超时时间
+      max-wait: "${global.druid.db.max-wait}"
+      # 监控关闭空闲连接时间间隔
+      time-between-eviction-runs-millis: "${global.druid.db.time-between-eviction-runs-millis}"
+      # 每个连接池最小的生命周期
+      min-evictable-idle-time-millis: "${global.druid.db.min-evictable-idle-time-millis}"
+      validation-query: "${global.druid.db.validation-query}"
+      test-while-idle: "${global.druid.db.test-while-idle}"
+      test-on-borrow: "${global.druid.db.test-on-borrow}"
+      test-on-return: "${global.druid.db.test-on-return}"
+      remove-abandoned: "${global.druid.db.remove-abandoned}"
+      remove-abandoned-timeout: "${global.druid.db.remove-abandoned-timeout}"
+      log-abandoned: "${global.druid.db.log-abandoned}"
+

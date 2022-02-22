@@ -26,7 +26,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     // API-白名单, 注意:最后的","逗号不要遗漏
-    final String[] AUTH_WHITELIST = {
+    private final String[] AUTH_WHITELIST = {
             "/test",
             "/insertUser",
     };

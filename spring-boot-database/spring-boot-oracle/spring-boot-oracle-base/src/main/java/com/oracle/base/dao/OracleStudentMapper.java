@@ -42,6 +42,4 @@ public interface OracleStudentMapper {
     int updateListByIdBatch(@Param("studentList") List<Student> studentList);
 
     int updateListByIdBeginEnd(@Param("studentList") List<Student> studentList);
-
-    List<Student> findByAgeAndIdBetweenOrEqualToAndName2(@Param("age") BigDecimal age, @Param("minId") BigDecimal minId, @Param("maxId") BigDecimal maxId, @Param("name2") String name2);
 }

@@ -12,7 +12,7 @@ public class DirectController {
 
     @GetMapping("/sendDirectQueue")
     public Object sendDirectQueue() {
-        directSender.sendDirectQueue();
+        directSender.sendDirect();
         return "ok";
     }
 }

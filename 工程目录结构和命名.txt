@@ -1,0 +1,65 @@
+------------- 命名 --------------
+handle:         具体处理类
+helper:         工具类(针对性处理)
+util:           工具类(通用)
+parse/resolver: 复杂解析和处理
+
+------------- 工程目录 --------------
+pojo（POJO）: plain ordinary java object 简单java对象统称
+
+传统的领域命名：
+• DO（Data Object）：此对象与数据库表结构一一对应，通过DAO层向上传输数据源对象。
+• DTO（Data Transfer Object）：处理后的DO，即数据传输对象，Service或Manager向外传输的对象。
+• BO（Business Object）：业务对象，可以由Service层输出的封装业务逻辑的对象。
+• VO（View Object）：显示层对象，通常是Web向模板渲染引擎层传输的对象。
+
+一般的数据传递是:
+1.数据转换成对应的DO
+2.DO在service传输过程中变成DTO/BO
+3.DTO/BO转换成VO
+4.VO返回给前端
+
+
+包含关系:
+entity —— DO
+internal —— DTO、BO
+external —— VO、BO
+
+
+src
+  ├─main
+  │  ├─java
+  │  │  └─com
+  │  │      └─xxx
+  │  │          └─project             工程项目名
+  │  │              ├─annotation      注解相关
+  │  │              ├─aspects         自定义切面，注意 aspect 是关键字，包名用复数 aspects
+  │  │              ├─config          配置类目录，存放的是应用初始化时的配置类
+  │  │              ├─constant        常量定义，一般是 static final 修饰的
+  │  │              │  └─enums        枚举类，注意 enum 是关键字，包名用复数 enums
+  │  │              ├─controller       控制器目录，存放由带有注解@Controller的控制器类
+  │  │              ├─dao              数据库访问接口
+  │  │              ├─mapping        mapstruct映射目录
+  │  │              ├─manager        Manager层：通用业务处理层，主要提供给Service层调用。例如:缓存、中间件相关
+  │  │              ├─pojo            plain ordinary java object
+  │  │              │  ├─entity       数据库实体类
+  │  │              │  ├─external     外部实体，即通讯实体,包括:BO、VO
+  │  │              │  └─internal     内部实体，项目内传输实体,包括:BO、DTO
+  │  │              ├─service         接口层
+  │  │              │  └─impl         接口层实现层
+  │  │              ├─servicetx       带事务serivce
+  │  │              └─utils           工具类
+  │  └─resources
+  │      ├─config                     项目配置
+  │      └─mapper                     mapper.xml, 如果有分package, 跟dao里面的package一一对应
+  └─test                              测试类
+注：其中 controller，mapping，pojo/external，service等目录下可以再分多个module package
+例如:
+─controller
+  ├─module1
+  ├─...
+
+─pojo
+ ├─external
+ │  ├─module1
+ │  ├─...

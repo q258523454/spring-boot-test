@@ -14,7 +14,7 @@ public class DirectSender {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    public void sendDirectQueue() {
+    public void sendDirect() {
         User user = new User("123456", "zhangxiaofan");
 
         // 序列化
