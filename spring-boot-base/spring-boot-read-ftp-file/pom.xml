@@ -69,7 +69,7 @@
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
-            <version>3.6</version>
+            <version>3.9.0</version>
         </dependency>
         <!-- —————————————————— commons net 文件操作 架包 END —————————————————————————— -->
 
