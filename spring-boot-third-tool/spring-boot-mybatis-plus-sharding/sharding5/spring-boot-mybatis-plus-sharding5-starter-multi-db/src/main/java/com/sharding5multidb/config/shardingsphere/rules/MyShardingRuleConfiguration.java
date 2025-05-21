@@ -87,7 +87,7 @@ public class MyShardingRuleConfiguration {
      * @return sharding auditor algorithm provided bean registry
      */
     @Bean
-    public static MyShardingAuditAlgorithmRegistry shardingAuditAlgorithmProvidedBeanRegistry(final Environment environment) {
-        return new MyShardingAuditAlgorithmRegistry(environment);
+    public static MyShardAuditAlgorithmRegistry shardingAuditAlgorithmProvidedBeanRegistry(final Environment environment) {
+        return new MyShardAuditAlgorithmRegistry(environment);
     }
 }
