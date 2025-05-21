@@ -1,0 +1,4 @@
+server:
+ servlet:
+   context-path: /aysnc
+ port: 8080

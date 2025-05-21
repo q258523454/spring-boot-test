@@ -1,0 +1,7 @@
+
+spring:
+  profiles:
+    active: dev
+  aop:
+    proxy-target-class: false
+#debug: true

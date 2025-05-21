@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.ratelimitbase.aspect.RateLimiterAspect,\
+    com.ratelimitbase.strategy.register.GuavaRateLimiter,\
+    com.ratelimitbase.config.EnvironmentConfig,\
+    com.ratelimitbase.strategy.register.RedisCountRateLimiter

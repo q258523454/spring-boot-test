@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shiro2.dao.ExamPermissionMapper">
+    <resultMap id="BaseResultMap" type="shiro2.pojo.entity.ExamPermission">
+        <!--@mbg.generated-->
+        <!--@Table exam_permission-->
+        <id column="Id" jdbcType="INTEGER" property="id"/>
+        <result column="menu_code" jdbcType="VARCHAR" property="menuCode"/>
+        <result column="menu_name" jdbcType="VARCHAR" property="menuName"/>
+        <result column="permission_code" jdbcType="VARCHAR" property="permissionCode"/>
+        <result column="permission_name" jdbcType="VARCHAR" property="permissionName"/>
+        <result column="required_permission" jdbcType="BOOLEAN" property="requiredPermission"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        Id,
+        menu_code,
+        menu_name,
+        permission_code,
+        permission_name,
+        required_permission,
+        created_at,
+        updated_at
+    </sql>
+    <insert id="insert" parameterType="shiro2.pojo.entity.ExamPermission">
+        <!--@mbg.generated-->
+        insert into exam_permission (Id, menu_code, menu_name,
+                                     permission_code, permission_name, required_permission,
+                                     created_at, updated_at)
+        values (#{id,jdbcType=INTEGER}, #{menuCode,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR},
+                #{permissionCode,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR},
+                #{requiredPermission,jdbcType=BOOLEAN},
+                #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="selectPermissionByRoleId" resultMap="BaseResultMap" parameterType="shiro2.pojo.entity.ExamPermission">
+        SELECT t1.*
+        FROM exam_permission t1
+        LEFT JOIN exam_role_permission  t2 ON t1.id=t2.permission_id
+        WHERE t2.role_id = #{roleId}
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+# 进入debug模式
+logging:
+  level:
+    # 下面的是指包名,可指定任意包名
+    org.springframework.security: DEBUG
+
+
+base:
+  encrypt:
+    aes-key: 'bfcf1ba4d7059352613588effbfe8f0b'
+    des-key: '12345678'
+    open: true
+    debug: true
+

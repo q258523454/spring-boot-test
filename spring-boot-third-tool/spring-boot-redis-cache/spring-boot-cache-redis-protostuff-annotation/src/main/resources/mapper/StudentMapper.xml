@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rediscache.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.rediscache.entity.Student">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+    </resultMap>
+
+    <insert id="insertStudent" parameterType="com.rediscache.entity.Student" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO student(name,age) VALUES (#{name}, #{age});
+    </insert>
+
+    <delete id="deleteStudentById" parameterType="java.lang.Integer">
+        DELETE
+        FROM student
+        WHERE id=#{id}
+    </delete>
+
+    <update id="updateStudent" parameterType="com.rediscache.entity.Student">
+        UPDATE student
+        SET
+          name=#{name},
+          age=#{age}
+        WHERE id=#{id}
+    </update>
+
+    <select id="selectStudentById" parameterType="java.lang.Integer" resultType="com.rediscache.entity.Student">
+        SELECT *
+        FROM student
+        WHERE id=#{id}
+    </select>
+
+    <select id="selectAllStudent" resultMap="BaseResultMap" resultType="com.rediscache.entity.Student">
+        SELECT *
+        FROM student
+    </select>
+
+
+</mapper>

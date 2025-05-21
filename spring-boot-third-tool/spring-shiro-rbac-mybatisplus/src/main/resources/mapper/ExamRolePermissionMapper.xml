@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shiro2.dao.ExamRolePermissionMapper">
+    <resultMap id="BaseResultMap" type="shiro2.pojo.entity.ExamRolePermission">
+        <!--@mbg.generated-->
+        <!--@Table exam_role_permission-->
+        <id column="Id" jdbcType="INTEGER" property="id"/>
+        <result column="role_id" jdbcType="INTEGER" property="roleId"/>
+        <result column="permission_id" jdbcType="INTEGER" property="permissionId"/>
+        <result column="is_enable" jdbcType="INTEGER" property="isEnable"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        Id,
+        role_id,
+        permission_id,
+        is_enable,
+        created_at,
+        updated_at
+    </sql>
+    <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="shiro2.pojo.entity.ExamRolePermission"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into exam_role_permission (role_id, permission_id, is_enable,
+                                          created_at, updated_at)
+        values (#{roleId,jdbcType=INTEGER}, #{permissionId,jdbcType=INTEGER}, #{isEnable,jdbcType=BOOLEAN},
+                #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+    </insert>
+</mapper>

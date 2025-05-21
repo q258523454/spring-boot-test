@@ -1,0 +1,5 @@
+server:
+  servlet:
+    context-path: /antoconfig
+  port: 8080
+

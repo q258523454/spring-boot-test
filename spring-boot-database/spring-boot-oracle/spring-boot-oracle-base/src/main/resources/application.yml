@@ -1,0 +1,80 @@
+server:
+  port: 8080
+
+# -------------------- 数据库变量 BEGIN --------------------
+this.druid.db:
+  username: TEST
+  password: XXX#123456
+  url: jdbc:oracle:thin:@//localhost:1521/EA0DB100
+# -------------------- 数据库变量 END --------------------
+
+spring:
+  # ------------------------------------数据库基本配置 BEGIN ------------------------------------
+  datasource:
+    #readSize为从库数量
+    name: mySqlName
+    # 配置第三方数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: oracle.jdbc.OracleDriver
+      url: ${this.druid.db.url}
+      username: "${this.druid.db.username}"
+      password: "${this.druid.db.password}"
+      # 配置初始值
+      initial-size: "${global.druid.db.initial-size}"
+      min-idle: "${global.druid.db.min-idle}"
+      max-active: "${global.druid.db.max-active}"
+      # 获取连接等待超时时间
+      max-wait: "${global.druid.db.max-wait}"
+      # 监控关闭空闲连接时间间隔
+      time-between-eviction-runs-millis: "${global.druid.db.time-between-eviction-runs-millis}"
+      # 每个连接池最小的生命周期
+      min-evictable-idle-time-millis: "${global.druid.db.min-evictable-idle-time-millis}"
+      validation-query: "${global.druid.db.validation-query-oracle}"
+      test-while-idle: "${global.druid.db.test-while-idle}"
+      test-on-borrow: "${global.druid.db.test-on-borrow}"
+      test-on-return: "${global.druid.db.test-on-return}"
+      remove-abandoned: "${global.druid.db.remove-abandoned}"
+      remove-abandoned-timeout: "${global.druid.db.remove-abandoned-timeout}"
+      log-abandoned: "${global.druid.db.log-abandoned}"
+  # ------------------------------------数据库基本配置 END ------------------------------------
+
+
+
+
+
+# ------------------------------------ mybatis 相关配置 BEGIN ------------------------------------
+mybatis:
+  #configuration:
+  # 打印sql语句
+  # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 配置mapper映射和entity映射, MapperScan位置在Application中配置
+  # 注意： classpath*：不仅在本地项目resources中查找,还包括jar包中的， classpath则只包含本地的
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-executor-type: simple # 默认是simple
+
+# ------------------------------------ mybatis 相关配置 END ------------------------------------
+
+
+
+# ====================================== User-defined parameters BEGIN ======================================
+# --------------------- 数据库全局配置 BEGIN ---------------------
+global.druid.db:
+  initial-size: 1
+  min-idle: 1
+  max-active: 20 # 默认8
+  max-wait: 6000 # 默认-1
+  validation-query: SELECT 1
+  validation-query-oracle: SELECT 1 FROM DUAL
+  test-on-borrow: false # 默认false
+  test-while-idle: true # 默认true
+  test-on-return: false # 默认false
+  time-between-eviction-runs-millis: 60000 # 默认60000
+  min-evictable-idle-time-millis: 360000  # 默认1800000
+  remove-abandoned: true # 默认 false
+  remove-abandoned-timeout: 1800 # 默认 300
+  log-abandoned: false # 默认false
+# --------------------- 数据库全局配置 END ---------------------
+# ====================================== User-defined parameters END ======================================

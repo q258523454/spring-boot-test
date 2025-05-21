@@ -1,0 +1,86 @@
+server:
+  servlet:
+    context-path: /spring-boot-quartz-yaml
+  port: 8080
+
+
+
+# -------------------- 数据库变量 BEGIN --------------------
+this.druid.db:
+  username: root
+  password: 123456
+  url: jdbc:mysql://localhost:3306/zhang?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+# -------------------- 数据库变量 END --------------------
+
+  # ------------------------------------quartz 指定数据库 BEGIN ------------------------------------
+quartz.druid.db:
+  username: root
+  password: 123456
+  url: jdbc:mysql://localhost:3306/spring_boot_quartz_yaml?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+  # ------------------------------------quartz 指定数据库 BEGIN ------------------------------------
+
+spring:
+  quartz:
+    # quartzjob-store-type: jdbc        # spring-boot-quart 2.1.1 bug, 我们自己指定数据源, 任务以数据库方式存储和通信
+    jdbc:
+      initialize-schema: never    # 不初始化表结构
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceId: AUTO      # 如果使用集群，instanceId必须唯一，设置成AUTO
+            wrapJobExecutionInUserTransaction: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 20                                   # 线程数量
+            threadPriority: 5                                 # 线程优先级
+            threadsInheritContextClassLoaderOfInitializingThread: true
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX                      # 数据保存方式为持久化,也就是数据库
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: qrtz_                                                  # quartz内部表的前缀
+            isClustered: true                                                   # 是否加入集群 (一台服务器选 false )
+            useProperties: false                                                # 禁用 quartz.properties
+  datasource:
+    # ------------------------------------业务数据库基本配置 BEGIN ------------------------------------
+    master:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${this.druid.db.url}
+      username: "${this.druid.db.username}"
+      password: "${this.druid.db.password}"
+      # 配置初始值
+      initial-size: "${global.druid.db.initial-size}"
+      min-idle: "${global.druid.db.min-idle}"
+      max-active: "${global.druid.db.max-active}"
+      # 获取连接等待超时时间
+      max-wait: "${global.druid.db.max-wait}"
+      # 监控关闭空闲连接时间间隔
+      time-between-eviction-runs-millis: "${global.druid.db.time-between-eviction-runs-millis}"
+      # 每个连接池最小的生命周期
+      min-evictable-idle-time-millis: "${global.druid.db.min-evictable-idle-time-millis}"
+      validation-query: "${global.druid.db.validation-query}"
+      test-while-idle: "${global.druid.db.test-while-idle}"
+      test-on-borrow: "${global.druid.db.test-on-borrow}"
+      test-on-return: "${global.druid.db.test-on-return}"
+      remove-abandoned: "${global.druid.db.remove-abandoned}"
+      remove-abandoned-timeout: "${global.druid.db.remove-abandoned-timeout}"
+      log-abandoned: "${global.druid.db.log-abandoned}"
+    # ------------------------------------业务数据库基本配置 END ------------------------------------
+
+    # ------------------------------------quartz 指定数据库 BEGIN ------------------------------------
+    quartz:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${quartz.druid.db.url}
+      username:  "${quartz.druid.db.username}"
+      password: "${quartz.druid.db.password}"
+      # 配置初始值
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      # 获取连接等待超时时间
+      max-wait: 6000
+      validation-query: SELECT 1
+
+    # ------------------------------------quartz 指定数据库 END ------------------------------------

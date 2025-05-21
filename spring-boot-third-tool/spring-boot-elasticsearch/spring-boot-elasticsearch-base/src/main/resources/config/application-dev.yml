@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+
+# Elasticsearch相关的配置
+# 首先去 es 上创建一个 cn_test_mapping 的索引
+#  {
+#    "properties": {
+#      "name": {
+#        "type": "text"
+#      },
+#      "id": {
+#        "type": "integer"
+#      },
+#      "time": {
+#        "format": "yyyy-MM-dd HH:mm:ss",
+#        "type": "date"
+#      }
+#    }
+#  }
+elasticsearch:
+  clientIps: '55.xxx.46.100'
+  httpPort: '8200'
+  username: 'xxx'
+  password: 'xxxx'  #TODO
+  indexName: 'xxxxx' # 如果指定了索引名称，那么不会批量生产索引
+  indexType: 'doc'
+  bulkSize: 1 # 一次bulk请求文档个数
+  docNum: 2 # 每个索引总的文档写入数量
+  corePoolSize: 10
+  maximumPoolSize: 200
+
+# Kafka相关的配置
+#kafka:
+#  servers: 'xxxx'
+#  username: 'xxx'
+#  password: 'xxx'

@@ -1,0 +1,49 @@
+server:
+  servlet:
+    context-path: /
+  port: 8081
+
+# 官方表示,不会支持 redisson 客户端, 仅支持 jedis 和 lettuce 链接:https://github.com/alibaba/jetcache/issues/634
+jetcache:
+  statIntervalMinutes: 10 # 默认值0,统计间隔，0表示不统计
+  areaInCacheName: false # 默认值false, 是否将 areaName 作为远程缓存key前缀
+  # 本地
+  local:
+    # 默认分组配置,可以创建多个,对应@Cached和@CreateCache的 area 属性, 默认名就是 'default'
+    default:
+      type: caffeine # 可选 linkedhashmap,caffeine
+      keyConvertor: fastjson # 指定KEY的转换方式, 可选 fastjson2,fastjson,jackson
+      limit: 100 # 本地缓存的最大元素数量, 默认:100, 注解可以通过 localLimit = 1000 来设定
+  # 远程
+  remote:
+    default:
+      type: redis
+      keyConvertor: fastjson # 指定KEY的转换方式, 可选 fastjson2,fastjson,jackson
+      valueEncoder: java # 可选 java,kryo,kryo5
+      valueDecoder: java # 可选 java,kryo,kryo5
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+#      host: 127.0.0.1
+#      port: 6379
+      password: 123456
+      cluster:
+        - 127.0.0.1:7001
+        - 127.0.0.1:7002
+        - 127.0.0.1:7003
+        - 127.0.0.1:7004
+        - 127.0.0.1:7005
+        - 127.0.0.1:7006
+# 集群模式等价于
+# jetcache.remote.default.cluster[0]=127.0.0.1:7001
+# jetcache.remote.default.cluster[1]=127.0.0.1:7002
+# jetcache.remote.default.cluster[2]=127.0.0.1:7003
+# jetcache.remote.default.cluster[3]=127.0.0.1:7004
+# jetcache.remote.default.cluster[4]=127.0.0.1:7005
+# jetcache.remote.default.cluster[5]=127.0.0.1:7006
+spring:
+  redis:
+    lettuce:
+      pool:
+        enabled: true

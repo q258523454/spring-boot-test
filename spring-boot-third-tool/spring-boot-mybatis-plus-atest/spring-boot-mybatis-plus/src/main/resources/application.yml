@@ -1,0 +1,31 @@
+server:
+  servlet:
+    context-path: /
+  port: 8081
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/spring_boot_mybatis_plus?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  # 注意： classpath*：不仅在本地项目resources中查找,还包括jar包中的， classpath则只包含本地的
+  mapper-locations:
+    #  默认 classpath*:/mapper/**/*.xml
+    - classpath*:mapper/**/*Mapper.xml
+  global-config:
+    #设置逻辑删除（mybatis-plus的 删除 会成为逻辑删除 查询 方法自动过滤删除数据）
+    db-config:
+      # 逻辑删除字段
+      logic-delete-field: isDel
+      # 已删除
+      logic-delete-value: 0
+      # 未删除
+      logic-not-delete-value: 1
+  configuration:
+    # 下划线驼峰命名 默认 true
+    map-underscore-to-camel-case: true
+    # 开启日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

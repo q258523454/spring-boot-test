@@ -1,0 +1,93 @@
+server:
+  servlet:
+    context-path: /
+  port: 8081
+
+spring:
+  shardingsphere:
+    # enabled: false # 手动关闭 sharding自动装配, 用自定义的 sharding 配置
+    # 配置数据源
+    datasource:
+      names: db0,db1
+      db0:
+        username: root
+        password: 123456
+        # 注意是 jdbc-url, 不是url
+        jdbc-url: jdbc:mysql://localhost:3306/zhang_0?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+      db1:
+        username: root
+        password: 123456
+        jdbc-url: jdbc:mysql://localhost:3306/zhang_1?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+    rules:
+      # 配置分库分表 sharding 规则
+      sharding:
+        # 分库分表
+        tables:
+          student:
+            # 分库分表范围
+            actual-data-nodes: db$->{0..1}.student_$->{0..1}
+            # 分库策略
+            database-strategy:
+              hint:
+                sharding-algorithm-name: my-db-hint
+#              standard:
+#                sharding-column: id
+#                sharding-algorithm-name: my-db-inline
+            # 分表策略
+            table-strategy:
+              hint:
+                sharding-algorithm-name: my-table-hint
+#              standard:
+#                sharding-column: id
+#                sharding-algorithm-name: my-table-inline
+        # 分片策略配置
+        sharding-algorithms:
+          my-db-inline:
+            type: INLINE
+            props:
+              algorithm-expression: db$->{id%2}
+          my-table-inline:
+            type: INLINE
+            props:
+              algorithm-expression: student_$->{id%2}
+          my-db-hint:
+            type: CLASS_BASED
+            props:
+              strategy: HINT
+              # 注意不能写成 algorithm-class-name, 源码 ClassBasedShardingAlgorithm 中写死成了 "algorithmClassName"
+              algorithmClassName: com.sharding5starter.config.hint.MyDatabaseHintAlgorithm
+          my-table-hint:
+            type: CLASS_BASED # 自定义分片算法
+            props:
+              strategy: HINT #  可选 standard、complex 或 hint
+              algorithmClassName: com.sharding5starter.config.hint.MyTableHintAlgorithm
+        # 默认数据源，未分片的表默认执行库
+        default-data-source-name: db0
+    # sharding 日志配置
+    props:
+      sql-show: true # 输出SQL日志
+
+
+mybatis-plus:
+  # 注意： classpath*：不仅在本地项目resources中查找,还包括jar包中的， classpath则只包含本地的
+  mapper-locations:
+    #  默认 classpath*:/mapper/**/*.xml
+    - classpath*:mapper/**/*Mapper.xml
+  global-config:
+    #设置逻辑删除（mybatis-plus的 删除 会成为逻辑删除 查询 方法自动过滤删除数据）
+    db-config:
+      # 逻辑删除字段
+      logic-delete-field: isDel
+      # 已删除
+      logic-delete-value: 0
+      # 未删除
+      logic-not-delete-value: 1
+  configuration:
+    # 下划线驼峰命名 默认 true
+    map-underscore-to-camel-case: true
+    # 开启日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
