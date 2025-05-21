@@ -1,4 +1,0 @@
-server:
-  servlet:
-    context-path: /spring-boot-quartz
-  port: 8080

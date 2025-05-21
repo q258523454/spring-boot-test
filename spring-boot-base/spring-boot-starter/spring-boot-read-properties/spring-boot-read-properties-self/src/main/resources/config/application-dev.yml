@@ -1,7 +1,0 @@
-server:
-  servlet:
-    context-path: /
-  port: 8080
-
-my:
-  name: 'my1'

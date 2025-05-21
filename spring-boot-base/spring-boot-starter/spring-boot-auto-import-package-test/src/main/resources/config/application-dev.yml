@@ -1,5 +1,0 @@
-server:
-  servlet:
-    context-path: /autoconfg-test
-  port: 8080
-
