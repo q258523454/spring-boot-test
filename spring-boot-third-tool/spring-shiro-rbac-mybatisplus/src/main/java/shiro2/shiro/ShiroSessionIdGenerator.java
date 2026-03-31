@@ -1,8 +1,6 @@
 package shiro2.shiro;
 
 
-import shiro2.constant.RedisConstant;
-
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
 import org.apache.shiro.session.mgt.eis.SessionIdGenerator;

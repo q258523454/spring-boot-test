@@ -2,6 +2,7 @@ package com.example.use4_nested_properties.entity;
 
 
 import lombok.Data;
+
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 @Data

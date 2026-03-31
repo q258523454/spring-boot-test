@@ -7,7 +7,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 
-
 @Component("asyncUtil")
 public class AsyncUtil {
     private static final Logger logger = LoggerFactory.getLogger(AsyncUtil.class);

@@ -26,7 +26,7 @@ public class StudentShardingService extends ServiceImpl<StudentShardingMapper, S
     }
 
     @Transactional(value = "myShardingTransactionManager", rollbackFor = Exception.class)
-    public int insertList(List<Student> list){
+    public int insertList(List<Student> list) {
         return getBaseMapper().insertList(list);
     }
 }

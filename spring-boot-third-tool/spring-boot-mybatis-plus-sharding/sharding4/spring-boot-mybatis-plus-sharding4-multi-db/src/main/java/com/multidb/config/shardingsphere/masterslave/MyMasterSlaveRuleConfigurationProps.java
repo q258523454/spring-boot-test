@@ -1,4 +1,3 @@
-
 package com.multidb.config.shardingsphere.masterslave;
 
 import org.apache.shardingsphere.core.yaml.config.masterslave.YamlMasterSlaveRuleConfiguration;

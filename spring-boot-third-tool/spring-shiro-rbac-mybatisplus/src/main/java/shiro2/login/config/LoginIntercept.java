@@ -2,18 +2,18 @@ package shiro2.login.config;
 
 import com.alibaba.fastjson.JSONObject;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import shiro2.pojo.entity.ExamUser;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created By
@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date :   2018-08-31
  */
 
+@Configuration
 @Slf4j
 public class LoginIntercept implements HandlerInterceptor {
 
@@ -48,8 +49,8 @@ public class LoginIntercept implements HandlerInterceptor {
         return true;
     }
 
-    /***
-     * 进入controller方法之后, 如果Controller出现异常, 不调用该方法
+    /**
+     * 执行controller方法之后, 如果Controller出现异常, 不调用该方法
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {

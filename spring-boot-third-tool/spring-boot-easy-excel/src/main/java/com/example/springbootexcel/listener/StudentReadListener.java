@@ -9,6 +9,7 @@ import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.util.ListUtils;
 import com.alibaba.fastjson.JSON;
 import com.example.springbootexcel.pojo.ExcelStudent;
+
 import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ public class StudentReadListener implements ReadListener<ExcelStudent> {
     public static final int BATCH_COUNT = 100;
 
     /**
-     *临时存储
+     * 临时存储
      */
     private List<ExcelStudent> cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);
 
@@ -91,6 +92,7 @@ public class StudentReadListener implements ReadListener<ExcelStudent> {
 
     /**
      * 额外信息（批注、超链接、合并单元格信息读取）
+     *
      * @param extra   extra information
      * @param context analysis context
      */

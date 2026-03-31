@@ -1,13 +1,13 @@
 package com.example.use2_selector_bean.config;
 
 import com.example.use2_selector_bean.entity.AopProperties;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
-
 
 
 @Slf4j

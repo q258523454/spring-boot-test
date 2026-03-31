@@ -2,15 +2,16 @@ package com.zhang.encryptbody.pojo.properties;
 
 
 import lombok.Data;
+
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 @Data
 public class AesProperties {
 
     /**
-     *  密钥
+     * 密钥
      */
-    private String key="";
+    private String key = "";
 
     /**
      * AES 算法模式,默认 ECB

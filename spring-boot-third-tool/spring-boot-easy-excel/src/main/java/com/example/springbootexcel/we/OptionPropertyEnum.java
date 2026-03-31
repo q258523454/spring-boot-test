@@ -1,7 +1,7 @@
-
 package com.example.springbootexcel.we;
 
 import lombok.Getter;
+
 import org.springframework.util.StringUtils;
 
 /**
@@ -18,8 +18,7 @@ public enum OptionPropertyEnum {
      */
     TEMP_ID("tempId"),
     UUID("uuid"),
-    IMAGE_URL("imageUrl")
-    ;
+    IMAGE_URL("imageUrl");
 
     private final String propertyKey;
 

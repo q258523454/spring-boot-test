@@ -9,7 +9,9 @@ import com.producer.constant.Constants;
 import com.producer.sender.OrderSender;
 import com.producer.service.RabbitService;
 import com.producer.util.SpringContextHolder;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -69,7 +71,7 @@ public class RabbitServiceImpl implements RabbitService {
         }
 
         try {
-            //信息投递
+            // 信息投递
             orderSender.send(order, routeKey);
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,6 +80,7 @@ public class RabbitServiceImpl implements RabbitService {
 
     /**
      * long(Date) 转 LocalDateTime
+     *
      * @param mills 例如: Calendar.getInstance().getTimeInMillis()
      * @param mills 例如: Date().getTime().getTime
      * @return

@@ -2,7 +2,9 @@ package com.example.producer;
 
 import com.example.config.TopicConfig;
 import com.example.entity.User;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;

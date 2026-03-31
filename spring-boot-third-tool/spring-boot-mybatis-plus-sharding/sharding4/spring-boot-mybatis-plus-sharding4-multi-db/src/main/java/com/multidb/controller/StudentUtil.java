@@ -10,6 +10,7 @@ import java.util.Random;
 
 public enum StudentUtil {
     ;
+
     public static List<Student> getRandomStudentList(int n) {
         List<Student> studentList = new ArrayList<>();
         Random random = new Random();
@@ -42,6 +43,7 @@ public enum StudentUtil {
         }
         return studentList;
     }
+
     public static List<StudentBase> getRandomStudentBaseList(int n) {
         List<StudentBase> studentList = new ArrayList<>();
         Random random = new Random();

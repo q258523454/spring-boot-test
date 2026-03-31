@@ -3,6 +3,7 @@ package com.datasource.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.datasource.entity.DataSourceEnum;
 import com.datasource.router.DataSourceRouter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,9 +14,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.sql.DataSource;
 
 /**
  * 数据源配置
@@ -76,7 +78,7 @@ public class DataSourceConfig {
         log.info("超过时间限制时间(单位秒): {} ", druidDataSourceSlave.getRemoveAbandonedTimeout());
         log.info(" ---------------------- 德鲁伊配置信息 END----------------------");
 
-        //配置多数据源
+        // 配置多数据源
         Map<Object, Object> map = new HashMap<>(5);
         map.put(DataSourceEnum.MASTER.getName(), master);    // key需要跟ThreadLocal中的值对应
         map.put(DataSourceEnum.SLAVE.getName(), slave);

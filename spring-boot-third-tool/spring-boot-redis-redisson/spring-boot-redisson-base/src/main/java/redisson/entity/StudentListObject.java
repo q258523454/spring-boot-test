@@ -1,4 +1,3 @@
-
 package redisson.entity;
 
 import lombok.Data;

@@ -4,7 +4,9 @@ package com.myjetcache.aspects;
 import com.alibaba.fastjson.JSON;
 import com.myjetcache.controller.OracleControllerUpdate_Batch_AffectRows_Aop_block;
 import com.myjetcache.util.SpringContextHolder;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -127,8 +129,9 @@ public class MybatisUpdateSubBatchTransSelfAspect {
 
     /**
      * 只有连接点抛出异常的时候才执行 {@link AfterThrowing}
-     * @param joinPoint  连接点
-     * @param ex 这里定义为 Exception, 表示通知所有异常.可以指定某个异常
+     *
+     * @param joinPoint 连接点
+     * @param ex        这里定义为 Exception, 表示通知所有异常.可以指定某个异常
      */
     @AfterThrowing(pointcut = "batchPointCut()", throwing = "ex")
     public void afterthrowing(JoinPoint joinPoint, Exception ex) {

@@ -3,6 +3,7 @@ package com.inter.service.impl;
 import com.job.AsyncJob;
 import com.job.CronJob;
 import com.inter.service.JobService;
+
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
@@ -36,16 +37,16 @@ public class JobServiceImpl implements JobService {
             if (jobDetail != null) {
                 System.out.println("job:" + jobName + " 已存在");
             } else {
-                //构建job信息
+                // 构建job信息
                 jobDetail = JobBuilder.newJob(CronJob.class).withIdentity(jobName, jobGroup).build();
 
-                //用JopDataMap来传递数据
+                // 用JopDataMap来传递数据
                 jobDetail.getJobDataMap().put("taskData", "hzb-cron-001");
 
-                //表达式调度构建器(即任务执行的时间,每5秒执行一次)
+                // 表达式调度构建器(即任务执行的时间,每5秒执行一次)
                 CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("*/5 * * * * ?");
 
-                //按新的cronExpression表达式构建一个新的trigger
+                // 按新的cronExpression表达式构建一个新的trigger
                 CronTrigger trigger = TriggerBuilder
                         .newTrigger()
                         .withIdentity(jobName + "_trigger", jobGroup + "_trigger")
@@ -67,12 +68,12 @@ public class JobServiceImpl implements JobService {
             if (jobDetail != null) {
                 System.out.println("job:" + jobName + " 已存在");
             } else {
-                //构建job信息,在用JobBuilder创建JobDetail的时候，有一个storeDurably()方法，可以在没有触发器指向任务的时候，将任务保存在队列中了。然后就能手动触发了
+                // 构建job信息,在用JobBuilder创建JobDetail的时候，有一个storeDurably()方法，可以在没有触发器指向任务的时候，将任务保存在队列中了。然后就能手动触发了
                 jobDetail = JobBuilder.newJob(AsyncJob.class).withIdentity(jobName, jobGroup).storeDurably().build();
                 jobDetail.getJobDataMap().put("asyncData", "this is a async task");
-                Trigger trigger = TriggerBuilder.newTrigger().withIdentity(jobName + "_trigger", jobGroup + "_trigger") //定义name/group
-                        .startNow()//一旦加入scheduler，立即生效
-                        .withSchedule(simpleSchedule())//使用SimpleTrigger
+                Trigger trigger = TriggerBuilder.newTrigger().withIdentity(jobName + "_trigger", jobGroup + "_trigger") // 定义name/group
+                        .startNow()// 一旦加入scheduler，立即生效
+                        .withSchedule(simpleSchedule())// 使用SimpleTrigger
                         .build();
                 scheduler.scheduleJob(jobDetail, trigger);
             }

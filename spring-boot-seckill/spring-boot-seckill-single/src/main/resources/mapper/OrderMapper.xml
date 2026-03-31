@@ -87,5 +87,4 @@
         from sk_order
         where user_id=#{userId,jdbcType=BIGINT} and sk_goods_id=#{skGoodsId,jdbcType=BIGINT}
     </select>
-
 </mapper>

@@ -13,7 +13,6 @@
 先看秒杀接口(com.sec.controller.SkOrderDoController.doSeckill)
 然后看MQ消费接口(com.sec.rabbitmq.consumer.DirectConsumer.consumer)
 
-
 流程:
 准备工作:
 启动缓存库存到 redis
@@ -30,10 +29,8 @@
 2.判断是否重复秒杀 user_id:good_id
 3.减库存,写订单 (同一个事务下), 若库存扣减不成功, 表示库存不足
 
-
 TODO：  
 1.redis序列化方式  
 2.升级为分布式系统
-
 
 参考 GitHub: https://github.com/zaiyunduan123/springboot-seckill

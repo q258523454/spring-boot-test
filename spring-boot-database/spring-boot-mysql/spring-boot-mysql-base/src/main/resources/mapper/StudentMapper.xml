@@ -30,11 +30,11 @@
     <insert id="insert" parameterType="com.mysql.base.entity.Student" useGeneratedKeys="true" keyColumn="id"
             keyProperty="id">
         insert into student(id,
-                            name,
-                            age)
+        name,
+        age)
         values (#{id,jdbcType=INTEGER},
-                #{name,jdbcType=VARCHAR},
-                #{age,jdbcType=INTEGER})
+        #{name,jdbcType=VARCHAR},
+        #{age,jdbcType=INTEGER})
     </insert>
 
     <select id="selectAll" resultMap="BaseResultMap">
@@ -44,8 +44,7 @@
     </select>
 
     <select id="selectMaxId" resultType="integer">
-        SELECT
-            MAX(id)
+        SELECT MAX(id)
         FROM student
     </select>
 
@@ -68,26 +67,24 @@
 
 
     <select id="selectAllReturnMap" resultType="java.util.Map">
-        SELECT
-            id,
-            name
+        SELECT id,
+               name
         FROM student
     </select>
 
     <select id="selectAllReturnSelfObject" resultMap="MyResult">
-        SELECT
-            t1.id,
-            t1.name,
-            t2.name2
+        SELECT t1.id,
+               t1.name,
+               t2.name2
         FROM student t1
-        LEFT JOIN student2 t2 on t1.id = t2.id
+                 LEFT JOIN student2 t2 on t1.id = t2.id
     </select>
 
     <select id="selectWhereTest" resultMap="BaseResultMap">
         SELECT
-            id,
-            name,
-            age
+        id,
+        name,
+        age
         FROM student
         <where>
             age &lt;= #{maxAge}
@@ -103,7 +100,7 @@
         </where>
     </select>
 
-    <select id="createStudentTable" >
+    <select id="createStudentTable">
         CREATE TABLE if not exists `student`
         (
             `id`   int NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -111,7 +108,10 @@
             `age`  int                                                           DEFAULT NULL COMMENT '年龄',
             PRIMARY KEY (`id`)
         )
-        ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+            ENGINE = InnoDB
+            AUTO_INCREMENT = 1
+            DEFAULT CHARSET = utf8mb4
+            COLLATE = utf8mb4_0900_ai_ci;
     </select>
 
     <delete id="deleteStudentTable">
@@ -119,11 +119,12 @@
     </delete>
 
     <update id="addStudentTableCol">
-        ALTER TABLE student ADD id2 varchar(100) NULL;
+        ALTER TABLE student
+            ADD id2 varchar(100) NULL;
     </update>
 
     <select id="delStudentTableCol">
-        ALTER TABLE student drop column id2;
+        ALTER TABLE student
+            drop column id2;
     </select>
-
 </mapper>

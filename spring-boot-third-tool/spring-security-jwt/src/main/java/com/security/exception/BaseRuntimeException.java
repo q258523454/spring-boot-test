@@ -1,4 +1,3 @@
-
 package com.security.exception;
 
 public class BaseRuntimeException extends RuntimeException {

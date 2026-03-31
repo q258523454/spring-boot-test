@@ -34,16 +34,16 @@ spring:
             database-strategy:
               hint:
                 sharding-algorithm-name: my-db-hint
-#              standard:
-#                sharding-column: id
-#                sharding-algorithm-name: my-db-inline
+            #              standard:
+            #                sharding-column: id
+            #                sharding-algorithm-name: my-db-inline
             # 分表策略
             table-strategy:
               hint:
                 sharding-algorithm-name: my-table-hint
-#              standard:
-#                sharding-column: id
-#                sharding-algorithm-name: my-table-inline
+        #              standard:
+        #                sharding-column: id
+        #                sharding-algorithm-name: my-table-inline
         # 分片策略配置
         sharding-algorithms:
           my-db-inline:

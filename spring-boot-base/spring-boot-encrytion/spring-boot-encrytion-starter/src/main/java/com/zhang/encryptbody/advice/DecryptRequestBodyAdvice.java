@@ -14,7 +14,9 @@ import com.zhang.encryptbody.pojo.properties.RsaProperties;
 import com.zhang.encryptbody.util.AESUtil;
 import com.zhang.encryptbody.util.DESUtil;
 import com.zhang.encryptbody.util.RSAUtil;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -33,17 +35,17 @@ import java.nio.charset.Charset;
 
 /**
  * 请求数据的加密信息解密处理 <br>
- *     本类只对控制器参数中含有注解
- *     <strong>{@link org.springframework.web.bind.annotation.RequestBody}</strong>
- *     进行的方法拦截.
- *     处理以下注解
- *     {@link com.zhang.encryptbody.annotation.decrypt.AESDecryptBody}
- *     {@link com.zhang.encryptbody.annotation.decrypt.DESDecryptBody}
- *     {@link com.zhang.encryptbody.annotation.decrypt.RSADecryptBody}
+ * 本类只对控制器参数中含有注解
+ * <strong>{@link org.springframework.web.bind.annotation.RequestBody}</strong>
+ * 进行的方法拦截.
+ * 处理以下注解
+ * {@link com.zhang.encryptbody.annotation.decrypt.AESDecryptBody}
+ * {@link com.zhang.encryptbody.annotation.decrypt.DESDecryptBody}
+ * {@link com.zhang.encryptbody.annotation.decrypt.RSADecryptBody}
  *
- * @see  RequestBodyAdvice
  * @author zj
  * @date 2020 /5/11 14:15
+ * @see RequestBodyAdvice
  */
 @Slf4j
 @ControllerAdvice
@@ -154,6 +156,7 @@ public class DecryptRequestBodyAdvice implements RequestBodyAdvice {
 
     /**
      * 获取方法控制器上的加密注解信息
+     *
      * @param methodParameter 方法参数
      * @return 加密注解信息
      */
@@ -184,6 +187,7 @@ public class DecryptRequestBodyAdvice implements RequestBodyAdvice {
 
     /**
      * 获取类控制器上的加密注解信息
+     *
      * @param clazz 控制器类
      * @return 加密注解信息
      */
@@ -217,7 +221,8 @@ public class DecryptRequestBodyAdvice implements RequestBodyAdvice {
 
     /**
      * 选择加密方式并进行解密
-     * @param inputBody 目标解密字符串
+     *
+     * @param inputBody         目标解密字符串
      * @param decryptProperties 加密信息
      * @return 解密结果
      */

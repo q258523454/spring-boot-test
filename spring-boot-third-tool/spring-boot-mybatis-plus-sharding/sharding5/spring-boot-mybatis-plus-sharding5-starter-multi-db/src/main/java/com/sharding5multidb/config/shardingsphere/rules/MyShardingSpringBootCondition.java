@@ -13,9 +13,9 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  * {@link ShardingSpringBootCondition}
  */
 public final class MyShardingSpringBootCondition extends SpringBootCondition {
-    
+
     private static final String SHARDING_PREFIX = "my.shardingsphere.rules.sharding";
-    
+
     @Override
     public ConditionOutcome getMatchOutcome(final ConditionContext conditionContext, final AnnotatedTypeMetadata annotatedTypeMetadata) {
         return PropertyUtil.containPropertyPrefix(conditionContext.getEnvironment(), SHARDING_PREFIX)

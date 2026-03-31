@@ -189,6 +189,4 @@
         select *
         from broker_message_log
     </select>
-
-
 </mapper>

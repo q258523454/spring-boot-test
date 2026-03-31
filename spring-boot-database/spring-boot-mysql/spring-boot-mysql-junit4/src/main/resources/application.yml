@@ -20,9 +20,6 @@ spring:
   devtools:
     restart:
       trigger-file: application-trigger.yml
-  banner: # 启动图文字符
-    image:
-      location: zbanner.txt
   # ------------------------------------ 热加载等配置 END ------------------------------------
 
   # ------------------------------------ aop 配置 BEGIN ------------------------------------

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 创建job 实例工厂，解决spring注入问题，如果使用默认会导致spring的@Autowired 无法注入问题
+ *
  * @Date: 2019-05-29
  * @Version 1.0
  */

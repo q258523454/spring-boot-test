@@ -4,6 +4,7 @@ import com.oracle.vs.jdbc.config.ConnectPoolConfig;
 import com.oracle.vs.jdbc.config.DataSourceConfig;
 import com.oracle.vs.jdbc.service.ConnectPoolService;
 import com.oracle.vs.jdbc.util.DbUtil;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
@@ -148,7 +149,7 @@ public class ConnectPoolServiceImpl implements ConnectPoolService {
     private Connection createNewConnection() {
         log.info("数据库连接池暂无空闲连接(总连接数:{})，新建连接...", createCount.intValue() + allConnections.size());
         createCount.incrementAndGet();
-        //获取连接
+        // 获取连接
         try {
             Connection conn = DriverManager.getConnection(dataSourceConfig.getUrl(), properties);
             allConnections.add(conn);

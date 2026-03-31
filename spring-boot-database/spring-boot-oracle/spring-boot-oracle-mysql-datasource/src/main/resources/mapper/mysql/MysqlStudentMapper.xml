@@ -7,7 +7,9 @@
         <result column="age" jdbcType="INTEGER" property="age"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, name, age
+        id,
+        name,
+        age
     </sql>
     <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
         select
@@ -17,23 +19,22 @@
     </select>
 
     <insert id="insert" parameterType="com.multi.entity.mysql.Student">
-    insert into student (
+        insert into student (
         id,
         name,
         age
         )
-    values (
+        values (
         #{id,jdbcType=INTEGER},
         #{name,jdbcType=VARCHAR},
         #{age,jdbcType=INTEGER}
-      )
-  </insert>
+        )
+    </insert>
 
-  <select id="selectAll" resultMap="BaseResultMap">
-    SELECT
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
         <include refid="Base_Column_List"/>
-    FROM
+        FROM
         student
-  </select>
-
+    </select>
 </mapper>

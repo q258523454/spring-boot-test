@@ -2,6 +2,7 @@ package com.sftp_util;
 
 import com.jcraft.jsch.*;
 import com.ftp_util.MapSortUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +48,7 @@ public class SFTPUtil {
 
     public static void readTxtDataUTF8(ChannelSftp sftp, String file) throws SftpException, IOException {
         InputStream in = sftp.get(file);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in,"UTF-8"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
         String line;
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
@@ -62,7 +63,7 @@ public class SFTPUtil {
 
     public static void readTxtDataGBK(ChannelSftp sftp, String file) throws SftpException, IOException {
         InputStream in = sftp.get(file);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in,"GBK"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in, "GBK"));
         String line;
         while ((line = reader.readLine()) != null) {
             System.out.println(line);

@@ -78,6 +78,7 @@ public class SpringContextHolder implements ApplicationContextAware {
     public static void clearHolder() {
         applicationContext = null;
     }
+
     /**
      * 打印对应Class的Bean是否注入到容器
      */

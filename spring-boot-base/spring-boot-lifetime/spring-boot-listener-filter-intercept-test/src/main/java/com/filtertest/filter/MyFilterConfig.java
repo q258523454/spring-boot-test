@@ -1,5 +1,3 @@
-
-
 package com.filtertest.filter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -45,8 +43,11 @@ public class MyFilterConfig {
         FilterRegistrationBean<FilterSub> bean = new FilterRegistrationBean<>();
         bean.setFilter(new FilterSub("filterSub2"));
         bean.addUrlPatterns("/index");
-        // 如果不指定, 默认bean的名字为 "filterSub", 如果之前已经存在且没有指定，那么这个不另外取名, 则无效
-        // 参考: DynamicRegistrationBean.getOrDeduceName()
+        /*
+         * 如果不指定, 默认bean的名字为 "filterSub",
+         * 如果之前的没有指定setName(),那么这里必须setName(),否则bean无效
+         * 参考: DynamicRegistrationBean.getOrDeduceName()
+         */
         // bean.setName("filterSub2");
         bean.setOrder(2);
         return bean;

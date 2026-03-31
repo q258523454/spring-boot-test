@@ -10,7 +10,7 @@ this.druid.db:
   username: root
   password: 123456
   url: jdbc:mysql://localhost:3306/zhang?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
-# -------------------- 数据库变量 END --------------------
+  # -------------------- 数据库变量 END --------------------
 
   # ------------------------------------quartz 指定数据库 BEGIN ------------------------------------
 quartz.druid.db:
@@ -73,7 +73,7 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: ${quartz.druid.db.url}
-      username:  "${quartz.druid.db.username}"
+      username: "${quartz.druid.db.username}"
       password: "${quartz.druid.db.password}"
       # 配置初始值
       initial-size: 1

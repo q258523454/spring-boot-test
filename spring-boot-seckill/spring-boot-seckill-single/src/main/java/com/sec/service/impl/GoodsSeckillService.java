@@ -1,8 +1,8 @@
 package com.sec.service.impl;
 
+import com.sec.pojo.dto.GoodsSeckillDetail;
 import com.sec.pojo.entity.GoodsSeckill;
 import com.sec.pojo.entity.User;
-import com.sec.pojo.dto.GoodsSeckillDetail;
 
 import java.util.List;
 

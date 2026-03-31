@@ -1,4 +1,3 @@
-
 package shiro2.serivce.impl;
 
 import shiro2.pojo.entity.ExamPermission;
@@ -13,7 +12,6 @@ import shiro2.serivce.MyService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 import java.util.List;

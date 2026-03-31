@@ -70,7 +70,7 @@ public class ExcelAnalysisHelper {
         }
         ExcelExtraData object = data.get(rowIndex);
         for (Field field : object.getClass().getDeclaredFields()) {
-            //提升反射性能，关闭安全检查
+            // 提升反射性能，关闭安全检查
             field.setAccessible(true);
             ExcelProperty annotation = field.getAnnotation(ExcelProperty.class);
             if (annotation != null) {
@@ -100,7 +100,7 @@ public class ExcelAnalysisHelper {
         Object filedValue = null;
         ExcelExtraData object = data.get(firstRowIndex);
         for (Field field : object.getClass().getDeclaredFields()) {
-            //提升反射性能，关闭安全检查
+            // 提升反射性能，关闭安全检查
             field.setAccessible(true);
             ExcelProperty annotation = field.getAnnotation(ExcelProperty.class);
             if (annotation != null) {

@@ -1,7 +1,4 @@
-
 package com.aop.entity;
-
-import lombok.Data;
 
 public class Student {
 

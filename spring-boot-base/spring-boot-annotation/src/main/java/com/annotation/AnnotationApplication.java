@@ -2,11 +2,11 @@ package com.annotation;
 
 import com.annotation.annotation.MyAnnotaion;
 import com.annotation.util.ExcludeTest;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
-
 
 
 // 当扫描第三方依赖包的时候，必须显示的指定当前项目包路径

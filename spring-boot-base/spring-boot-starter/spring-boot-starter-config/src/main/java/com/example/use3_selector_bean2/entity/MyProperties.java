@@ -2,6 +2,7 @@ package com.example.use3_selector_bean2.entity;
 
 
 import lombok.Data;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 

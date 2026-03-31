@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * @Date: 2019-05-29

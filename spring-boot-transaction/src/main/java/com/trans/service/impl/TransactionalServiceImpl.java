@@ -23,7 +23,6 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import java.util.Date;
 
 
-
 @Service
 public class TransactionalServiceImpl implements TransactionalService {
 

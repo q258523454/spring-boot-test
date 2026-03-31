@@ -1,6 +1,7 @@
 package com.mysql.affectrows.controller;
 
 import com.mysql.affectrows.serivce.IStudentService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class T4_Mysql_Delete_Batch_AffectRows {
 
     /**
      * 删除:delete .. in(..)
+     *
      * @param num 从最大值开始，往前删除多少个, 默认一次删除2个
      */
     @GetMapping(value = "/affect/rows/delete/batch")

@@ -1,7 +1,7 @@
-
 package com.example.springbootexcel.config;
 
 import lombok.Data;
+
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;

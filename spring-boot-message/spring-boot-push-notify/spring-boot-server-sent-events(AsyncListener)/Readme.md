@@ -1,4 +1,4 @@
-本例以spring boot框架为基础<br> 
+本例以spring boot框架为基础<br>
 下载该实例，并启动。该实例端口号为 8080。<br>
 我们先对实例进行验证测试。<br>
 测试页面地址为：http://localhost:8080 <br>

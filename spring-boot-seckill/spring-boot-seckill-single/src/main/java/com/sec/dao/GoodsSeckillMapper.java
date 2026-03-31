@@ -1,7 +1,8 @@
 package com.sec.dao;
 
-import com.sec.pojo.entity.GoodsSeckill;
 import com.sec.pojo.dto.GoodsSeckillDetail;
+import com.sec.pojo.entity.GoodsSeckill;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

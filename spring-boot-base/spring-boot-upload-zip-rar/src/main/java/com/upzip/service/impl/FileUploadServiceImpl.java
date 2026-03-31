@@ -6,6 +6,7 @@ import com.upzip.scanner.util.UnPackeUtil;
 import com.upzip.service.FileUploadService;
 import com.upzip.util.AjaxList;
 import com.upzip.util.DateUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,18 +28,18 @@ public class FileUploadServiceImpl implements FileUploadService {
         }
         boolean isZipPack = true;
         String fileContentType = zipFile.getContentType();
-        //将压缩包保存在指定路径
+        // 将压缩包保存在指定路径
 
         String fileName = "";
         String packFilePath = "";
         if (FileTypeEnum.FILE_TYPE_ZIP.type.equals(fileContentType)) {
-            //zip解压缩处理
+            // zip解压缩处理
             fileName = zipFile.getOriginalFilename().substring(0, zipFile.getOriginalFilename().lastIndexOf(".zip"));
             String newFileName = fileName + DateUtil.INSTANCE.getYmdHmsSSS();
             packFilePath = packParam.getDestPath() + File.separator + newFileName;
             packFilePath += FileTypeEnum.FILE_TYPE_ZIP.fileStufix;
         } else if (FileTypeEnum.FILE_TYPE_RAR.type.equals(fileContentType)) {
-            //rar解压缩处理
+            // rar解压缩处理
             fileName = zipFile.getOriginalFilename().substring(0, zipFile.getOriginalFilename().lastIndexOf(".rar"));
             String newFileName = fileName + DateUtil.INSTANCE.getYmdHmsSSS();
             packFilePath = packParam.getDestPath() + File.separator + newFileName;
@@ -55,10 +56,10 @@ public class FileUploadServiceImpl implements FileUploadService {
             return AjaxList.createFail("保存压缩文件到:" + packParam.getDestPath() + " 失败!");
         }
         if (isZipPack) {
-            //zip压缩包
+            // zip压缩包
             UnPackeUtil.unPackZip(file, packParam.getPassword(), packParam.getDestPath());
         } else {
-            //rar压缩包
+            // rar压缩包
             try {
                 UnPackeUtil.unPackRar(file, packParam.getDestPath());
             } catch (Exception e) {

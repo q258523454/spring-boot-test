@@ -9,7 +9,10 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        ID, NAME, NAME2, AGE
+        ID,
+        NAME,
+        NAME2,
+        AGE
     </sql>
 
     <select id="getMaxId" resultType="Long">
@@ -43,11 +46,11 @@
 
     <insert id="insert" parameterType="com.oracle.vs.mybatis.entity.Student">
         INSERT INTO STUDENT(ID,
-                            NAME,
-                            AGE)
+        NAME,
+        AGE)
         VALUES (#{id,jdbcType=NUMERIC},
-                #{name,jdbcType=VARCHAR},
-                #{age,jdbcType=DECIMAL})
+        #{name,jdbcType=VARCHAR},
+        #{age,jdbcType=DECIMAL})
     </insert>
 
     <insert id="insertListBatch">
@@ -84,7 +87,7 @@
     <update id="update" parameterType="com.oracle.vs.mybatis.entity.Student">
         update STUDENT
         set NAME='update',
-            AGE='18'
+        AGE='18'
         where ID = #{id}
     </update>
 

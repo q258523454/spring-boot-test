@@ -1,6 +1,7 @@
 package com.order.config;
 
 import com.order.entity.AutoConfigOrderBean;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;

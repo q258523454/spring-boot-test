@@ -1,9 +1,11 @@
 package com.sec.dao;
-import org.apache.ibatis.annotations.Param;
-import java.util.List;
 
 import com.sec.pojo.entity.User;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface UserMapper {
@@ -15,7 +17,7 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    int insertList(@Param("list")List<User> list);
+    int insertList(@Param("list") List<User> list);
 
 
 }

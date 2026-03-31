@@ -2,6 +2,7 @@ package com.filtertest.entity;
 
 
 import javax.validation.constraints.Min;
+
 import java.util.Date;
 
 /**

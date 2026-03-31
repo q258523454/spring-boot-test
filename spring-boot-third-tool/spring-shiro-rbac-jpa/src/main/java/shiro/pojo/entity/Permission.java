@@ -16,11 +16,11 @@ import javax.persistence.*;
 @Table(name = "system_shiro_permission")
 public class Permission extends BaseEntity {
     @Column(unique = true)
-    private String name;                //权限名 唯一
+    private String name;                // 权限名 唯一
 
     @Column(unique = true)
-    private String url;                 //访问地址信息 唯一
+    private String url;                 // 访问地址信息 唯一
 
-    private String description;         //描述信息
+    private String description;         // 描述信息
 
 }

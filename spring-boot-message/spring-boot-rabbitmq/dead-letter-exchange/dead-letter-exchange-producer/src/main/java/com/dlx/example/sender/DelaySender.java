@@ -1,7 +1,9 @@
 package com.dlx.example.sender;
 
 import com.dlx.example.config.DelayRmqConfig;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,5 @@
 package com.shardinginline.dao;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -23,6 +24,6 @@ public interface StudentPlusMapper extends BaseMapper<Student> {
      */
     List<Student> selectAll();
 
-    int insertList(@Param("list")List<Student> list);
+    int insertList(@Param("list") List<Student> list);
 
 }

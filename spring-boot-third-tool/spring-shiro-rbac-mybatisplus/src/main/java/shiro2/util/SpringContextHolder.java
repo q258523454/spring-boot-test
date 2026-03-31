@@ -1,4 +1,3 @@
-
 package shiro2.util;
 
 import org.slf4j.Logger;

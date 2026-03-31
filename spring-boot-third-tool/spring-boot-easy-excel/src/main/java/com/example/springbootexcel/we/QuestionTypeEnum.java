@@ -1,4 +1,3 @@
-
 package com.example.springbootexcel.we;
 
 import lombok.Getter;
@@ -143,8 +142,7 @@ public enum QuestionTypeEnum {
     /**
      * 健康码
      */
-    HEALTH_CODE("ocrIdentify-healthcode")
-    ;
+    HEALTH_CODE("ocrIdentify-healthcode");
 
     private final String questionType;
 

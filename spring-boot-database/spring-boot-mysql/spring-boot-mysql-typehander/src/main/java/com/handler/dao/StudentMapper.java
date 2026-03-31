@@ -1,8 +1,8 @@
 package com.handler.dao;
-import org.apache.ibatis.annotations.Param;
-
 
 import com.handler.entity.Student;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public interface StudentMapper {
 
     List<Student> selectAll();
 
-    int updateByName(@Param("updated")Student updated,@Param("name")String name);
+    int updateByName(@Param("updated") Student updated, @Param("name") String name);
 
 
 }

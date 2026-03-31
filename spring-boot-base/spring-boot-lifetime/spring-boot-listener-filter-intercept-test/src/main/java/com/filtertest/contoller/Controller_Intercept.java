@@ -18,7 +18,7 @@ public class Controller_Intercept {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping(value = "/intercept", method = RequestMethod.GET)
-    public String intercept() throws Exception{
+    public String intercept() throws Exception {
         log.info("intercept success");
         return "intercept success";
     }

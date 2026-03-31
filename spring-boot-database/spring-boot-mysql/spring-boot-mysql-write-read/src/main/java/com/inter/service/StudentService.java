@@ -8,7 +8,7 @@ import java.util.List;
 public interface StudentService {
     public Integer selectAllCount();
 
-    //public Page<Student> selectAllStudent();
+    // public Page<Student> selectAllStudent();
 
     public List<Student> selectAllStudent();
 

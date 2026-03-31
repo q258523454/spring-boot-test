@@ -2,11 +2,13 @@ package com.apache.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.apache.util.HttpUtilServiceImpl;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.io.BufferedReader;
 
 @RestController
@@ -54,7 +56,7 @@ public class MyController {
         logger.info("HttpServletRequest Get Param is :" + "a=" + a + ",b=" + b);
         logger.info("HttpServletRequest Get Param is :" + results);
 
-        //System.out.println(postData);
+        // System.out.println(postData);
         // 返回到post客户端(这里是本机服务器)的数据, 客户端用connection.getInputStream()获取
         return results;
     }

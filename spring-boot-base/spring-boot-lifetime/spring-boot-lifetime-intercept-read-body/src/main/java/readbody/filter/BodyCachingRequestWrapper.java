@@ -1,6 +1,6 @@
 package readbody.filter;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import org.apache.commons.io.IOUtils;
 
@@ -8,6 +8,7 @@ import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -15,13 +16,13 @@ import java.io.InputStreamReader;
 
 /**
  * @Description 解决 ServletRequest 读取body只能读取一次的问题(Dehghani 认为效率问题值得考虑)
- *              如果不需要使用拦截器获取body,可以使用 RequestBodyAdvice/ResponseBodyAdvice 统一处理
- *              注意：这里只是将Body做缓存, 然后使用 getBody()获取副本. getInputStream() 仍然只能读取一次
- *              其他：
- *              ServletRequest 的 getInputStream(),getReader()默认只能使用一次
- *              该方法与 spring自带的 ContentCachingRequestWrapper 方法区别:
- *              1.ContentCachingRequestWrapper 后面每次使用需要显示的指定:contentCachingRequestWrapper.getContentAsByteArray()
- *              2.ContentCachingRequestWrapper 无法在filterChain.doFilter之前获取Body,否则后面报错
+ * 如果不需要使用拦截器获取body,可以使用 RequestBodyAdvice/ResponseBodyAdvice 统一处理
+ * 注意：这里只是将Body做缓存, 然后使用 getBody()获取副本. getInputStream() 仍然只能读取一次
+ * 其他：
+ * ServletRequest 的 getInputStream(),getReader()默认只能使用一次
+ * 该方法与 spring自带的 ContentCachingRequestWrapper 方法区别:
+ * 1.ContentCachingRequestWrapper 后面每次使用需要显示的指定:contentCachingRequestWrapper.getContentAsByteArray()
+ * 2.ContentCachingRequestWrapper 无法在filterChain.doFilter之前获取Body,否则后面报错
  * @date 2020-05-14 10:23
  * @modify
  */

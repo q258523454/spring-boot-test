@@ -25,8 +25,8 @@ public class Controller_Wrapper_Update {
      * 不存在的id, 不会更新, 也不会报错;
      * 只更新输入不为null的字段, 不传的字段不更新—— updateSelective
      * 注意：
-     *      1.基本类型数据(传null)会更新成默认值
-     *      2.updateTime(ON UPDATE CURRENT_TIMESTAMP) 如果传入不为null，则优先使用传入值
+     * 1.基本类型数据(传null)会更新成默认值
+     * 2.updateTime(ON UPDATE CURRENT_TIMESTAMP) 如果传入不为null，则优先使用传入值
      */
     @GetMapping(value = "/mybatis/plus/update/batch")
     public String updateBatch1() {

@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.producer.config.ProducerConfig;
 import com.producer.constant.Constants;
 import com.producer.sender.OrderSender;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -49,7 +50,7 @@ public class TrySendTask {
                 brokerMessageLog.setUpdateTime(LocalDateTime.now());
                 brokerMessageLogMapper.updateByPrimaryKeySelective(brokerMessageLog);
                 try {
-                    //重新投递信息
+                    // 重新投递信息
                     orderSender.send(JSONObject.parseObject(brokerMessageLog.getMessage(), Order.class), ProducerConfig.TOPIC_QUEUE_ROUTE_KEY);
                 } catch (Exception e) {
                     e.printStackTrace();

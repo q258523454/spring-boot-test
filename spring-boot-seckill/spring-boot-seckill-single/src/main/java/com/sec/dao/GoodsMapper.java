@@ -1,6 +1,7 @@
 package com.sec.dao;
 
 import com.sec.pojo.entity.Goods;
+
 import org.springframework.stereotype.Repository;
 
 

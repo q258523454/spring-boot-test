@@ -1,34 +1,53 @@
-## 介绍  
- 这是一款专门针对Java开发的SDK；涵盖了几乎所有加解密算法，包括：AES、DES、RSA、国密算法；  
- 让Spring加解密更方便，同样适用于上云应用
- 功能一：单独作为工具类使用：简化版本AES、RSA、国密算法 工具类；对国密算法二次封装，使用简单方便  
- 功能二：作为Spring Starter；通过配置或注解的方式，直接对spring controller层加解密；自动装配，插拔开关，对代码零侵入  
- 开启该功能后，无需记忆配置名，会自动提示所有配置属性，简单方便；
+## 介绍
+
+这是一款专门针对Java开发的SDK；涵盖了几乎所有加解密算法，包括：AES、DES、RSA、国密算法；  
+让Spring加解密更方便，同样适用于上云应用
+功能一：单独作为工具类使用：简化版本AES、RSA、国密算法 工具类；对国密算法二次封装，使用简单方便  
+功能二：作为Spring Starter；通过配置或注解的方式，直接对spring controller层加解密；自动装配，插拔开关，对代码零侵入  
+开启该功能后，无需记忆配置名，会自动提示所有配置属性，简单方便；
 ------------  
 
-按Java常用处理，密钥、公钥、私钥、密文、签名 全部用BASE64转码 
+按Java常用处理，密钥、公钥、私钥、密文、签名 全部用BASE64转码
 
 ------------
-  
-## 加密解密支持  
+
+## 加密解密支持
+
 - 可进行加密的方式有：
-    - - [x] MD5
-    - - [x] SHA
-    - - [x] AES
-    - - [x] DES
-    - - [x] RSA 
-    - - [ ] 国密算法SM2 (非对称算法)
-    - - [ ] 国密算法SM3 (摘要算法)
-    - - [ ] 国密算法SM4 (对称算法+摘要算法)
+  -
+        - [x] MD5
+    -
+        - [x] SHA
+    -
+        - [x] AES
+    -
+        - [x] DES
+    -
+        - [x] RSA
+    -
+        - [ ] 国密算法SM2 (非对称算法)
+    -
+        - [ ] 国密算法SM3 (摘要算法)
+    -
+        - [ ] 国密算法SM4 (对称算法+摘要算法)
 - 可进行解密的方式有：
-    - - [x] AES
-    - - [x] DES
-    - - [x] RSA 
-    - - [ ] 国密算法SM2 (非对称算法)
-    - - [ ] 国密算法SM4 (对称算法)
+  -
+        - [x] AES
+    -
+        - [x] DES
+    -
+        - [x] RSA
+    -
+        - [ ] 国密算法SM2 (非对称算法)
+    -
+        - [ ] 国密算法SM4 (对称算法)
+
 ## 使用方法
+
 #### 第一步:引入依赖
+
 - 在`pom.xml`中引入依赖：
+
 ```xml
    <dependency>
         <groupId>LJ08</groupId>
@@ -38,7 +57,9 @@
 ```
 
 #### 第二步:参数配置
+
 在项目的`application.yml`或`application.properties`文件中进行参数配置，例如：
+
 ```yaml
 # starter注解, 会自动提示
 lj08:
@@ -79,14 +100,18 @@ lj08:
 ```
 
 #### 第三步:对控制器响应体进行加解密
+
 ##### 静态工具类使用
+
 ```
 com.zhang.encryptbody.util.AESUtil
 com.zhang.encryptbody.util.DESUtil
 com.zhang.encryptbody.util.DigestUtil
 com.zhang.encryptbody.util.RSAUtil
 ```
+
 ##### 启动类使用-AES
+
 ```java
 /**
  * @author zj
@@ -140,7 +165,9 @@ public class AESController {
     }
 }
 ```
+
 ##### 启动类使用-DES
+
 ```java
 /**
  * @author zj
@@ -167,7 +194,9 @@ public class RSAController {
     }
 }
 ```
+
 ##### 启动类使用-摘要算法(MD5,SHA)
+
 ```java
 @RestController
 public class MD5Controller {

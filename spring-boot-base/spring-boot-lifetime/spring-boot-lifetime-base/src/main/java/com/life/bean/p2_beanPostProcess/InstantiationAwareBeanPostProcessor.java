@@ -1,6 +1,7 @@
 package com.life.bean.p2_beanPostProcess;
 
 import com.life.entity.Person;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;

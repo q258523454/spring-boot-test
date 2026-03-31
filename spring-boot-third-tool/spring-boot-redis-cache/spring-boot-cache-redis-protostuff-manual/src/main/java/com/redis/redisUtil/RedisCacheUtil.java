@@ -50,7 +50,7 @@ public class RedisCacheUtil extends RedisBaseUtil {
     public static <T> boolean putCacheProWithExpireTime(String key, T obj, final long expireTime) {
         final byte[] bkey = key.getBytes();
         final byte[] bvalue = ProtoStuffUtil.serialize(obj);
-        boolean result =getRedisTemplate().execute(new RedisCallback<Boolean>() {
+        boolean result = getRedisTemplate().execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
                 return connection.setEx(bkey, expireTime, bvalue);

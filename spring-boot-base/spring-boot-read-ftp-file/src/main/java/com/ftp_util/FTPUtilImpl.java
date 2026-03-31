@@ -99,9 +99,9 @@ public class FTPUtilImpl implements FTPUtil {
         try {
             // 切换目录
             ftpClient.changeWorkingDirectory(new String(filePath.getBytes("UTF-8"), "ISO-8859-1"));
-            //设置FTP连接模式
+            // 设置FTP连接模式
             ftpClient.enterLocalPassiveMode();
-            //获取指定目录下文件文件对象集合
+            // 获取指定目录下文件文件对象集合
             FTPFile files[] = ftpClient.listFiles();
             InputStream in = null;
             BufferedReader reader = null;
@@ -119,9 +119,9 @@ public class FTPUtilImpl implements FTPUtil {
                 if (in != null) {
                     in.close();
                 }
-                //ftpClient.retrieveFileStream使用了流，需要释放一下，不然会返回空指针
+                // ftpClient.retrieveFileStream使用了流，需要释放一下，不然会返回空指针
                 ftpClient.completePendingCommand();
-                //这里就把一个txt文件完整解析成了个字符串，就可以调用实际需要操作的方法
+                // 这里就把一个txt文件完整解析成了个字符串，就可以调用实际需要操作的方法
                 System.out.println(buffer.toString());
                 return true;
             }
@@ -144,14 +144,14 @@ public class FTPUtilImpl implements FTPUtil {
         boolean flag = false;
         try {
             ftpClient.changeWorkingDirectory(new String(folderPath.getBytes("UTF-8"), "ISO-8859-1"));
-            //设置FTP连接模式
+            // 设置FTP连接模式
             ftpClient.enterLocalPassiveMode();
-            //获取指定目录下文件文件对象集合
+            // 获取指定目录下文件文件对象集合
             FTPFile files[] = ftpClient.listFiles();
             InputStream in = null;
             BufferedReader reader = null;
             for (FTPFile file : files) {
-                //判断为txt文件则解析
+                // 判断为txt文件则解析
                 if (file.isFile()) {
                     String fileName = file.getName();
                     if (fileName.endsWith(".txt")) {
@@ -168,13 +168,13 @@ public class FTPUtilImpl implements FTPUtil {
                         if (in != null) {
                             in.close();
                         }
-                        //ftpClient.retrieveFileStream使用了流，需要释放一下，不然会返回空指针
+                        // ftpClient.retrieveFileStream使用了流，需要释放一下，不然会返回空指针
                         ftpClient.completePendingCommand();
-                        //这里就把一个txt文件完整解析成了个字符串，就可以调用实际需要操作的方法
+                        // 这里就把一个txt文件完整解析成了个字符串，就可以调用实际需要操作的方法
                         System.out.println(buffer.toString());
                     }
                 }
-                //判断为文件夹，递归
+                // 判断为文件夹，递归
                 if (file.isDirectory()) {
                     String path = folderPath + File.separator + file.getName();
                     readTxtFileByFolder(ftpClient, path);
@@ -198,7 +198,7 @@ public class FTPUtilImpl implements FTPUtil {
      */
     @Override
     public boolean downLoadFTP(FTPClient ftpClient, String filePath, String fileName,
-                               String downPath) {
+            String downPath) {
         // 默认失败
         boolean flag = false;
 
@@ -250,16 +250,16 @@ public class FTPUtilImpl implements FTPUtil {
         try {
             // 设置PassiveMode传输
             ftpClient.enterLocalPassiveMode();
-            //设置二进制传输，使用BINARY_FILE_TYPE，ASC容易造成文件损坏
+            // 设置二进制传输，使用BINARY_FILE_TYPE，ASC容易造成文件损坏
             ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
-            //判断FPT目标文件夹时候存在不存在则创建
+            // 判断FPT目标文件夹时候存在不存在则创建
             if (!ftpClient.changeWorkingDirectory(ftpPath)) {
                 ftpClient.makeDirectory(ftpPath);
             }
-            //跳转目标目录
+            // 跳转目标目录
             ftpClient.changeWorkingDirectory(ftpPath);
 
-            //上传文件
+            // 上传文件
             File file = new File(localFilePath);
             in = new FileInputStream(file);
             String tempName = ftpPath + File.separator + file.getName();
@@ -299,7 +299,7 @@ public class FTPUtilImpl implements FTPUtil {
         try {
             // 跳转到文件目录
             ftpClient.changeWorkingDirectory(olePath);
-            //设置连接模式，不设置会获取为空
+            // 设置连接模式，不设置会获取为空
             ftpClient.enterLocalPassiveMode();
             // 获取目录下文件集合
             FTPFile[] files = ftpClient.listFiles();
@@ -309,14 +309,14 @@ public class FTPUtilImpl implements FTPUtil {
                 // 取得指定文件并下载
                 if (file.getName().equals(fileName)) {
 
-                    //读取文件，使用下载文件的方法把文件写入内存,绑定到out流上
+                    // 读取文件，使用下载文件的方法把文件写入内存,绑定到out流上
                     out = new ByteArrayOutputStream();
                     ftpClient.retrieveFile(new String(file.getName().getBytes("UTF-8"), "ISO-8859-1"), out);
                     in = new ByteArrayInputStream(out.toByteArray());
-                    //创建新目录
+                    // 创建新目录
                     ftpClient.makeDirectory(newPath);
-                    //文件复制，先读，再写
-                    //二进制
+                    // 文件复制，先读，再写
+                    // 二进制
                     ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
                     flag = ftpClient.storeFile(newPath + File.separator + (new String(file.getName().getBytes("UTF-8"), "ISO-8859-1")), in);
                     out.flush();
@@ -393,18 +393,18 @@ public class FTPUtilImpl implements FTPUtil {
             ftpClient.enterLocalPassiveMode();
             FTPFile[] files = ftpClient.listFiles();
             for (FTPFile file : files) {
-                //判断为文件则删除
+                // 判断为文件则删除
                 if (file.isFile()) {
                     ftpClient.deleteFile(new String(file.getName().getBytes("UTF-8"), "ISO-8859-1"));
                 }
-                //判断是文件夹
+                // 判断是文件夹
                 if (file.isDirectory()) {
                     String childPath = FtpFolder + File.separator + file.getName();
-                    //递归删除子文件夹
+                    // 递归删除子文件夹
                     deleteByFolder(ftpClient, childPath);
                 }
             }
-            //循环完成后删除文件夹
+            // 循环完成后删除文件夹
             flag = ftpClient.removeDirectory(new String(FtpFolder.getBytes("UTF-8"), "ISO-8859-1"));
             if (flag) {
                 log.info(FtpFolder + "文件夹删除成功");

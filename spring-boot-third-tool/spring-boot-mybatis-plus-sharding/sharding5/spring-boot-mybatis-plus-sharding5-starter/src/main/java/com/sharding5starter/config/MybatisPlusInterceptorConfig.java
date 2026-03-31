@@ -1,4 +1,3 @@
-
 package com.sharding5starter.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;

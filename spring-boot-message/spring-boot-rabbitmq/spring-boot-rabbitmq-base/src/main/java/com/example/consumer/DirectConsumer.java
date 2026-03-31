@@ -4,7 +4,9 @@ import com.example.config.DirectConfig;
 import com.example.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -33,7 +35,7 @@ public class DirectConsumer {
      * 如果channel.basicNack(8, false, false);表示deliveryTag=8的消息处理失败且将该消息直接丢弃。
      */
 
-    //queues是指要监听的队列名字
+    // queues是指要监听的队列名字
     @RabbitListener(queues = DirectConfig.QUEUE_DIRECT)
     public void receiverDirectQueue(String str, Message message, Channel channel) throws IOException {
         // Json反序列化

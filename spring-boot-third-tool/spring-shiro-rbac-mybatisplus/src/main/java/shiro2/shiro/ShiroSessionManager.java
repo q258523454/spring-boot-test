@@ -1,10 +1,9 @@
 package shiro2.shiro;
 
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 import shiro2.config.ShiroRedisConfig;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.apache.shiro.web.util.WebUtils;
@@ -12,8 +11,6 @@ import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 
 /**
  * 自定义获取Token
@@ -27,6 +24,7 @@ public class ShiroSessionManager extends DefaultWebSessionManager {
         super();
         this.setDeleteInvalidSessions(true);
     }
+
 
     /**
      * 重写方法实现从请求头获取Token便于接口统一

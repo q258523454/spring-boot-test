@@ -14,10 +14,12 @@
     <!-- 当register="false" [消费者]的注册中心地址是否有效都不会被检测,一般用于直连的时候 -->
     <!-- 注意：不是本地直连,正常使用时候全部改为register="true" 且去掉 url="dubbo://localhost:28080"-->
     <dubbo:registry id="consumer1" address="${this.dubbo.zk.server1}" register="true"/>
-	<dubbo:registry id="consumer2" address="${this.dubbo.zk.server2}" register="true"/>
-	<dubbo:registry id="consumer3" address="${this.dubbo.zk.server3}" register="true"/>
+    <dubbo:registry id="consumer2" address="${this.dubbo.zk.server2}" register="true"/>
+    <dubbo:registry id="consumer3" address="${this.dubbo.zk.server3}" register="true"/>
 
-	<!-- 通过registry指定注册中心, 不指定则默认全部. eg:registry="consumer1,consumer2" -->
+    <!-- 通过registry指定注册中心, 不指定则默认全部. eg:registry="consumer1,consumer2" -->
     <!-- 如果dubbo:regester="false"走直连, 添加：url="dubbo://localhost:28080"-->
-	<dubbo:reference url="dubbo://localhost:28080" id="Consume.BasicService" interface="com.share.service.IDubboPrintService" filter="dubboFilter" check="false" timeout="60000" retries="2"/>
+    <dubbo:reference url="dubbo://localhost:28080" id="Consume.BasicService"
+                     interface="com.share.service.IDubboPrintService" filter="dubboFilter" check="false" timeout="60000"
+                     retries="2"/>
 </beans>

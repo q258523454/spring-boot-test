@@ -2,15 +2,18 @@ package com.dlx.example.config;
 
 import com.alibaba.fastjson.JSON;
 import com.dlx.example.config.dead.DeadRmqConfig;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
 import java.util.Map;
 

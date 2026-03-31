@@ -1,4 +1,3 @@
-
 package redisson.config;
 
 import lombok.Data;

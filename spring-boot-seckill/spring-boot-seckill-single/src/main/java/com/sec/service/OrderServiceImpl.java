@@ -1,11 +1,14 @@
 package com.sec.service;
-import java.util.List;
+
+import com.sec.dao.OrderMapper;
+import com.sec.pojo.entity.Order;
+import com.sec.service.impl.OrderService;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 import javax.annotation.Resource;
-import com.sec.pojo.entity.Order;
-import com.sec.dao.OrderMapper;
-import com.sec.service.impl.OrderService;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -33,11 +36,10 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.updateByPrimaryKey(record);
     }
 
-	@Override
-	public List<Order> selectByUserIdAndSkGoodsId(Long userId,Long skGoodsId){
-		 return orderMapper.selectByUserIdAndSkGoodsId(userId,skGoodsId);
-	}
-
+    @Override
+    public List<Order> selectByUserIdAndSkGoodsId(Long userId, Long skGoodsId) {
+        return orderMapper.selectByUserIdAndSkGoodsId(userId, skGoodsId);
+    }
 
 
 }

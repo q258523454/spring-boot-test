@@ -1,6 +1,7 @@
 package com.ftp_util;
 
 import com.alibaba.fastjson.JSON;
+
 import org.apache.commons.net.ftp.FTPClient;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class Test {
         // 测试: 解析文件夹下所有txt文件
 //        test.readTxtFileByFolder(ftpClient, ftpPath);
 
-        List<String> fileLists= test.getFolderFileLists(ftpClient, ftpPath);
+        List<String> fileLists = test.getFolderFileLists(ftpClient, ftpPath);
         System.out.println(JSON.toJSONString(fileLists));
 
         test.readTxtFile(ftpClient, ftpPath, txtFileName);

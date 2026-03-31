@@ -2,6 +2,7 @@ package com.zhang.encryptbody.util;
 
 import com.zhang.encryptbody.enums.ModeEnum;
 import com.zhang.encryptbody.enums.PaddingEnum;
+
 import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
@@ -9,6 +10,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -32,7 +34,8 @@ public enum DESUtil {
      * 数据块: 默认16字节(128位)
      * 加解密串编码: Base64 (相当于2次加密)
      * 字符集: utf-8
-     * @param data 目标字符串
+     *
+     * @param data   目标字符串
      * @param desKey 密钥/加密盐值
      */
     public static String encrypt(byte[] data, String desKey) {
@@ -42,11 +45,12 @@ public enum DESUtil {
 
     /**
      * DES 加密
-     * @param data 目标字符串
-     * @param desKey 密钥
-     * @param mode 算法模式
+     *
+     * @param data    目标字符串
+     * @param desKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param iv  盐值偏移量 ECB模式无需iv
+     * @param iv      盐值偏移量 ECB模式无需iv
      */
     public static String encrypt(byte[] data, String desKey, String mode, String padding, IvParameterSpec iv) {
         try {
@@ -64,16 +68,17 @@ public enum DESUtil {
 
     /**
      * DES 加密
-     * @param data 目标字符串
-     * @param desKey 密钥
-     * @param mode 算法模式
+     *
+     * @param data    目标字符串
+     * @param desKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param salt  IvParameterSpec-盐值,ECB模式无需iv
-     * @param offset IvParameterSpec-偏移量,ECB模式无需iv
-     * @param len   IvParameterSpec-从偏移量开始,取字节数目大小,ECB模式无需iv
+     * @param salt    IvParameterSpec-盐值,ECB模式无需iv
+     * @param offset  IvParameterSpec-偏移量,ECB模式无需iv
+     * @param len     IvParameterSpec-从偏移量开始,取字节数目大小,ECB模式无需iv
      */
     public static String encrypt(byte[] data, String desKey, String mode, String padding,
-                                 byte[] salt, int offset, int len) {
+            byte[] salt, int offset, int len) {
         try {
             // "算法/模式/补码方式"
             // eg: method="DES/ECB/PKCS5Padding"
@@ -92,7 +97,8 @@ public enum DESUtil {
 
     /**
      * DES解密, 默认 DES/ECB/PKCS5Padding
-     * @param src 待处理BASE64字符串
+     *
+     * @param src    待处理BASE64字符串
      * @param desKey 解密密钥
      */
     public static String decrypt(String src, String desKey) {
@@ -102,11 +108,12 @@ public enum DESUtil {
 
     /**
      * DES-解密
-     * @param src 待处理BASE64字符串
-     * @param desKey 密钥
-     * @param mode 算法模式
+     *
+     * @param src     待处理BASE64字符串
+     * @param desKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param iv IvParameterSpec ECB模式无需iv
+     * @param iv      IvParameterSpec ECB模式无需iv
      */
     public static String decrypt(String src, String desKey, String mode, String padding, IvParameterSpec iv) {
         String decrypted = "";
@@ -125,16 +132,17 @@ public enum DESUtil {
 
     /**
      * DES-解密
-     * @param src 待处理BASE64字符串
-     * @param desKey 密钥
-     * @param mode 算法模式
+     *
+     * @param src     待处理BASE64字符串
+     * @param desKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param salt  IvParameterSpec-盐值, salt[offset,offset+len],ECB模式无需iv
-     * @param offset IvParameterSpec-偏移量,ECB模式无需iv
-     * @param len   IvParameterSpec-偏移量开始,取字节数目大小,ECB模式无需iv
+     * @param salt    IvParameterSpec-盐值, salt[offset,offset+len],ECB模式无需iv
+     * @param offset  IvParameterSpec-偏移量,ECB模式无需iv
+     * @param len     IvParameterSpec-偏移量开始,取字节数目大小,ECB模式无需iv
      */
     public static String decrypt(String src, String desKey, String mode, String padding,
-                                 byte[] salt, int offset, int len) {
+            byte[] salt, int offset, int len) {
         String decrypted = "";
         try {
             // "算法/模式/补码方式"
@@ -152,6 +160,7 @@ public enum DESUtil {
 
     /**
      * DES 将密钥盐值转换成Key类型
+     *
      * @param desKey 密钥/盐值
      */
     public static Key convertToSecretKey(String desKey) {
@@ -176,7 +185,8 @@ public enum DESUtil {
     /**
      *
      * DES 按指定密钥[数据块长度]生成密钥
-     * @param algorithm 密钥算法
+     *
+     * @param algorithm   密钥算法
      * @param blockLength 可选 56,128,192,256
      */
     public static String genKey(String algorithm, int blockLength) {

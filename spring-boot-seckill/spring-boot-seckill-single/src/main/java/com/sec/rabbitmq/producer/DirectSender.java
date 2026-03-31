@@ -3,7 +3,9 @@ package com.sec.rabbitmq.producer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sec.pojo.dto.SeckillMessage;
 import com.sec.rabbitmq.config.DirectConfig;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,7 +27,7 @@ public class DirectSender {
             return;
         }
 
-        //第一个队列是指发送到哪个队列，第二个是指发送的内容
+        // 第一个队列是指发送到哪个队列，第二个是指发送的内容
         this.amqpTemplate.convertAndSend(DirectConfig.QUEUE_DIRECT, msg);
         log.info("MQ send message:" + msg);
     }

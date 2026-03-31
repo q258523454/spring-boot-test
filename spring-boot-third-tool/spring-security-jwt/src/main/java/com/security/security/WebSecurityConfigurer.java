@@ -3,6 +3,7 @@ package com.security.security;
 import com.security.filter.BasicAuthFilter;
 import com.security.filter.JWTLoginFilter;
 import com.security.filter.LoginAuthenticationProvider;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;

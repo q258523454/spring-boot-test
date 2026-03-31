@@ -16,6 +16,7 @@ public enum HexUtil {
 
     /**
      * 二进位组转十六进制
+     *
      * @param bytes 二进位组
      * @return 十六进制字符串
      */
@@ -24,9 +25,9 @@ public enum HexUtil {
     }
 
     /**
+     * @param bytes 二进位组
      * @Description: 二进位组转十六进制
      * @date 2020/5/25 9:22
-     * @param bytes 二进位组
      */
     private static char[] parseByte2HexChar(byte[] bytes) {
 
@@ -47,10 +48,10 @@ public enum HexUtil {
     }
 
     /**
-     * @Description: 十六进制字符串转二进位组
-     * @date 2020/5/25 9:22
      * @param hexStr 十六进制字符串
      * @return 二进位组
+     * @Description: 十六进制字符串转二进位组
+     * @date 2020/5/25 9:22
      */
     public static byte[] parseHexStr2Byte(String hexStr) {
         int len = hexStr.length();

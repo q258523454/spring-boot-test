@@ -1,6 +1,7 @@
 package com.aop.util;
 
-import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
+import org.springframework.core.StandardReflectionParameterNameDiscoverer;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
@@ -17,7 +18,7 @@ public enum SpelUtils {
 
     private static final ExpressionParser PARSER = new SpelExpressionParser();
 
-    private static final LocalVariableTableParameterNameDiscoverer DISCOVERER = new LocalVariableTableParameterNameDiscoverer();
+    private static final ParameterNameDiscoverer DISCOVERER = new StandardReflectionParameterNameDiscoverer();
 
 
     /**

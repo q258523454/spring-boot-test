@@ -21,6 +21,9 @@ public class WebConfigurer implements WebMvcConfigurer {
     private AllIntercept allIntercept;
 
     @Autowired
+    private LoginIntercept loginIntercept;
+
+    @Autowired
     private MyMethodArgumentResolverResolver myMethodArgumentResolverResolver;
 
     @Bean
@@ -32,7 +35,7 @@ public class WebConfigurer implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加拦截器
         // **表示当前目录以及所有子目录（递归）, /*表示当前目录，不包括子目录
-        registry.addInterceptor(new LoginIntercept()).addPathPatterns("/login/**"); // 拦截intercept及其所有子路由
+        registry.addInterceptor(loginIntercept).addPathPatterns("/login/**"); // 拦截intercept及其所有子路由
         registry.addInterceptor(allIntercept).addPathPatterns("/**");
     }
 

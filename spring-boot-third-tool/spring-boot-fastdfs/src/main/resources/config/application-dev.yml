@@ -1,8 +1,7 @@
-
 server:
- servlet:
-   context-path: /springboot
- port: 8080
+  servlet:
+    context-path: /springboot
+  port: 8080
 
 fastdfs:
   properties:

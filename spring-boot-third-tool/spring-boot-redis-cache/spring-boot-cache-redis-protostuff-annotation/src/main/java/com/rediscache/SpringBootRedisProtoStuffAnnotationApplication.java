@@ -10,8 +10,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class SpringBootRedisProtoStuffAnnotationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRedisProtoStuffAnnotationApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootRedisProtoStuffAnnotationApplication.class, args);
+    }
 
 }

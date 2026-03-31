@@ -1,10 +1,10 @@
 package com.provider.service.impl;
 
 import com.share.service.IDubboPrintService;
+
 import org.apache.dubbo.config.annotation.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 
 // 默认 bean("dubboPrintService")

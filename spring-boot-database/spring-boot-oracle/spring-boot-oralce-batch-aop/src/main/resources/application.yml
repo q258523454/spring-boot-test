@@ -5,8 +5,8 @@ server:
 this.druid.db:
   username: TEST
   password: XXX#123456
-#  username: EA0DB100
-#  password: XXX#123456
+  #  username: EA0DB100
+  #  password: XXX#123456
   url: jdbc:oracle:thin:@//localhost:1521/EA0DB100
 #  url: jdbc:oracle:thin:@(DESCRIPTION_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(DESCRIPTION=(ENABLE=BROKEN)(CONNECT_TIMEOUT=3)(TRANSPORT_CONNECT_TIMEOUT=2)(RETRY_COUNT=2)(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=55.xx.xx.175)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=EA0DB100))))
 # -------------------- 数据库变量 END --------------------

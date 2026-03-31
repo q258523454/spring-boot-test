@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,9 +51,9 @@ public class ShiroConfig {
     private Map<String, String> setFilterChainDefinitionMap() {
         Map<String, String> filterMap = new LinkedHashMap<>();
         // 注册 数据库中所有的权限 及其对应url
-        List<Permission> allPermission = permissionRepository.findAll();//数据库中查询所有权限
+        List<Permission> allPermission = permissionRepository.findAll();// 数据库中查询所有权限
         for (Permission p : allPermission) {
-            filterMap.put(p.getUrl(), "perms[" + p.getName() + "]");    //拦截器中注册所有的权限
+            filterMap.put(p.getUrl(), "perms[" + p.getName() + "]");    // 拦截器中注册所有的权限
         }
         // anon: 无需认证即可访问
         // authc: 需要认证才可访问
@@ -99,8 +100,8 @@ public class ShiroConfig {
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");   //散列算法:这里使用MD5算法
-        hashedCredentialsMatcher.setHashIterations(1024); //散列的次数，比如散列两次，相当于 md5(md5(""))
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");   // 散列算法:这里使用MD5算法
+        hashedCredentialsMatcher.setHashIterations(1024); // 散列的次数，比如散列两次，相当于 md5(md5(""))
         return hashedCredentialsMatcher;
     }
 }

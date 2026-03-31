@@ -2,6 +2,7 @@ package com.batch.controller.afftect_rows;
 
 import com.batch.entity.Student;
 import com.batch.service.IOracleStudentService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,9 +67,9 @@ public class T1_Single_AffectRows {
      * mybatis delete:
      * 1.返回类型一般写 int
      * 2.删除成功: =1
-     *   删除失败:
-     *      无数据删除: =0
-     *      删除异常: 抛异常
+     * 删除失败:
+     * 无数据删除: =0
+     * 删除异常: 抛异常
      */
     @GetMapping(value = "/student/delete")
     public String delete(Integer id) {
@@ -84,9 +85,9 @@ public class T1_Single_AffectRows {
      * mybatis update:
      * 1.返回类型一般写 int
      * 2.修改成功: =1
-     *   修改失败:
-     *      无数据修改: =0
-     *      修改异常: 抛异常
+     * 修改失败:
+     * 无数据修改: =0
+     * 修改异常: 抛异常
      */
     @GetMapping(value = "/student/update")
     public String update(Integer id) {

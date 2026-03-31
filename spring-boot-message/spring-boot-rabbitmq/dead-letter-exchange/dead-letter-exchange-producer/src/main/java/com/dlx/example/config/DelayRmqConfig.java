@@ -2,8 +2,10 @@ package com.dlx.example.config;
 
 import com.alibaba.fastjson.JSON;
 import com.dlx.example.config.dead.DeadRmqConfig;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,7 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,7 +92,7 @@ public class DelayRmqConfig {
         // reject-publish: 当队列消息满了时,拒绝后续消息(注意是直接reject,不会再转到死信DLX).
         args.put("x-overflow", "reject-publish");
 
-        //new Queue(TOPIC_QUEUE)默认参数: durable:true, exclusive:false, autoDelete:false
+        // new Queue(TOPIC_QUEUE)默认参数: durable:true, exclusive:false, autoDelete:false
         return new Queue(delayQueueName, true, false, false, args);
     }
 
@@ -98,10 +101,10 @@ public class DelayRmqConfig {
      */
     @Bean
     public Binding delayBinding(@Qualifier("delayExchange") Exchange exchange,
-                                @Qualifier("delayQueue") Queue queue) {
+            @Qualifier("delayQueue") Queue queue) {
         return BindingBuilder.bind(queue).to(exchange).with(delayRouteKey).noargs();
         // 或者直接调用方法
-        //return BindingBuilder.bind(delayQueue()).to(delayExchange()).with(delayRouteKey).noargs();
+        // return BindingBuilder.bind(delayQueue()).to(delayExchange()).with(delayRouteKey).noargs();
     }
 
 }

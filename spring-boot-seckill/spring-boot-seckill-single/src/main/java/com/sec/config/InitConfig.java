@@ -5,13 +5,14 @@ import com.sec.pojo.entity.GoodsSeckill;
 import com.sec.redis.GoodsKey;
 import com.sec.service.impl.GoodsSeckillService;
 import com.sec.util.RedisUtil;
+
+import jakarta.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
 

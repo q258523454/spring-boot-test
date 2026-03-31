@@ -1,4 +1,3 @@
-
 package com.redis.entity;
 
 import lombok.Data;

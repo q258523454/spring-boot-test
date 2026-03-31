@@ -2,6 +2,7 @@ package shiro.pojo.vo;
 
 
 /**
+ *
  */
 public class Resp {
     private String message;

@@ -21,15 +21,15 @@
     <insert id="insert" parameterType="shiro2.pojo.entity.ExamRole">
         <!--@mbg.generated-->
         insert into exam_role (Id, role_name, is_enable,
-                               created_at, updated_at)
+        created_at, updated_at)
         values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{isEnable,jdbcType=BOOLEAN},
-                #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+        #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
     </insert>
 
     <select id="selectRoleByUserId" resultType="shiro2.pojo.entity.ExamRole">
         SELECT t1.*
         FROM exam_role t1
-                 LEFT JOIN exam_user_role t2 ON t1.id = t2.role_id
+        LEFT JOIN exam_user_role t2 ON t1.id = t2.role_id
         WHERE user_id = #{userId}
     </select>
 </mapper>

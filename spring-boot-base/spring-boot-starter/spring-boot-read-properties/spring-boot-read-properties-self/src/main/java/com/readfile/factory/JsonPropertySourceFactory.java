@@ -1,6 +1,7 @@
 package com.readfile.factory;
 
 import com.readfile.loader.JsonPropertySourceLoader;
+
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.support.EncodedResource;
 import org.springframework.core.io.support.PropertySourceFactory;

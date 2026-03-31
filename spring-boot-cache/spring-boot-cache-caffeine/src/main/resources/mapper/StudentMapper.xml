@@ -7,7 +7,9 @@
         <result column="age" jdbcType="INTEGER" property="age"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, name, age
+        id,
+        name,
+        age
     </sql>
 
     <insert id="insertStudent" parameterType="com.entity.Student" useGeneratedKeys="true" keyColumn="id"
@@ -24,8 +26,8 @@
     <update id="updateStudent" parameterType="com.entity.Student">
         UPDATE student
         SET
-          name=#{name},
-          age=#{age}
+        name=#{name},
+        age=#{age}
         WHERE id=#{id}
     </update>
 

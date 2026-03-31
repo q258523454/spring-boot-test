@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.jvm.entity.TestJVM_Char;
 import com.jvm.entity.TestJVM_Int;
 import com.jvm.entity.TestJVM_Long;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +21,10 @@ public class ControllerJvmTest {
     public static Long a = 0L;
 
     /**
-     *  name    java理论字节    VisualVm显示字节
-     *  char        2               18 (对象头[16]+char[2])
-     *  int         4               20 (对象头[16]+ int[4])
-     *  long        8               24 (对象头[16]+long[8])
+     * name    java理论字节    VisualVm显示字节
+     * char        2               18 (对象头[16]+char[2])
+     * int         4               20 (对象头[16]+ int[4])
+     * long        8               24 (对象头[16]+long[8])
      */
 
     @GetMapping("/char")

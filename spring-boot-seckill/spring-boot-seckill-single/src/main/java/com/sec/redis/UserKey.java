@@ -1,6 +1,7 @@
 package com.sec.redis;
 
 import com.sec.redis.abstracts.AbstractRedisKey;
+
 import lombok.extern.slf4j.Slf4j;
 
 /**

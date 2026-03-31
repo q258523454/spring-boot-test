@@ -18,13 +18,13 @@ public class StudentServiceTransaction {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public void insertAllNoTrans(List<Student> list1,List<Student> list2) {
+    public void insertAllNoTrans(List<Student> list1, List<Student> list2) {
         mongoTemplate.insertAll(list1);
         throw new RuntimeException("error");
     }
 
     @Transactional
-    public void insertAllTrans(List<Student> list1,List<Student> list2) {
+    public void insertAllTrans(List<Student> list1, List<Student> list2) {
         mongoTemplate.insertAll(list1);
         throw new RuntimeException("error");
     }

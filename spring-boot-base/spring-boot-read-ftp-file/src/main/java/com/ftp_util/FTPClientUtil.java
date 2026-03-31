@@ -59,6 +59,7 @@ public class FTPClientUtil {
 
     /**
      * 检查FTP登录正常状态.
+     *
      * @throws RuntimeException
      */
     public int checkConnect(FTPClient ftpClient) throws RuntimeException {

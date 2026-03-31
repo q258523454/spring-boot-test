@@ -3,19 +3,18 @@ package readbody.intercept;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
 import readbody.filter.BodyCachingRequestWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created By
- *
- * @date :   2018-08-31
- */
+
+@Configuration
 public class TestIntercept implements HandlerInterceptor {
 
     private final Logger logger = LoggerFactory.getLogger(TestIntercept.class);

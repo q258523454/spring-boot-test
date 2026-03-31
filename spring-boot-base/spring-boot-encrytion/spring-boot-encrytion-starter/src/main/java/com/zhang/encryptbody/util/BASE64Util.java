@@ -22,6 +22,7 @@ public class BASE64Util {
 
     /**
      * Decode
+     *
      * @param str BASE64字符串
      * @return the byte 字节
      */
@@ -31,6 +32,7 @@ public class BASE64Util {
 
     /**
      * Encode
+     *
      * @param bytes 输入字节
      * @return BASE64字符串
      */

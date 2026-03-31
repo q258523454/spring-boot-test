@@ -27,18 +27,18 @@
     <insert id="insert" parameterType="shiro2.pojo.entity.ExamPermission">
         <!--@mbg.generated-->
         insert into exam_permission (Id, menu_code, menu_name,
-                                     permission_code, permission_name, required_permission,
-                                     created_at, updated_at)
+        permission_code, permission_name, required_permission,
+        created_at, updated_at)
         values (#{id,jdbcType=INTEGER}, #{menuCode,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR},
-                #{permissionCode,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR},
-                #{requiredPermission,jdbcType=BOOLEAN},
-                #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+        #{permissionCode,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR},
+        #{requiredPermission,jdbcType=BOOLEAN},
+        #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
     </insert>
 
     <select id="selectPermissionByRoleId" resultMap="BaseResultMap" parameterType="shiro2.pojo.entity.ExamPermission">
         SELECT t1.*
         FROM exam_permission t1
-        LEFT JOIN exam_role_permission  t2 ON t1.id=t2.permission_id
+        LEFT JOIN exam_role_permission t2 ON t1.id=t2.permission_id
         WHERE t2.role_id = #{roleId}
     </select>
 </mapper>

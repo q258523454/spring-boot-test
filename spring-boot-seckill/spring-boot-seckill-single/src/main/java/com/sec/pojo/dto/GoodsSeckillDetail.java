@@ -1,6 +1,7 @@
 package com.sec.pojo.dto;
 
 import com.sec.pojo.entity.Goods;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

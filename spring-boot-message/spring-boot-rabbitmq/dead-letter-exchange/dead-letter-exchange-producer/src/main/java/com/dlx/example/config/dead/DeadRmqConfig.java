@@ -2,14 +2,17 @@ package com.dlx.example.config.dead;
 
 
 import com.alibaba.fastjson.JSON;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,6 +60,7 @@ public class DeadRmqConfig {
      * 用户队列的死信消息 路由的队列
      * 用户队列user-queue的死信投递到死信交换机`common-dead-letter-exchange`后再投递到该队列
      * 用这个队列来接收user-queue的死信消息
+     *
      * @return
      */
     @Bean

@@ -2,6 +2,7 @@ package com.jvm.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.jvm.entity.TestJVM_Long;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +15,8 @@ public class ControllerJvm {
     /**
      * 启动时设置
      * vm options:
-     *      -Xms64M -Xmx64M -XX:+PrintGCDetails -XX:SurvivorRatio=8
-     *      -Xms128M -Xmx128M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+     * -Xms64M -Xmx64M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+     * -Xms128M -Xmx128M -XX:+PrintGCDetails -XX:SurvivorRatio=8
      * --------------------- JVM简单解析 ---------------------
      * 堆空间分配情况:
      * 年轻代[1/3]= eden[8/10]、From Survivor[1/10]、To Survivor[1/10]

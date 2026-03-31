@@ -2,6 +2,7 @@ package com.zhang.encryptbody.enums;
 
 /**
  * <p>SHA加密类型</p>
+ *
  * @author zj
  * @date 2020/5/11 14:15
  */

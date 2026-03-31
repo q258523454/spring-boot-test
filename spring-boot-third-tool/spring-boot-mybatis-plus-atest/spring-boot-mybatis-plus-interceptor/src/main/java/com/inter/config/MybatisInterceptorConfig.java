@@ -1,4 +1,3 @@
-
 package com.inter.config;
 
 import com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration;

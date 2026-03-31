@@ -38,7 +38,7 @@ public class Student implements Serializable {
      */
     private int age;
 
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     private Date updateTime;

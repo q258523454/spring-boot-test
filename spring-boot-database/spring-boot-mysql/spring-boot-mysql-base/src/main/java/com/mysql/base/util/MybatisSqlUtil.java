@@ -1,6 +1,7 @@
 package com.mysql.base.util;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.apache.ibatis.binding.MapperMethod;
 import org.apache.ibatis.binding.MapperMethod.MethodSignature;
 import org.apache.ibatis.mapping.BoundSql;
@@ -31,7 +32,7 @@ public class MybatisSqlUtil {
 
         Method sqlMethod = null;
 
-        //find method equals methodName
+        // find method equals methodName
         for (Method method : mapperInterface.getDeclaredMethods()) {
             if (method.getName().equals(methodName)) {
                 sqlMethod = method;

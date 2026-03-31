@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mapstruct.entity.JacksonEntity1;
 import com.mapstruct.entity.JacksonEntity2;
 import com.mapstruct.entity.JacksonEntity3;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

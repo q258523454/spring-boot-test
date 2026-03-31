@@ -1,7 +1,9 @@
 package com.sec.util;
 
 import com.sec.redis.abstracts.AbstractRedisKey;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.concurrent.TimeUnit;
@@ -28,6 +30,7 @@ public enum RedisUtil {
 
     /**
      * 设置key,value
+     *
      * @param prefix 抽象前缀,包含了 前缀和过期时间
      */
     public static void set(AbstractRedisKey prefix, String key, String value) {
@@ -42,6 +45,7 @@ public enum RedisUtil {
 
     /**
      * 将值 value 关联到 key ，并将 key 的过期时间设为 timeout
+     *
      * @param timeout 过期时间
      * @param unit    时间单位
      */
@@ -76,7 +80,7 @@ public enum RedisUtil {
     /**
      * 是否存在key
      */
-    public static Boolean hasKey(AbstractRedisKey prefix,String key) {
+    public static Boolean hasKey(AbstractRedisKey prefix, String key) {
         String realKey = prefix.getPrefix() + ":" + key;
         return getRedisTemplate().hasKey(realKey);
     }

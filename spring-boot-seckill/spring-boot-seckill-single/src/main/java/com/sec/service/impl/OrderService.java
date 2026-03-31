@@ -1,7 +1,8 @@
 package com.sec.service.impl;
-import java.util.List;
 
 import com.sec.pojo.entity.Order;
+
+import java.util.List;
 
 public interface OrderService {
 
@@ -15,8 +16,7 @@ public interface OrderService {
     int updateByPrimaryKey(Order record);
 
 
-
-	List<Order> selectByUserIdAndSkGoodsId(Long userId,Long skGoodsId);
+    List<Order> selectByUserIdAndSkGoodsId(Long userId, Long skGoodsId);
 
 
 }

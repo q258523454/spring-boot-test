@@ -7,7 +7,8 @@
         <result column="age" jdbcType="INTEGER" property="age"/>
     </resultMap>
 
-    <insert id="insertStudent" parameterType="com.rediscache.entity.Student" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    <insert id="insertStudent" parameterType="com.rediscache.entity.Student" useGeneratedKeys="true" keyColumn="id"
+            keyProperty="id">
         INSERT INTO student(name,age) VALUES (#{name}, #{age});
     </insert>
 
@@ -20,8 +21,8 @@
     <update id="updateStudent" parameterType="com.rediscache.entity.Student">
         UPDATE student
         SET
-          name=#{name},
-          age=#{age}
+        name=#{name},
+        age=#{age}
         WHERE id=#{id}
     </update>
 
@@ -35,6 +36,4 @@
         SELECT *
         FROM student
     </select>
-
-
 </mapper>

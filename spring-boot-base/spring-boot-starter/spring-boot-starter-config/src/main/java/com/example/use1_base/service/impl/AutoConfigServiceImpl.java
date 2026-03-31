@@ -3,6 +3,7 @@ package com.example.use1_base.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.example.use1_base.config.MyAutoProperties;
 import com.example.use1_base.service.AutoConfigService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class AutoConfigServiceImpl implements AutoConfigService {
     private MyAutoProperties myAutoProperties;
 
     @Override
-    public void  print() {
+    public void print() {
         logger.info("---------------- 初始化 AutoConfigService print()--------------");
         logger.info("初始化 myAutoProperties:" + JSON.toJSONString(myAutoProperties));
     }

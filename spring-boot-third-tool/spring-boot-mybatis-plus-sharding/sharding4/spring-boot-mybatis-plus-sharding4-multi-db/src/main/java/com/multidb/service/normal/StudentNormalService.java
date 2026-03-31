@@ -25,7 +25,7 @@ public class StudentNormalService extends ServiceImpl<StudentNormalMapper, Stude
     }
 
     @Transactional(value = "myNormalTransactionManager", rollbackFor = Exception.class)
-    public int insertList(List<StudentBase> list){
+    public int insertList(List<StudentBase> list) {
         return getBaseMapper().insertList(list);
     }
 

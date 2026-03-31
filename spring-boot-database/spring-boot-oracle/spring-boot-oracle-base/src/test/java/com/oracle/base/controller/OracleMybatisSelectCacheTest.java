@@ -5,7 +5,9 @@ import com.oracle.BaseJunit;
 import com.oracle.base.entity.Student;
 import com.oracle.base.service.IOracleStudentService;
 import com.oracle.base.util.SpringContextHolder;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -93,6 +95,7 @@ public class OracleMybatisSelectCacheTest extends BaseJunit {
 
     /**
      * 新开事务来更新信息
+     *
      * @param id 学生id
      */
     public void requiredNew(BigDecimal id) {

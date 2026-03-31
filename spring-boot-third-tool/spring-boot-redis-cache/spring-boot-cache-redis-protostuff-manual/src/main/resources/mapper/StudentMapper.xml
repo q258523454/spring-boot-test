@@ -21,8 +21,8 @@
     <update id="updateStudent" parameterType="com.redis.entity.Student">
         UPDATE student
         SET
-          name=#{name},
-          age=#{age}
+        name=#{name},
+        age=#{age}
         WHERE id=#{id}
     </update>
 
@@ -36,6 +36,4 @@
         SELECT *
         FROM student
     </select>
-
-
 </mapper>

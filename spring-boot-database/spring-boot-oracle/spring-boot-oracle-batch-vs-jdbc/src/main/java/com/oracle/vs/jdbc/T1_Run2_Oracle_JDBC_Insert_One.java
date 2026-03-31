@@ -66,7 +66,7 @@ public class T1_Run2_Oracle_JDBC_Insert_One implements Runnable {
             connection.commit();
 
             // 在程序关闭的时候再关闭
-            //connection.close();
+            // connection.close();
         } catch (SQLException e) {
             DbUtil.rollback(connection);
             e.printStackTrace();

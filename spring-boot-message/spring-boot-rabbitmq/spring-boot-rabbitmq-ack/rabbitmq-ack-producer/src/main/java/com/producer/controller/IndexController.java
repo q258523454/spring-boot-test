@@ -6,6 +6,7 @@ import com.ack.common.serivce.BrokerMessageLogService;
 import com.ack.common.serivce.OrderService;
 import com.alibaba.fastjson.JSON;
 import com.producer.service.RabbitService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class IndexController {
 
     @GetMapping(value = "/send")
     public String send() {
-        //order对象必须实现序列化
+        // order对象必须实现序列化
         Order order = new Order();
         order.setName(UUID.randomUUID().toString());
         order.setMessageId(UUID.randomUUID().toString() + System.currentTimeMillis());

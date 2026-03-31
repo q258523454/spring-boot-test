@@ -2,6 +2,7 @@ package com.batch.controller.afftect_rows;
 
 import com.batch.entity.Student;
 import com.batch.service.IOracleStudentService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,11 @@ public class T3_Update_Batch_AffectRows {
     /**
      * update batch{foreach + case when} 格式可以返回影响行数
      * 注意: 同insert一样. begin end 无法返回更新行数
+     *
      * @param num 从最大值开始，依次往前更新多少个, 默认一次更新2个
      *
-     * 坑: case-when的写法, 如果部分输入字段为null,则对应数据库字段重置为null。 因此需要加上 choose-when-otherwise 来
-     * 做一次用原值自我更新的操作
+     *            坑: case-when的写法, 如果部分输入字段为null,则对应数据库字段重置为null。 因此需要加上 choose-when-otherwise 来
+     *            做一次用原值自我更新的操作
      */
     @GetMapping(value = "/affect/rows/update/batch")
     public String batch(Integer num) {

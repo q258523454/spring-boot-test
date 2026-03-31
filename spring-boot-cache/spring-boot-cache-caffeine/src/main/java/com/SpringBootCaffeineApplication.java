@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-@MapperScan("com.com.multi.dao") // mybatis-dao层
+@MapperScan("com.dao") // mybatis-dao层
 @EnableCaching // 开启缓存
 public class SpringBootCaffeineApplication extends SpringBootServletInitializer {
 

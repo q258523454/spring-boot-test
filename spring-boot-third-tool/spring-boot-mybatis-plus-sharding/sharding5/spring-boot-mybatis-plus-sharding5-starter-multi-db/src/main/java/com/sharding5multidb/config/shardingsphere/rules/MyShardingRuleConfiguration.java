@@ -1,4 +1,3 @@
-
 package com.sharding5multidb.config.shardingsphere.rules;
 
 import org.apache.shardingsphere.infra.config.rule.RuleConfiguration;

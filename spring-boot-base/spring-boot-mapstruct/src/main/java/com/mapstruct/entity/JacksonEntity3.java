@@ -1,6 +1,7 @@
 package com.mapstruct.entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import lombok.Data;
 
 

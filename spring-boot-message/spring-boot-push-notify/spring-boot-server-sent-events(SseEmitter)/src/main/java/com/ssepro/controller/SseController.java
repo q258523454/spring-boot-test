@@ -25,7 +25,7 @@ public class SseController {
     private ApplicationContext applicationContext;
 
     /**
-     * postman不支持流式,用浏览器访问
+     * 注意:低版本的postman不支持流式,用浏览器访问
      */
     @GetMapping("/connect")
     public SseEmitter connect(@RequestParam("clientId") String clientId) {

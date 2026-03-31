@@ -1,6 +1,6 @@
 package com.mapstruct.entity;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 
 import lombok.AllArgsConstructor;
@@ -31,8 +31,6 @@ public class StudentA {
      * mapstruct 的识别规则不一致，所以必须指定为  ZDbkNbr
      */
     private String zDbkNbr;
-
-
 
 
 }

@@ -1,12 +1,14 @@
 package com.filtertest.intercept;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.util.Arrays;
 import java.util.Map;
 
@@ -44,15 +46,15 @@ public class AllIntercept implements HandlerInterceptor {
         return true;
     }
 
-    /***
-     * 进入controller方法之后, 如果Controller出现异常, 不调用该方法
+    /**
+     * 执行controller方法之后, 如果Controller出现异常, 不调用该方法
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
         log.info("--------------- 拦截器: IpAddressIntercept postHandle() ---------------");
     }
 
-    /***
+    /**
      * controller结束, 无论Controller是不是有异常, 都执行该方法, 一般用于清理资源
      */
     @Override

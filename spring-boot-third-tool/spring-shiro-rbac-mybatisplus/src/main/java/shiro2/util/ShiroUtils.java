@@ -1,26 +1,16 @@
 package shiro2.util;
 
 
-import shiro2.crazycake.shiro.RedisCacheManager;
-import shiro2.crazycake.shiro.RedisManager;
 import shiro2.crazycake.shiro.RedisSessionDAO;
 import shiro2.pojo.entity.ExamUser;
-import shiro2.shiro.ShiroRealm;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.Authenticator;
 import org.apache.shiro.authc.LogoutAware;
-import org.apache.shiro.cache.Cache;
-import org.apache.shiro.cache.CacheManager;
-import org.apache.shiro.mgt.RealmSecurityManager;
-import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.SimplePrincipalCollection;
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Objects;

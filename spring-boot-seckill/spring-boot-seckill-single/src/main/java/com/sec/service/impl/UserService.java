@@ -1,7 +1,8 @@
 package com.sec.service.impl;
-import java.util.List;
 
 import com.sec.pojo.entity.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -15,8 +16,7 @@ public interface UserService {
     User selectByPrimaryKey(Long id);
 
 
-
-	int insertList(List<User> list);
+    int insertList(List<User> list);
 
 }
 

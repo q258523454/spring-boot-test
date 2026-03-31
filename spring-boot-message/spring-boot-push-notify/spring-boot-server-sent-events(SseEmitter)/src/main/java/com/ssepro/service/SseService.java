@@ -101,7 +101,7 @@ public class SseService {
         log.error("doError(), clientId:{} start.", clientId);
         emitters.remove(clientId);
         CLIENT_COUNT.decrementAndGet();
-        log.info("doError(),clientId:{}. client count:{} end.", clientId,CLIENT_COUNT.intValue());
+        log.info("doError(),clientId:{}. client count:{} end.", clientId, CLIENT_COUNT.intValue());
     }
 
     public void closeClient(String clientId) {

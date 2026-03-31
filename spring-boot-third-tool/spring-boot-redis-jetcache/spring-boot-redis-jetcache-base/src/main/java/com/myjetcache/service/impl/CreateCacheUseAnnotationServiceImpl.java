@@ -1,5 +1,3 @@
-
-
 package com.myjetcache.service.impl;
 
 import com.alicp.jetcache.Cache;
@@ -15,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @Slf4j
 @Service

@@ -7,12 +7,12 @@ import lombok.Data;
 public class RsaProperties {
 
     /**
-     *  加密密钥, 一般是公钥(public key);
+     * 加密密钥, 一般是公钥(public key);
      */
     private String publicKey = "";
 
     /**
-     *  解密密钥, 一般是私钥(private key);
+     * 解密密钥, 一般是私钥(private key);
      */
     private String privateKey = "";
 

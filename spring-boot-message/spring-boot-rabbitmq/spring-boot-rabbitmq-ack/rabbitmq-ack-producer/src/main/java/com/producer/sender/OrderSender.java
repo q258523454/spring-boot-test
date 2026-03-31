@@ -5,6 +5,7 @@ import com.ack.common.entity.BrokerMessageLog;
 import com.ack.common.entity.Order;
 import com.producer.config.ProducerConfig;
 import com.producer.constant.Constants;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
@@ -59,7 +60,7 @@ public class OrderSender {
                 return;
             }
 
-            //返回成功，表示消息被正常投递
+            // 返回成功，表示消息被正常投递
             if (ack) {
                 brokerMessageLog.setStatus(Constants.ORDER_SEND_SUCCESS);
                 brokerMessageLog.setUpdateTime(LocalDateTime.now());
@@ -77,8 +78,8 @@ public class OrderSender {
      * 失败回调:setReturnCallback
      * 触发条件:消息成功到达exchange,但是没有队列与之绑定的时候触发的ack回调
      * 举例:
-     *     发生网络分区会出现这种情况。如果消息未能投递到目标 queue 里将触发回调 returnCallback ，
-     *     一旦向 queue 投递消息未成功，这里一般会记录下当前消息的详细投递数据，方便后续做重发或者补偿等操作。
+     * 发生网络分区会出现这种情况。如果消息未能投递到目标 queue 里将触发回调 returnCallback ，
+     * 一旦向 queue 投递消息未成功，这里一般会记录下当前消息的详细投递数据，方便后续做重发或者补偿等操作。
      */
     final RabbitTemplate.ReturnCallback returnCallback = new RabbitTemplate.ReturnCallback() {
         @Override

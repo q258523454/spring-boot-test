@@ -1,7 +1,6 @@
 package shiro2.controller;
 
 import shiro2.pojo.entity.ExamPermission;
-import shiro2.pojo.entity.ExamRole;
 import shiro2.pojo.entity.ExamRolePermission;
 import shiro2.pojo.entity.ExamUser;
 import shiro2.serivce.ExamPermissionService;
@@ -11,7 +10,6 @@ import shiro2.serivce.ExamUserService;
 import shiro2.serivce.MyService;
 import shiro2.util.ShiroUtils;
 
-import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

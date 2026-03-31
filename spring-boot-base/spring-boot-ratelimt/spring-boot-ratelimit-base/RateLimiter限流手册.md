@@ -11,17 +11,22 @@
 ```
 
 ## 支持类型
+
 - 单例限流——Guava模式
 - 分布式限流——Redis 计数器模式
 - 分布式限流——Redis 令牌桶模式
 
 ## 功能支持
+
 1. 支持Spel表达式
 2. **支持动态修改限流策略**
 
 ## 使用教程
+
 ### 单例限流——Guava模式
+
 #### 方法1：基本使用（一般用这个就行了）
+
 ```java
     /**
      * 在api或者方法上加注解,指定type和limit即可
@@ -37,6 +42,7 @@
 ```
 
 #### 方法2：指定降级策略
+
 ```java
     /**
      * callBackMethod 指定降级策略
@@ -61,7 +67,9 @@
         log.error("callBack1 execute");
     }
 ```
+
 #### 方法3：SpEL表达式
+
 ```java
     /**
      * SpEL表达式, 动态指定限流key后缀
@@ -77,7 +85,9 @@
     }
 
 ```
+
 #### 特殊应用：动态修改限流策略
+
 ```java
     /**
      * 动态修改限流策略
@@ -105,25 +115,34 @@
 ```
 
 通过以下方法可以获取要修改方法的key值(RateLimiter的唯一键值)
+
 ```java
 com.ratelimitbase.utils.AopUtils#getFullyMethodPathWithParameter
 ```
+
 使用方法: 例如我想获取  `TestGuavaController` 类下 `test1` 方法的限流key
+
 ```java
 AopUtils.getFullyMethodPathWithParameter(TestGuavaController.class, "test1")
 ```
-最后把上述值放到 `application.properties`, 假如上面`AopUtils.getFullyMethodPathWithParameter(TestGuavaController.class, "test1")`的值`com.xxx.TestGuavaController#test1(com.xxx.Student,java.lang.String)`，那`application.properties`添加如下配置：
+
+最后把上述值放到 `application.properties`, 假如上面
+`AopUtils.getFullyMethodPathWithParameter(TestGuavaController.class, "test1")`的值
+`com.xxx.TestGuavaController#test1(com.xxx.Student,java.lang.String)`，那`application.properties`添加如下配置：
+
 ```
 com.xxx.TestGuavaController#test1(com.xxx.Student,java.lang.String).limit=5 --- 【必须】
 com.xxx.TestGuavaController#test1(com.xxx.Student,java.lang.String).type=guava --- 【必须】
 com.xxx.TestGuavaController#test1(com.xxx.Student,java.lang.String).spel=#student.age,#student.id --- 【非必须】
 com.xxx.TestGuavaController#test1(com.xxx.Student,java.lang.String).callBackMethod=callBack2 --- 【非必须】
 ```
+
 上述值将替换对应注解的值,实现动态修改。注意配置中心如果是主动推送，无需重启。如果不是主动推送配置，需要重启pod。
 
-
 ### 分布式限流——Redis 计数器模式
+
 #### 配置Redis (RedisTemplate)
+
 ```java
 /**
  * Redis配置信息
@@ -165,7 +184,9 @@ public class RedisConfig {
 # 同理,如果limit=10, ratelimit.redis.count.expireTime = 2, 那么限流qps=5
 ratelimit.redis.count.expireTime = 1
 ```
+
 #### 使用注解(与Guava使用类似)
+
 ```java
 @Slf4j
 @RestController
@@ -189,27 +210,35 @@ public class TestRedisCountController {
     }
 }
 ```
+
 #### 动态策略使用同Guava模式
 
 ### 分布式限流——Redis 令牌桶模式
+
 令牌桶原理:
 令牌桶是漏桶算法的改进版，漏桶是匀速处理请求，无法应对瞬时并发。
 而令牌桶是创建一个固定大小的桶(这里大小就用limit), 然后均匀的速度往里面放令牌，能应对瞬时并发。
 注意:
 1.可用令牌永远不会超过桶大小
 2.这里的放令牌时间间隔最小单位为ms毫秒, 即1秒的时间最多放1000块令牌
+
 #### 配置Redis (RedisTemplate)
+
 ```java
 略,参考上述
 ```
+
 #### 配置参数
+
 ```properties
 # redis bucket 模式限流key过期时间, 默认1000毫秒, 表示QPS
 # 例如注解中参数 limit=10, 默认就表示限流 qps=10
 # 同理,ratelimit.redis.bucket.limitTime = 2000, 注解中 limit =10 ,那么限流qps=5
 ratelimit.redis.bucket.limitTime = 1000
 ```
+
 #### 使用注解(与Guava使用类似)
+
 ```java
   @PostMapping(value = "/ratelimit/redis/bucket")
     @RateLimiterAnnotation(type = RateLimiterTypeEnum.REDIS_BUCKET, limit = 3, callBackMethod = "redisLimitCallBack")
@@ -217,4 +246,5 @@ ratelimit.redis.bucket.limitTime = 1000
         return "index";
     }
 ```
+
 #### 动态策略使用同Guava模式

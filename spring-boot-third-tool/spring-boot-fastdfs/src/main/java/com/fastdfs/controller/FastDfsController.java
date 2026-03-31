@@ -3,7 +3,9 @@ package com.fastdfs.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.fastdfs.global.FastDFSConfig;
 import com.fastdfs.service.impl.FastDFSClientImpl;
+
 import net.coobird.thumbnailator.Thumbnails;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.util.UrlPathHelper;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
@@ -111,7 +114,6 @@ public class FastDfsController {
         }
         return imgBytes;
     }
-
 
 
     /**

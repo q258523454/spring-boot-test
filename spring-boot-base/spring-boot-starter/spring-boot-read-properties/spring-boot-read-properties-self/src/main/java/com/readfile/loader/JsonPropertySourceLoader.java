@@ -19,6 +19,7 @@ package com.readfile.loader;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
 import org.springframework.boot.env.OriginTrackedMapPropertySource;
 import org.springframework.boot.env.PropertySourceLoader;
 import org.springframework.core.env.PropertySource;
@@ -56,11 +57,11 @@ public class JsonPropertySourceLoader implements PropertySourceLoader {
      */
     @Override
     public List<PropertySource<?>> load(String name, Resource resource) throws IOException {
-        //从resource即application.json加载字符串
+        // 从resource即application.json加载字符串
         String jsonStr = readResourceAsString(resource);
-        //解析字符串为JSONObject
+        // 解析字符串为JSONObject
         JSONObject jsonObject = (JSONObject) JSON.parse(jsonStr);
-        //map用于存放属性
+        // map用于存放属性
         Map<String, Object> map = new HashMap<>();
         jsonObject.forEach((key, value) -> putEntry(map, key, value));
         if (map.isEmpty()) {
@@ -116,7 +117,7 @@ public class JsonPropertySourceLoader implements PropertySourceLoader {
         while ((str = bufferedReader.readLine()) != null) {
             builder.append(str);
         }
-        //关闭流
+        // 关闭流
         bufferedReader.close();
         inputStreamReader.close();
         in.close();

@@ -16,6 +16,7 @@ public class DirectConfig {
 
     /**
      * Direct 模式
+     *
      * @return
      */
     @Bean

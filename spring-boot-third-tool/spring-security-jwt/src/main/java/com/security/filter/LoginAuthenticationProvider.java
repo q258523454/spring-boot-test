@@ -1,6 +1,7 @@
 package com.security.filter;
 
 import com.security.entity.Authority;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationProvider;

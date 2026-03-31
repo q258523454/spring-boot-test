@@ -1,6 +1,7 @@
 package com.example.use2_selector_bean.entity;
 
 import lombok.Data;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data

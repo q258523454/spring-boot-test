@@ -28,7 +28,7 @@ public class ControllerTransaction {
     /**
      * 注意:
      * 1.版本4.0 事务只支持副本集(复制集)
-     *   版本4.2 才支持分片事务
+     * 版本4.2 才支持分片事务
      * 2.Spring要 5.1.1.RELEASE 以上
      * 3.SpringDataMongoDB要 2.1.1.RELEASE 以上
      *

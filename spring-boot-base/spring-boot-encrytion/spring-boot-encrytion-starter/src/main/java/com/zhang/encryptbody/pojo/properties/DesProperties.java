@@ -2,13 +2,14 @@ package com.zhang.encryptbody.pojo.properties;
 
 
 import lombok.Data;
+
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 @Data
 public class DesProperties {
 
     /**
-     *  密钥
+     * 密钥
      */
     private String key = "";
 

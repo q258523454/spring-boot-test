@@ -1,6 +1,6 @@
 package com.mapstruct;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 
 import com.alibaba.fastjson.JSON;
@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mapstruct.entity.StudentA;
 import com.mapstruct.entity.StudentB;
 import com.mapstruct.mapping.StudentMapping;
+
 import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

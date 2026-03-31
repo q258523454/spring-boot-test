@@ -9,7 +9,10 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        ID, NAME, NAME2, AGE
+        ID,
+        NAME,
+        NAME2,
+        AGE
     </sql>
 
     <select id="getMaxId" resultType="long">
@@ -36,13 +39,13 @@
 
     <insert id="insert" parameterType="com.aop.entity.Student">
         INSERT INTO STUDENT(
-            ID,
-            NAME,
-            AGE
+        ID,
+        NAME,
+        AGE
         )VALUES(
-            #{id,jdbcType=NUMERIC},
-            #{name,jdbcType=VARCHAR},
-            #{age,jdbcType=DECIMAL}
+        #{id,jdbcType=NUMERIC},
+        #{name,jdbcType=VARCHAR},
+        #{age,jdbcType=DECIMAL}
         )
     </insert>
 
@@ -80,8 +83,8 @@
     <update id="update" parameterType="com.aop.entity.Student">
         update STUDENT
         set
-            NAME=#{name},
-            AGE=#{age}
+        NAME=#{name},
+        AGE=#{age}
         where ID = #{id}
     </update>
 
@@ -223,6 +226,4 @@
         where AGE=#{age,jdbcType=DECIMAL} and ID <![CDATA[>=]]> #{minId,jdbcType=INTEGER} and ID <![CDATA[<=]]>
         #{maxId,jdbcType=INTEGER} and NAME2=#{name2,jdbcType=VARCHAR}
     </select>
-
-
 </mapper>

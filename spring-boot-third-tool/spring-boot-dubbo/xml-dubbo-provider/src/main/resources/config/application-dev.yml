@@ -13,7 +13,7 @@ this.druid.db:
 # -------------------- dubbo --------------------
 this.dubbo:
   application.name: xml-dubbo-provider
-#  zk.server: zookeeper://55.x47.82:2181,55.14.47.196:2181,55.14.48.139:2181
+  #  zk.server: zookeeper://55.x47.82:2181,55.14.47.196:2181,55.14.48.139:2181
   zk.server1: zookeeper://55.x.47.82:2181
   zk.server2: zookeeper://55.x.47.196:2181
   zk.server3: zookeeper://55.x.48.139:2181

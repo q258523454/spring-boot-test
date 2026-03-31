@@ -5,7 +5,9 @@ import com.alibaba.fastjson.JSON;
 import com.trans.entity.Student;
 import com.trans.service.StudentService;
 import com.trans.util.SpringContextHolder;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -70,6 +72,7 @@ public class MysqlMybatisSelectCacheTest extends BaseJunit {
 
     /**
      * 新开事务来更新信息
+     *
      * @param id 学生id
      */
     public void requiredNew(long id) {
@@ -90,6 +93,7 @@ public class MysqlMybatisSelectCacheTest extends BaseJunit {
 
     /**
      * 新开事务来更新信息
+     *
      * @param id 学生id
      */
     public void requiredSer(long id) {

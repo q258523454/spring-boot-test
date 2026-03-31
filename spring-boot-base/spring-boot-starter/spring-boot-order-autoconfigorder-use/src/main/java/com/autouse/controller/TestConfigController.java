@@ -14,7 +14,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import javax.annotation.PostConstruct;
+
+import jakarta.annotation.PostConstruct;
 
 /**
  * @Description

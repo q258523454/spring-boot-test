@@ -3,8 +3,6 @@ package shiro2;
 
 import shiro2.util.SHA256Util;
 
-import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.util.ByteSource;
 
 import java.util.UUID;
 

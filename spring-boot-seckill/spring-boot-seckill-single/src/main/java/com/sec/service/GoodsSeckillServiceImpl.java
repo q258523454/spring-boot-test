@@ -14,13 +14,16 @@ import com.sec.redis.SeckillKey;
 import com.sec.redis.SeckillOrderKey;
 import com.sec.service.impl.GoodsSeckillService;
 import com.sec.util.RedisUtil;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 @Slf4j
 @Service
@@ -87,7 +90,7 @@ public class GoodsSeckillServiceImpl implements GoodsSeckillService {
         } else {
             // 库存不足,暂不考虑到取消支付,退单情况
             // GoodsSeckill record = goodsSeckillMapper.selectById(goodsSeckill.getId());
-            //if (record.getStockCount() <= 0) {
+            // if (record.getStockCount() <= 0) {
             //    log.warn("Goods stock is over");
             //    RedisUtil.set(SeckillKey.GOODS_OVER, "" + goodsSeckill.getId(), "true");
             //}

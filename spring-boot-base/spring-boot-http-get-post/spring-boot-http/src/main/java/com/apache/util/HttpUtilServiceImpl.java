@@ -1,6 +1,7 @@
 package com.apache.util;
 
 import com.alibaba.fastjson.JSONObject;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
@@ -47,7 +48,7 @@ public enum HttpUtilServiceImpl implements HttpUtilService {
             // 设置http头 消息
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");  // UTF-8 解决中文乱码
             // connection.setRequestProperty("Content-Type", "text/xml");   //设定 请求格式 xml，
-            connection.setRequestProperty("Accept", "application/json");//设定响应的信息的格式为 json，也可以设定xml格式的
+            connection.setRequestProperty("Accept", "application/json");// 设定响应的信息的格式为 json，也可以设定xml格式的
 
             // connection.setRequestProperty("X-Auth-Token","xx");  //特定http服务器需要的信息，根据服务器所需要求添加
             connection.connect();
@@ -114,7 +115,7 @@ public enum HttpUtilServiceImpl implements HttpUtilService {
 
             if (response != null && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 logger.info("postHttpJsonData:After Post Response is Ok :HttpStatus.SC_OK[200]");
-                InputStream in = response.getEntity().getContent(); //Get the data in the com.multi.entity
+                InputStream in = response.getEntity().getContent(); // Get the data in the com.multi.entity
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 String lines;
                 StringBuffer sb = new StringBuffer("");
@@ -129,7 +130,7 @@ public enum HttpUtilServiceImpl implements HttpUtilService {
                 responseJsonMap.put("status", "success");
                 responseJsonMap.put("message", sb.toString());
             } else if (response != null) {
-                InputStream in = response.getEntity().getContent(); //Get the data in the com.multi.entity
+                InputStream in = response.getEntity().getContent(); // Get the data in the com.multi.entity
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 String lines;
                 StringBuffer sb = new StringBuffer("");
@@ -185,7 +186,7 @@ public enum HttpUtilServiceImpl implements HttpUtilService {
 
             if (response != null && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 logger.info("postHttpJsonData:After Post Response is Ok :HttpStatus.SC_OK[200]");
-                InputStream in = response.getEntity().getContent(); //Get the data in the com.multi.entity
+                InputStream in = response.getEntity().getContent(); // Get the data in the com.multi.entity
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 String lines;
                 StringBuffer sb = new StringBuffer("");
@@ -200,7 +201,7 @@ public enum HttpUtilServiceImpl implements HttpUtilService {
                 responseJsonMap.put("status", "success");
                 responseJsonMap.put("message", sb.toString());
             } else if (response != null) {
-                InputStream in = response.getEntity().getContent(); //Get the data in the com.multi.entity
+                InputStream in = response.getEntity().getContent(); // Get the data in the com.multi.entity
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 String lines;
                 StringBuffer sb = new StringBuffer("");

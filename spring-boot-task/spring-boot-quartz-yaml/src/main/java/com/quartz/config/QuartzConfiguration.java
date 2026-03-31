@@ -12,6 +12,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -28,7 +29,7 @@ public class QuartzConfiguration {
     private PlatformTransactionManager quartzTransactionManager;
 
     @Autowired
-    public QuartzConfiguration(@Qualifier("dbQuartz") DataSource dataSource,@Qualifier("dbMaster") DataSource dbMaster, @Qualifier("quartzTransactionManager") PlatformTransactionManager quartzTransactionManager) {
+    public QuartzConfiguration(@Qualifier("dbQuartz") DataSource dataSource, @Qualifier("dbMaster") DataSource dbMaster, @Qualifier("quartzTransactionManager") PlatformTransactionManager quartzTransactionManager) {
         this.dataSource = dataSource;
         this.quartzTransactionManager = quartzTransactionManager;
     }

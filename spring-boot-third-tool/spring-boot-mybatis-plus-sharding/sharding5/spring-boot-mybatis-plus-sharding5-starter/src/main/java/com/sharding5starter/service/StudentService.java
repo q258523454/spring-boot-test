@@ -23,7 +23,7 @@ public class StudentService extends ServiceImpl<StudentShardingMapper, Student> 
         return saveBatch(entityList, DEFAULT_BATCH_SIZE);
     }
 
-    public int insertList(List<Student> list){
+    public int insertList(List<Student> list) {
         return getBaseMapper().insertList(list);
     }
 }

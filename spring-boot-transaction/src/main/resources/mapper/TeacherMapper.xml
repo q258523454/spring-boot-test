@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trans.dao.TeacherMapper">
-
     <select id="selectAllTeacher" resultType="com.trans.entity.Teacher">
-        select * from teacher_transaction
+        select *
+        from teacher_transaction
     </select>
 
     <insert id="insertTeacher">
@@ -18,5 +18,4 @@
         #{regTime}
         )
     </insert>
-
 </mapper>

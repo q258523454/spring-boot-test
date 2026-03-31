@@ -13,9 +13,8 @@ public interface AuthCachePrincipal {
      *
      * In most cases, authCacheKey should be userId or userName
      *
-     * @Deprecated use
-     *
      * @return
+     * @Deprecated use
      */
     @Deprecated
     String getAuthCacheKey();

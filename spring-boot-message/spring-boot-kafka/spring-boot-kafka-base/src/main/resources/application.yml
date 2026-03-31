@@ -1,0 +1,31 @@
+# 避免冲突,全部用自定义
+#spring:
+#  kafka:
+#    bootstrap-servers: 7.213.5.141:9093,7.213.5.178:9093,7.213.4.195:9093
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      properties:
+#        # SASL鉴权方式
+#        sasl.mechanism: PLAIN
+#        # 加密协议
+#        security.protocol: SASL_PLAINTEXT
+#    consumer:
+#      group-id: demo-group          # 默认消费者组ID
+#      enable-auto-commit: false     # 关闭自动提交
+#      auto-offset-reset: earliest   # 从最早的消息开始消费
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      properties:
+#        session.timeout.ms: 15000
+#        sasl.mechanism: PLAIN
+#        security.protocol: SASL_PLAINTEXT
+#    properties:
+#      # 设置jaas帐号和密码
+#      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="本地覆盖" password="本地覆盖";
+
+my:
+  kafka:
+    bootstrap-servers: 7.213.5.141:9093,7.213.5.178:9093,7.213.4.195:9093
+    default-topic: demo-topic
+    default-batch-topic: demo-batch-topic

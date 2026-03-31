@@ -18,7 +18,9 @@ import com.zhang.encryptbody.util.AESUtil;
 import com.zhang.encryptbody.util.DESUtil;
 import com.zhang.encryptbody.util.DigestUtil;
 import com.zhang.encryptbody.util.RSAUtil;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -33,22 +35,22 @@ import java.nio.charset.Charset;
 
 /**
  * 响应数据的加密处理 <br>
- *     本类只对控制器参数中含有
- *     <strong>{@link org.springframework.web.bind.annotation.ResponseBody}</strong>
- *     或者类上含有
- *     <strong>{@link org.springframework.web.bind.annotation.RestController}</strong>
- *     的注解进行拦截.
- *     处理以下注解
- *      <strong>{@link com.zhang.encryptbody.annotation.encrypt.SHAEncryptBody}
- *      <strong>{@link com.zhang.encryptbody.annotation.encrypt.RSAEncryptBody}
- *      <strong>{@link com.zhang.encryptbody.annotation.encrypt.MD5EncryptBody}
- *      <strong>{@link com.zhang.encryptbody.annotation.encrypt.DESEncryptBody}
- *      <strong>{@link com.zhang.encryptbody.annotation.encrypt.AESEncryptBody}
- *      <strong>{@link com.zhang.encryptbody.annotation.encrypt.RSAEncryptBody}
+ * 本类只对控制器参数中含有
+ * <strong>{@link org.springframework.web.bind.annotation.ResponseBody}</strong>
+ * 或者类上含有
+ * <strong>{@link org.springframework.web.bind.annotation.RestController}</strong>
+ * 的注解进行拦截.
+ * 处理以下注解
+ * <strong>{@link com.zhang.encryptbody.annotation.encrypt.SHAEncryptBody}
+ * <strong>{@link com.zhang.encryptbody.annotation.encrypt.RSAEncryptBody}
+ * <strong>{@link com.zhang.encryptbody.annotation.encrypt.MD5EncryptBody}
+ * <strong>{@link com.zhang.encryptbody.annotation.encrypt.DESEncryptBody}
+ * <strong>{@link com.zhang.encryptbody.annotation.encrypt.AESEncryptBody}
+ * <strong>{@link com.zhang.encryptbody.annotation.encrypt.RSAEncryptBody}
  *
- * @see ResponseBodyAdvice
  * @author zj
  * @date 2020/5/11 14:15
+ * @see ResponseBodyAdvice
  */
 @Slf4j
 @ControllerAdvice
@@ -102,7 +104,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
-                                  Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+            Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         // 只对String类型加解密
         if (!(body instanceof String)) {
             throw new EncryptBodyException("encrypt data is not type [java.lang.String]");
@@ -140,6 +142,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     /**
      * 获取类控制器上的加密注解信息
+     *
      * @param clazz 控制器类
      * @return 加密注解信息
      */
@@ -183,6 +186,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     /**
      * 获取方法控制器上的加密注解信息
+     *
      * @param methodParameter 控制器方法
      * @return 加密注解信息
      */
@@ -227,7 +231,8 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     /**
      * 选择加密方式并进行加密
-     * @param returnBody 目标加密字符串
+     *
+     * @param returnBody        目标加密字符串
      * @param encryptProperties 加密信息
      * @return 加密结果
      */

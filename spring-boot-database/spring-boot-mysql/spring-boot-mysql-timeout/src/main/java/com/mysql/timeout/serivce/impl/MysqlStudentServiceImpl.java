@@ -3,6 +3,7 @@ package com.mysql.timeout.serivce.impl;
 import com.mysql.timeout.dao.StudentMapper;
 import com.mysql.timeout.entity.Student;
 import com.mysql.timeout.serivce.IStudentService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
 
 
 @Service

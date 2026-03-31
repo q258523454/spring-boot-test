@@ -10,7 +10,9 @@ import com.trans.service.StudentService;
 import com.trans.service.TeacherService;
 import com.trans.service.TransactionalService;
 import com.trans.util.MultiByZero;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -156,6 +158,7 @@ public class TransacationController1Propagation {
 
 
     // --------------------------------------------- REQUIRES_NEW ---------------------------------------------
+
     /**
      * 事务方法(REQUIRED)——>事务方法(REQUIRES_NEW), 事务方法内部出现异常, 且外层没有处理, 则一起回滚
      */
@@ -195,6 +198,7 @@ public class TransacationController1Propagation {
     }
 
     // --------------------------------------------- NESTED ---------------------------------------------
+
     /**
      * 事务方法(REQUIRED)——>事务方法(NESTED), 外层失败,即使内层成功,也会同时回滚, NESTED受外层影响
      */

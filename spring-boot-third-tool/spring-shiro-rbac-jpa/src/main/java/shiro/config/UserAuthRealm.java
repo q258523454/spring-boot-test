@@ -17,10 +17,12 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+
 import javax.annotation.Resource;
 
 /**
+ *
  */
 @Component
 public class UserAuthRealm extends AuthorizingRealm {
@@ -50,10 +52,10 @@ public class UserAuthRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = (User) principals.getPrimaryPrincipal();
-        for (Role role : user.getRoles()) {                                 //获取 角色
-            authorizationInfo.addRole(role.getName());                      //添加 角色
-            for (Permission permission : role.getPermissions()) {           //获取 权限
-                authorizationInfo.addStringPermission(permission.getName());//添加 权限
+        for (Role role : user.getRoles()) {                                 // 获取 角色
+            authorizationInfo.addRole(role.getName());                      // 添加 角色
+            for (Permission permission : role.getPermissions()) {           // 获取 权限
+                authorizationInfo.addStringPermission(permission.getName());// 添加 权限
             }
         }
         return authorizationInfo;
@@ -68,12 +70,12 @@ public class UserAuthRealm extends AuthorizingRealm {
         String username = (String) token.getPrincipal();
         User user = userRepository.findByUsername(username);
         if (user == null) return null;
-        String credentials = user.getPasswordSalt() + user.getUsername() + user.getPasswordSalt();//自定义加盐 salt + username + salt
+        String credentials = user.getPasswordSalt() + user.getUsername() + user.getPasswordSalt();// 自定义加盐 salt + username + salt
         return new SimpleAuthenticationInfo(
-                user, //用户名
-                user.getPassword(), //密码
-                ByteSource.Util.bytes(credentials), //加密
-                getName()  //realm name
+                user, // 用户名
+                user.getPassword(), // 密码
+                ByteSource.Util.bytes(credentials), // 加密
+                getName()  // realm name
         );
     }
 

@@ -4,9 +4,11 @@ package com.zhang.encryptbody.util;
 import com.zhang.encryptbody.enums.ModeEnum;
 import com.zhang.encryptbody.enums.PaddingEnum;
 import com.zhang.encryptbody.enums.RSASignTypeEnum;
+
 import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
+
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -50,6 +52,7 @@ public enum RSAUtil {
 
     /**
      * 生成公私钥, 默认密钥长度: 1024
+     *
      * @return map密钥对
      */
     public static Map<String, Object> genKeyPair() throws NoSuchAlgorithmException {
@@ -58,6 +61,7 @@ public enum RSAUtil {
 
     /**
      * 生成公私钥
+     *
      * @param keyBitLength 密钥位数, 越大越难破解
      * @return map密钥对
      */
@@ -76,6 +80,7 @@ public enum RSAUtil {
 
     /**
      * 获取 publicKey
+     *
      * @param keyMap 密钥对
      * @return 十六进制字符
      */
@@ -86,6 +91,7 @@ public enum RSAUtil {
 
     /**
      * 获取 privateKey
+     *
      * @param keyMap 密钥对
      * @return 十六进制字符
      */
@@ -97,7 +103,8 @@ public enum RSAUtil {
     /**
      * 公钥加密
      * 默认模式:ECB/PKCS1Padding
-     * @param data 原数据
+     *
+     * @param data      原数据
      * @param publicKey 公钥
      */
     public static String encrypt(byte[] data, String publicKey) {
@@ -106,10 +113,11 @@ public enum RSAUtil {
 
     /**
      * 公钥加密.
-     * @param data the 原数据
+     *
+     * @param data      the 原数据
      * @param publicKey 公钥
-     * @param mode 算法模式
-     * @param padding 补码方式
+     * @param mode      算法模式
+     * @param padding   补码方式
      */
     public static String encrypt(byte[] data, String publicKey, String mode, String padding) {
         try {
@@ -126,7 +134,8 @@ public enum RSAUtil {
     /**
      * 私钥加密.
      * 默认模式:ECB/PKCS1Padding
-     * @param data the 原数据
+     *
+     * @param data       the 原数据
      * @param privateKey 私钥
      */
     public static String encryptByPrivateKey(byte[] data, String privateKey) {
@@ -135,10 +144,11 @@ public enum RSAUtil {
 
     /**
      * 私钥加密.
-     * @param data the 原数据
+     *
+     * @param data       the 原数据
      * @param privateKey 私钥
-     * @param mode 算法模式
-     * @param padding 补码方式
+     * @param mode       算法模式
+     * @param padding    补码方式
      */
     public static String encryptByPrivateKey(byte[] data, String privateKey, String mode, String padding) {
         try {
@@ -156,7 +166,8 @@ public enum RSAUtil {
     /**
      * 私钥解密
      * 默认模式:ECB/PKCS1Padding
-     * @param data the 待处理BASE64字符串
+     *
+     * @param data       the 待处理BASE64字符串
      * @param privateKey 私钥
      */
     public static String decrypt(String data, String privateKey) {
@@ -165,10 +176,11 @@ public enum RSAUtil {
 
     /**
      * 私钥解密
-     * @param data the 待处理BASE64字符串
+     *
+     * @param data       the 待处理BASE64字符串
      * @param privateKey 私钥
-     * @param mode 算法模式
-     * @param padding 补码方式
+     * @param mode       算法模式
+     * @param padding    补码方式
      */
     public static String decrypt(String data, String privateKey, String mode, String padding) {
         try {
@@ -185,7 +197,8 @@ public enum RSAUtil {
     /**
      * 公钥解密
      * 默认模式:ECB/PKCS1Padding
-     * @param data the 待处理BASE64字符串
+     *
+     * @param data      the 待处理BASE64字符串
      * @param publicKey 公钥
      */
     public static String decryptByPublicKey(String data, String publicKey) {
@@ -194,10 +207,11 @@ public enum RSAUtil {
 
     /**
      * 公钥解密
-     * @param data the 原数据
+     *
+     * @param data      the 原数据
      * @param publicKey 公钥
-     * @param mode 算法模式
-     * @param padding 补码方式
+     * @param mode      算法模式
+     * @param padding   补码方式
      */
     public static String decryptByPublicKey(String data, String publicKey, String mode, String padding) {
         try {
@@ -214,7 +228,8 @@ public enum RSAUtil {
     /**
      * 私钥加签, 即对原文的摘要进行加密
      * 默认签名算法: SHA1withRSA
-     * @param data 内容/原文
+     *
+     * @param data       内容/原文
      * @param privateKey 私钥
      */
     public static String sign(byte[] data, String privateKey) throws Exception {
@@ -223,8 +238,9 @@ public enum RSAUtil {
 
     /**
      * 私钥加签, 即对原文的摘要进行加密
-     * @param data 内容/原文
-     * @param privateKey 私钥
+     *
+     * @param data          内容/原文
+     * @param privateKey    私钥
      * @param signAlgorithm 签名算法,默认:SHA1withRSA,可选: MD5withRSA, SHA1withRSA, SHA256withRSA 等等
      */
     public static String sign(byte[] data, String privateKey, String signAlgorithm) throws Exception {
@@ -238,9 +254,10 @@ public enum RSAUtil {
     /**
      * 公钥验签, 即对签名解密后对比原文摘要,是否相等
      * 默认签名算法: SHA1withRSA
-     * @param data 内容/原文
+     *
+     * @param data      内容/原文
      * @param publicKey 公钥
-     * @param sign 签名
+     * @param sign      签名
      */
     public static boolean verify(byte[] data, String publicKey, String sign) throws Exception {
         // 可选:MD2withRSA,SHA1withRSA,SHA256withRSA,SHA384withRSA,SHA512withRSA 等等
@@ -250,9 +267,10 @@ public enum RSAUtil {
     /**
      *
      * 公钥验签, 即对签名解密后对比原文摘要,是否相等
-     * @param data 内容/原文
-     * @param publicKey 公钥
-     * @param sign 签名
+     *
+     * @param data          内容/原文
+     * @param publicKey     公钥
+     * @param sign          签名
      * @param signAlgorithm 签名算法,默认:SHA1withRSA,可选: MD5withRSA, SHA1withRSA, SHA256withRSA 等等
      */
     public static boolean verify(byte[] data, String publicKey, String sign, String signAlgorithm) throws Exception {
@@ -265,6 +283,7 @@ public enum RSAUtil {
 
     /**
      * 私钥->Key类型(PKCS8)
+     *
      * @param privateKey 密钥
      */
     public static Key generateKeyByPrivateKey(String privateKey) {
@@ -281,6 +300,7 @@ public enum RSAUtil {
 
     /**
      * 公钥->Key类型(x509)
+     *
      * @param publicKey 公钥
      */
     public static Key generateKeyByPublicKey(String publicKey) {

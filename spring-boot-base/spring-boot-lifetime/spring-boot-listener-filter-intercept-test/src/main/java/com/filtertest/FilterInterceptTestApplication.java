@@ -8,8 +8,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @ServletComponentScan // filter、servlet都需要加上这个注解
 public class FilterInterceptTestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FilterInterceptTestApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FilterInterceptTestApplication.class, args);
+    }
 
 }

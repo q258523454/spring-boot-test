@@ -9,6 +9,7 @@ public interface RedisKeyInterface {
 
     /**
      * key 前缀
+     *
      * @return key 前缀
      */
     String getPrefix();
@@ -16,6 +17,7 @@ public interface RedisKeyInterface {
 
     /**
      * 有效期
+     *
      * @return 有效期
      */
     int getExpireSeconds();

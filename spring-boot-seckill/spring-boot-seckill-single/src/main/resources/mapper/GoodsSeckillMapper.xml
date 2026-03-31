@@ -31,7 +31,13 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, goods_id, seckill_price, stock_count, start_date, end_date, version
+        id,
+        goods_id,
+        seckill_price,
+        stock_count,
+        start_date,
+        end_date,
+        version
     </sql>
 
     <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -44,9 +50,9 @@
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sec.pojo.entity.GoodsSeckill"
             useGeneratedKeys="true">
         insert into sk_goods_seckill (goods_id, seckill_price, stock_count,
-                                      start_date, end_date, version)
+        start_date, end_date, version)
         values (#{goodsId,jdbcType=BIGINT}, #{seckillPrice,jdbcType=DECIMAL}, #{stockCount,jdbcType=INTEGER},
-                #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER})
+        #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sec.pojo.entity.GoodsSeckill"
             useGeneratedKeys="true">
@@ -136,6 +142,4 @@
         where id = #{id}
         and stock_count > 0
     </update>
-
-
 </mapper>

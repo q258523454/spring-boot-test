@@ -1,6 +1,7 @@
 package com.zhang.encryptbody.pojo.properties;
 
 import lombok.Data;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
  *       aes-key: 12345678 # AES加密秘钥
  *       des-key: 12345678 # DES加密秘钥
  * </pre>
+ *
  * @author zj
  * @date 2020/5/11 14:15
  */

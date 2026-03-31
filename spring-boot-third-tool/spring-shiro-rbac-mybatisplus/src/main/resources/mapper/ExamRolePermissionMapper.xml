@@ -24,8 +24,8 @@
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into exam_role_permission (role_id, permission_id, is_enable,
-                                          created_at, updated_at)
+        created_at, updated_at)
         values (#{roleId,jdbcType=INTEGER}, #{permissionId,jdbcType=INTEGER}, #{isEnable,jdbcType=BOOLEAN},
-                #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+        #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
     </insert>
 </mapper>

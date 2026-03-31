@@ -8,35 +8,36 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        ID, NAME, AGE
+        ID,
+        NAME,
+        AGE
     </sql>
 
     <select id="selectByPrimaryKey" parameterType="BigDecimal" resultMap="BaseResultMap">
         SELECT
-            <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List"/>
         FROM
-            STUDENT
+        STUDENT
         WHERE
-            ID = #{id,jdbcType=DECIMAL}
+        ID = #{id,jdbcType=DECIMAL}
     </select>
 
     <select id="selectAll" resultMap="BaseResultMap">
         SELECT
-            <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List"/>
         FROM
-            STUDENT
+        STUDENT
     </select>
 
     <insert id="insert" parameterType="com.multi.entity.oracle.Student">
         INSERT INTO STUDENT(
-            ID,
-            NAME,
-            AGE
+        ID,
+        NAME,
+        AGE
         )VALUES(
-            #{id,jdbcType=DECIMAL},
-            #{name,jdbcType=VARCHAR},
-            #{age,jdbcType=DECIMAL}
+        #{id,jdbcType=DECIMAL},
+        #{name,jdbcType=VARCHAR},
+        #{age,jdbcType=DECIMAL}
         )
-  </insert>
-
+    </insert>
 </mapper>

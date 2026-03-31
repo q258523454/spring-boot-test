@@ -5,7 +5,9 @@ import com.zhang.encryptbody.exception.KeyNotConfiguredException;
 import com.zhang.encryptbody.pojo.properties.AesProperties;
 import com.zhang.encryptbody.pojo.properties.DesProperties;
 import com.zhang.encryptbody.pojo.properties.RsaProperties;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.util.StringUtils;
 
 /**
@@ -20,6 +22,7 @@ public class KeyUtil {
     /**
      * 获取 AES key
      * 优先用注解上的,其次用配置中的
+     *
      * @param annotationKey 注解上的key
      * @param aesProperties yml配置中的key
      */
@@ -44,6 +47,7 @@ public class KeyUtil {
     /**
      * 获取 DES key
      * 优先用注解上的,其次用配置中的
+     *
      * @param annotationKey 注解上的key
      * @param desProperties yml配置中的key
      */
@@ -68,6 +72,7 @@ public class KeyUtil {
     /**
      * 获取 RSA 加密密钥, 一般是 public key
      * 优先用注解上的,其次用配置中的
+     *
      * @param annotationKey 注解上的key
      * @param rsaProperties yml配置中的key
      */
@@ -92,6 +97,7 @@ public class KeyUtil {
     /**
      * 获取 RSA 解密密钥, 一般是 private key
      * 优先用注解上的,其次用配置中的
+     *
      * @param annotationKey 注解上的key
      * @param rsaProperties yml配置中的key
      */

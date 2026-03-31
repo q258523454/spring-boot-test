@@ -1,7 +1,8 @@
 package com.sec.dao;
-import org.apache.ibatis.annotations.Param;
 
 import com.sec.pojo.entity.Order;
+
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,6 +15,6 @@ public interface OrderMapper {
 
     int updateByPrimaryKey(Order record);
 
-    List<Order> selectByUserIdAndSkGoodsId(@Param("userId")Long userId,@Param("skGoodsId")Long skGoodsId);
+    List<Order> selectByUserIdAndSkGoodsId(@Param("userId") Long userId, @Param("skGoodsId") Long skGoodsId);
 
 }

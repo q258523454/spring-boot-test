@@ -1,4 +1,3 @@
-
 package com.myjetcachekryo.config.codex;
 
 import com.alicp.jetcache.CacheValueHolder;
@@ -27,7 +26,7 @@ public class ProtoStuffValueDecoder extends AbstractValueDecoder {
         CacheValueHolder instance = new CacheValueHolder<>();
         try {
             if (useIdentityNumber) {
-                ByteArrayInputStream in= new ByteArrayInputStream(buffer, 4, buffer.length - 4);
+                ByteArrayInputStream in = new ByteArrayInputStream(buffer, 4, buffer.length - 4);
                 ProtostuffIOUtil.mergeFrom(in, instance, ProtoStuffValueEncoder.SCHEMA);
             } else {
                 ProtostuffIOUtil.mergeFrom(buffer, instance, ProtoStuffValueEncoder.SCHEMA);

@@ -1,4 +1,3 @@
-
 package com.multidb.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;

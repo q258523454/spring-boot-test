@@ -1,11 +1,10 @@
 package com.datasource.router;
 
 import com.datasource.util.DataSourceContextHolder;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
-
-import javax.sql.DataSource;
 
 /***
  * AbstractRoutingDataSource抽象类, 实现AOP动态切换的关键

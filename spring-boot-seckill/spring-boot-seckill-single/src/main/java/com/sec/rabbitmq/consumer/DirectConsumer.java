@@ -8,7 +8,9 @@ import com.sec.rabbitmq.config.DirectConfig;
 import com.sec.redis.SeckillOrderKey;
 import com.sec.service.impl.GoodsSeckillService;
 import com.sec.util.RedisUtil;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;

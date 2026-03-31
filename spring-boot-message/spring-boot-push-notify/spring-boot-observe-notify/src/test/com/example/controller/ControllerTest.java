@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.ObserveNotifyApplication;
 import com.example.service.ObserveService;
 import com.example.util.SpringContextHolder;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

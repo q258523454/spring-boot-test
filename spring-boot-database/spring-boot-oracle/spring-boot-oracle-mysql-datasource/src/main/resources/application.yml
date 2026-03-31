@@ -7,7 +7,7 @@ spring:
 
 # ------------------------------------ mybatis 相关配置 BEGIN ------------------------------------
 mybatis:
-#  config-location: classpath:mybatis-config.xml
+  #  config-location: classpath:mybatis-config.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 

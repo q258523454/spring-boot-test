@@ -1,10 +1,12 @@
 package com.sec.service;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import com.sec.pojo.entity.Goods;
 import com.sec.dao.GoodsMapper;
+import com.sec.pojo.entity.Goods;
 import com.sec.service.impl.GoodsService;
+
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {

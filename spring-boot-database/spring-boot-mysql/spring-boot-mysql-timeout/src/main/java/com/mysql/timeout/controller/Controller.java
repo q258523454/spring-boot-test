@@ -3,7 +3,9 @@ package com.mysql.timeout.controller;
 import com.alibaba.fastjson.JSON;
 import com.mysql.timeout.entity.Student;
 import com.mysql.timeout.serivce.IStudentService;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
-
 
 
 @Slf4j
@@ -27,9 +28,9 @@ public class Controller {
     /**
      * 总结：@Transactional 中的 timeout 只有在当前事务下执行数据库操作的时候才会计算和生效
      * 1.例如外层事务设置超时: @Transactional(timeout = 2)
-     *   内层(require_new)timeout = 3 只会影响当前事务超时时间
+     * 内层(require_new)timeout = 3 只会影响当前事务超时时间
      * 2.设置实际sql执行超时: default-statement-timeout
-     *   XML中 单条SQL 执行的超时时间, 可在mapper.xml对sql单独设置
+     * XML中 单条SQL 执行的超时时间, 可在mapper.xml对sql单独设置
      */
 
     @GetMapping(value = "/insert")

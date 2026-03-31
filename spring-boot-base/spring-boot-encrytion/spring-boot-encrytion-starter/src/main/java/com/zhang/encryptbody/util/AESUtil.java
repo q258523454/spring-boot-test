@@ -8,6 +8,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -21,7 +22,7 @@ import java.security.SecureRandom;
  * mode:    加密算法模式，是用来描述加密算法（此处特指分组密码，不包括流密码，）在加密时对明文分组的模式，它代表了不同的分组方式
  * padding: 补码方式是在分组密码中，当明文长度不是分组长度的整数倍时，需要在最后一个分组中填充一些数据使其凑满一个分组的长度。
  * iv:      在对明文分组加密时，会将明文分组与前一个密文分组进行XOR运算（即异或运算），但是加密第一个明文分组时不存在“前一个密文分组”，
- *          因此需要事先准备一个与分组长度相等的比特序列来代替，这个比特序列就是偏移量。
+ * 因此需要事先准备一个与分组长度相等的比特序列来代替，这个比特序列就是偏移量。
  * 相关概念见：https://blog.csdn.net/OrangeJack/article/details/82913804
  */
 public enum AESUtil {
@@ -48,7 +49,8 @@ public enum AESUtil {
 
     /**
      * 按指定密钥[数据块长度]生成密钥
-     * @param algorithm 密钥算法
+     *
+     * @param algorithm   密钥算法
      * @param blockLength 可选 128,192,256
      */
     public static String genKey(String algorithm, int blockLength) {
@@ -74,7 +76,8 @@ public enum AESUtil {
      * 数据块: 默认16字节(128位)
      * 加解密串编码: Base64 (相当于2次加密)
      * 字符集: utf-8
-     * @param data 目标字符串
+     *
+     * @param data   目标字符串
      * @param aesKey 密钥
      */
     public static String encrypt(byte[] data, String aesKey) {
@@ -84,11 +87,12 @@ public enum AESUtil {
 
     /**
      * AES加密方法
-     * @param data 目标字符串
-     * @param aesKey 密钥
-     * @param mode 算法模式
+     *
+     * @param data    目标字符串
+     * @param aesKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param iv  盐值偏移量,ECB模式无需iv
+     * @param iv      盐值偏移量,ECB模式无需iv
      */
     public static String encrypt(byte[] data, String aesKey, String mode, String padding, IvParameterSpec iv) {
         try {
@@ -107,16 +111,17 @@ public enum AESUtil {
 
     /**
      * AES加密方法
-     * @param data 目标字符串
-     * @param aesKey 密钥
-     * @param mode 算法模式
+     *
+     * @param data    目标字符串
+     * @param aesKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param salt IvParameterSpec-盐值,ECB模式无需iv
-     * @param offset IvParameterSpec-偏移量,ECB模式无需iv
-     * @param len IvParameterSpec-从偏移量开始,取字节数目大小,ECB模式无需iv
+     * @param salt    IvParameterSpec-盐值,ECB模式无需iv
+     * @param offset  IvParameterSpec-偏移量,ECB模式无需iv
+     * @param len     IvParameterSpec-从偏移量开始,取字节数目大小,ECB模式无需iv
      */
     public static String encrypt(byte[] data, String aesKey, String mode, String padding,
-                                 byte[] salt, int offset, int len) {
+            byte[] salt, int offset, int len) {
         try {
             // "算法/模式/补码方式"
             // eg: method="AES/ECB/PKCS5Padding"
@@ -136,7 +141,8 @@ public enum AESUtil {
 
     /**
      * AES-解密
-     * @param src 待处理BASE64字符串
+     *
+     * @param src    待处理BASE64字符串
      * @param aesKey 解密密钥
      */
     public static String decrypt(String src, String aesKey) {
@@ -146,11 +152,12 @@ public enum AESUtil {
 
     /**
      * AES-解密
-     * @param src 待处理BASE64字符串
-     * @param aesKey 密钥
-     * @param mode 算法模式
+     *
+     * @param src     待处理BASE64字符串
+     * @param aesKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param iv IvParameterSpec ECB模式无需iv
+     * @param iv      IvParameterSpec ECB模式无需iv
      */
     public static String decrypt(String src, String aesKey, String mode, String padding, IvParameterSpec iv) {
         String decrypted = "";
@@ -168,16 +175,17 @@ public enum AESUtil {
 
     /**
      * AES-解密
-     * @param src 待处理BASE64字符串
-     * @param aesKey 密钥
-     * @param mode 算法模式
+     *
+     * @param src     待处理BASE64字符串
+     * @param aesKey  密钥
+     * @param mode    算法模式
      * @param padding 补码方式
-     * @param salt  IvParameterSpec-盐值, salt[offset,offset+len],ECB模式无需iv
-     * @param offset IvParameterSpec-偏移量,ECB模式无需iv
-     * @param len   IvParameterSpec-偏移量开始,取字节数目大小,ECB模式无需iv
+     * @param salt    IvParameterSpec-盐值, salt[offset,offset+len],ECB模式无需iv
+     * @param offset  IvParameterSpec-偏移量,ECB模式无需iv
+     * @param len     IvParameterSpec-偏移量开始,取字节数目大小,ECB模式无需iv
      */
     public static String decrypt(String src, String aesKey, String mode, String padding,
-                                 byte[] salt, int offset, int len) {
+            byte[] salt, int offset, int len) {
         String decrypted = "";
         try {
             // "算法/模式/补码方式"
@@ -195,6 +203,7 @@ public enum AESUtil {
 
     /**
      * 将密钥转换成Key类型
+     *
      * @param aesKey 密钥
      */
     public static Key convertToSecretKey(String aesKey) {

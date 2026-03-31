@@ -1,28 +1,28 @@
-//package com.encrypt.controller;
+// package com.encrypt.controller;
 //
-//import com.alibaba.fastjson.JSON;
-//import com.alibaba.fastjson.JSONObject;
-//import com.encrypt.entity.BodyObject;
-//import com.lj08.encryptbody.annotation.decrypt.AESDecryptBody;
-//import com.lj08.encryptbody.annotation.decrypt.SM4DecryptBody;
-//import com.lj08.encryptbody.annotation.encrypt.SM4EncryptBody;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RequestBody;
-//import org.springframework.web.bind.annotation.ResponseBody;
-//import org.springframework.web.bind.annotation.RestController;
+// import com.alibaba.fastjson.JSON;
+// import com.alibaba.fastjson.JSONObject;
+// import com.encrypt.entity.BodyObject;
+// import com.lj08.encryptbody.annotation.decrypt.AESDecryptBody;
+// import com.lj08.encryptbody.annotation.decrypt.SM4DecryptBody;
+// import com.lj08.encryptbody.annotation.encrypt.SM4EncryptBody;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.bind.annotation.ResponseBody;
+// import org.springframework.web.bind.annotation.RestController;
 //
-//import javax.servlet.http.HttpServletRequest;
+// import javax.servlet.http.HttpServletRequest;
 //
 //
-///**
+/// **
 // * @author zj
 // * @date 2020-05-08 17:23
 // */
 //@RestController
-//public class SM4Controller {
+// public class SM4Controller {
 //    private static final Logger logger = LoggerFactory.getLogger(SM4Controller.class);
 //
 //

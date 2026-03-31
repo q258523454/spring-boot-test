@@ -8,6 +8,7 @@ import shiro2.serivce.ExamUserRoleService;
 
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ExamUserRoleServiceImpl extends ServiceImpl<ExamUserRoleMapper, ExamUserRole> implements ExamUserRoleService {
 }

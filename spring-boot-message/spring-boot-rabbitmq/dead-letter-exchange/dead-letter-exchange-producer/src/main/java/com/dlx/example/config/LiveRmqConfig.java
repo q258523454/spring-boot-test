@@ -2,15 +2,18 @@ package com.dlx.example.config;
 
 import com.alibaba.fastjson.JSON;
 import com.dlx.example.config.dead.DeadRmqConfig;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,33 +92,33 @@ public class LiveRmqConfig {
      * 队列添加了这个参数之后会自动与该交换机绑定，并设置路由键，不需要开发者手动设置
      * -------------- Queue 参数设置 -------------------
      * args 参数:
-     *      队列60s没有被使用，则删除该队列
-     *      args.put("x-expires", 60 * 1000);
-     *      设置队列超时时间TTL,（可以在sender时对每条消息设置TTL）
-     *      args.put("x-message-ttl", 3600 * 1000);
-     *      队列中消息总共不能超过1000字节
-     *      args.put("x-max-length-bytes", 1000);
-     *      队列中最大的优先级等级为10（可以在sender时对每条消息设置优先级）
-     *      args.put("x-max-priority", 10);
-     *      结合"x-max-length"和'x-max-length'组合使用
-     *      drop-head(默认): 丢弃先到消息(FIFO), 挤出的先到消息会转到DLX(如果有死信队列)
-     *      reject-publish: 当队列消息满了时,拒绝后续消息(注意是直接reject,不会再转到死信DLX).
-     *      args.put("x-overflow", "drop-head");
-     *      args.put("x-overflow", "reject-publish");
-     *      设置队列最大长度,超过3个就根据"x-overflow"策略来处理
-     *      args.put("x-max-length", 3);
+     * 队列60s没有被使用，则删除该队列
+     * args.put("x-expires", 60 * 1000);
+     * 设置队列超时时间TTL,（可以在sender时对每条消息设置TTL）
+     * args.put("x-message-ttl", 3600 * 1000);
+     * 队列中消息总共不能超过1000字节
+     * args.put("x-max-length-bytes", 1000);
+     * 队列中最大的优先级等级为10（可以在sender时对每条消息设置优先级）
+     * args.put("x-max-priority", 10);
+     * 结合"x-max-length"和'x-max-length'组合使用
+     * drop-head(默认): 丢弃先到消息(FIFO), 挤出的先到消息会转到DLX(如果有死信队列)
+     * reject-publish: 当队列消息满了时,拒绝后续消息(注意是直接reject,不会再转到死信DLX).
+     * args.put("x-overflow", "drop-head");
+     * args.put("x-overflow", "reject-publish");
+     * 设置队列最大长度,超过3个就根据"x-overflow"策略来处理
+     * args.put("x-max-length", 3);
      * Queue 构造参数:
-     *      durable:队列是否持久化.
-     *              false:队列在内存中,服务器挂掉后,队列就没了;
-     *              true:服务器重启后,队列将会重新生成.
-     *              注意:只是队列持久化,不代表队列中的消息持久化
-     *      exclusive:队列是否专属,专属的范围针对的是连接,也就是说,一个连接下面的多个信道是可见的.
-     *                对于其他连接是不可见的.连接断开后,该队列会被删除.
-     *                注意,不是信道断开,是连接断开.并且,就算设置成了持久化,也会删除.
-     *      autoDelete: 如果所有消费者都断开连接了,是否自动删除.
-     *                  如果还没有消费者从该队列获取过消息或者监听该队列,那么该队列不会删除.
-     *                  只有在有消费者从该队列获取过消息后,该队列才有可能自动删除(当所有消费者都断开连接,不管消息是否获取完也会删除)
-     *      new Queue(TOPIC_QUEUE)默认参数: durable:true, exclusive:false, autoDelete:false
+     * durable:队列是否持久化.
+     * false:队列在内存中,服务器挂掉后,队列就没了;
+     * true:服务器重启后,队列将会重新生成.
+     * 注意:只是队列持久化,不代表队列中的消息持久化
+     * exclusive:队列是否专属,专属的范围针对的是连接,也就是说,一个连接下面的多个信道是可见的.
+     * 对于其他连接是不可见的.连接断开后,该队列会被删除.
+     * 注意,不是信道断开,是连接断开.并且,就算设置成了持久化,也会删除.
+     * autoDelete: 如果所有消费者都断开连接了,是否自动删除.
+     * 如果还没有消费者从该队列获取过消息或者监听该队列,那么该队列不会删除.
+     * 只有在有消费者从该队列获取过消息后,该队列才有可能自动删除(当所有消费者都断开连接,不管消息是否获取完也会删除)
+     * new Queue(TOPIC_QUEUE)默认参数: durable:true, exclusive:false, autoDelete:false
      * ----------------------------------------------------
      */
     @Bean

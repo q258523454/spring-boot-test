@@ -17,6 +17,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "my.shardingsphere.rules")
 public class MyYamlShardingRuleProps {
-    
+
     private YamlShardingRuleConfiguration sharding;
 }

@@ -1,6 +1,7 @@
 package com.trans.dao;
 
 import com.trans.entity.Teacher;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

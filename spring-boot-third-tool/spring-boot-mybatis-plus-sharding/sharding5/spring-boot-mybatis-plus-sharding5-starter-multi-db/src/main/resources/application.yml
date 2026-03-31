@@ -32,15 +32,15 @@ my:
             actual-data-nodes: db$->{0..1}.student_$->{0..1}
             # 分库策略 (一次只能配置一种)
             database-strategy:
-#              hint:
-#                sharding-algorithm-name: my-db-hint
+              #              hint:
+              #                sharding-algorithm-name: my-db-hint
               standard:
                 sharding-column: id
                 sharding-algorithm-name: my-db-standard
             # 分表策略 (一次只能配置一种)
             table-strategy:
-#              hint:
-#                sharding-algorithm-name: my-table-hint
+              #              hint:
+              #                sharding-algorithm-name: my-table-hint
               standard:
                 sharding-column: id
                 sharding-algorithm-name: my-table-standard

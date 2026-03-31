@@ -23,7 +23,7 @@ public class ProducerConfig {
      */
     @Bean
     public Queue topicQueue() {
-        //new Queue(TOPIC_QUEUE)默认参数: durable:true, exclusive:false, autoDelete:false
+        // new Queue(TOPIC_QUEUE)默认参数: durable:true, exclusive:false, autoDelete:false
         return new Queue(TOPIC_QUEUE, true, false, false);
     }
 
@@ -36,6 +36,7 @@ public class ProducerConfig {
 
     /**
      * “*”和“#”,用于做模糊匹配，其中“*”用于匹配一个单词，“#”用于匹配多个单词(可以是零个)
+     *
      * @return
      */
     @Bean

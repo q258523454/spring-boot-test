@@ -3,7 +3,9 @@ package com.dlx;
 
 import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.Channel;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -18,6 +20,7 @@ public class DeadConsumer {
 
     /**
      * 死信队列消息监听者(消费者)
+     *
      * @param msg
      * @param message
      * @param channel

@@ -1,11 +1,14 @@
 package com.sec.service;
-import java.util.List;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import com.sec.dao.UserMapper;
 import com.sec.pojo.entity.User;
 import com.sec.service.impl.UserService;
+
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,11 +36,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByPrimaryKey(id);
     }
 
-	@Override
-	public int insertList(List<User> list){
-		 return userMapper.insertList(list);
-	}
-
+    @Override
+    public int insertList(List<User> list) {
+        return userMapper.insertList(list);
+    }
 
 
 }

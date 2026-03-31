@@ -64,7 +64,7 @@ public class ProtoStuffValueEncoder extends AbstractValueEncoder {
         output.write((value >> 24) & 0xFF);
         output.write((value >> 16) & 0xFF);
         output.write((value >> 8) & 0xFF);
-        output.write (value & 0xFF);
+        output.write(value & 0xFF);
     }
 
     private byte[] combine(byte[] bs1, byte[] bs2) {

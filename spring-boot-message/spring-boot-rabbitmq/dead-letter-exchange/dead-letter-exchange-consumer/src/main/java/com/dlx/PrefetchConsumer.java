@@ -2,7 +2,9 @@ package com.dlx;
 
 
 import com.rabbitmq.client.Channel;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -16,13 +18,14 @@ public class PrefetchConsumer {
 
     /**
      * Prefetch队列消息监听者(消费者)
+     *
      * @param msg
      * @param message
      * @param channel
      */
     @RabbitListener(
             queues = "${rmq.queue.prefetch}",
-            //RabbitListener开启几个线程去处理数据
+            // RabbitListener开启几个线程去处理数据
             concurrency = "1")
     public void prefetchConsumer(String msg, Message message, Channel channel) throws IOException, InterruptedException {
         log.info("Prefetch监听：接收到消息:[{}]", msg);
@@ -35,7 +38,7 @@ public class PrefetchConsumer {
         String threadName = Thread.currentThread().getName();
         // TODO 业务操作
         // 处理失败且将该消息重新放回队
-        //channel.basicNack(deliveryTag, false, true);
+        // channel.basicNack(deliveryTag, false, true);
 
         // 消息已经成功处理,直接确认删除
         channel.basicAck(deliveryTag, false);
@@ -50,7 +53,7 @@ public class PrefetchConsumer {
      */
     @RabbitListener(
             queues = "${rmq.queue.prefetch}",
-            //RabbitListener开启几个线程去处理数据
+            // RabbitListener开启几个线程去处理数据
             concurrency = "1")
     public void prefetchConsumer2(String msg, Message message, Channel channel) throws IOException, InterruptedException {
         log.info("Prefetch2 监听：接收到消息:[{}]", msg);

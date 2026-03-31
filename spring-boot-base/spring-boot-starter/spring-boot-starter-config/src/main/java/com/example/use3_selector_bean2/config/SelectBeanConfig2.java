@@ -3,14 +3,14 @@ package com.example.use3_selector_bean2.config;
 import com.example.use3_selector_bean2.entity.MyProperties;
 import com.example.use3_selector_bean2.entity.SelectBean1;
 import com.example.use3_selector_bean2.entity.SelectBean2;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-
 
 
 @Slf4j

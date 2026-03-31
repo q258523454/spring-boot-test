@@ -1,15 +1,23 @@
 package com.aop.aspects;
 
 import com.alibaba.fastjson.JSON;
+
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created By
@@ -29,6 +37,7 @@ public class AopAspect {
      * 例如:
      * 拦截所有 controller 包下面的,以-Controller为后缀的类, 方法返回参数为String的所有方法(入参可以为空)
      * 写法如下:
+     *
      * @Pointcut("execution(java.lang.String *..controller..*Controller.*(..))")
      * 踩坑,注意下面这种写法的入参不能为空.要特别注意。
      * @Pointcut("execution(java.lang.String *..controller..*Controller.*(*))")
@@ -55,31 +64,28 @@ public class AopAspect {
      * -----------------------------------------------------------
      * {@link Around}           环绕通知(核心),可实现上述4个注解的功能
      * try{
-     *      try{
-     *          do-Before();     // 对应{@link Before}注解的方法切面逻辑
-     *          method.invoke();
-     *      }finally{
-     *          do-After();      // 对应{@link After}注解的方法切面逻辑
-     *      }
-     *      do-AfterReturning(); // 对应{@link AfterReturning}注解的方法切面逻辑
-     *  }catch(Exception e){
-     *       do-AfterThrowing(); // 对应{@link AfterThrowing}注解的方法切面逻辑
-     *  }
+     * try{
+     * do-Before();     // 对应{@link Before}注解的方法切面逻辑
+     * method.invoke();
+     * }finally{
+     * do-After();      // 对应{@link After}注解的方法切面逻辑
+     * }
+     * do-AfterReturning(); // 对应{@link AfterReturning}注解的方法切面逻辑
+     * }catch(Exception e){
+     * do-AfterThrowing(); // 对应{@link AfterThrowing}注解的方法切面逻辑
+     * }
      *
-     *  实测正常情况:
-     *  @Around
-     *  @Before
-     *  proceed()
-     *  @Around
-     *  @After(正常异常都会执行)
-     *  @AfterReturning
+     * 实测正常情况:
      *
-     *  异常情况:
-     *  @Around
-     *  @Before
-     *  proceed()
-     *  @After(正常异常都会执行)
-     *  @AfterThrowing
+     * @Around
+     * @Before proceed()
+     * @Around
+     * @After(正常异常都会执行)
+     * @AfterReturning 异常情况:
+     * @Around
+     * @Before proceed()
+     * @After(正常异常都会执行)
+     * @AfterThrowing
      *
      */
     @Before("controller()")
@@ -124,8 +130,9 @@ public class AopAspect {
 
     /**
      * 只有连接点抛出异常的时候才执行 {@link org.aspectj.lang.annotation.AfterThrowing}
-     * @param joinPoint  连接点
-     * @param ex 这里定义为 Exception, 表示通知所有异常.可以指定某个异常
+     *
+     * @param joinPoint 连接点
+     * @param ex        这里定义为 Exception, 表示通知所有异常.可以指定某个异常
      */
     @AfterThrowing(pointcut = "controller()", throwing = "ex")
     public void afterthrowing(JoinPoint joinPoint, Exception ex) {

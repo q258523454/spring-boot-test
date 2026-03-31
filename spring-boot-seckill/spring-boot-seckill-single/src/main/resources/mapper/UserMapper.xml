@@ -26,11 +26,11 @@
     </select>
     <insert id="insert" parameterType="com.sec.pojo.entity.User">
         insert into sk_user (id, nickname, `password`,
-                             salt, head, register_date,
-                             last_login_date, login_count)
+        salt, head, register_date,
+        last_login_date, login_count)
         values (#{id,jdbcType=BIGINT}, #{nickname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-                #{salt,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, #{registerDate,jdbcType=TIMESTAMP},
-                #{lastLoginDate,jdbcType=TIMESTAMP}, #{loginCount,jdbcType=INTEGER})
+        #{salt,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, #{registerDate,jdbcType=TIMESTAMP},
+        #{lastLoginDate,jdbcType=TIMESTAMP}, #{loginCount,jdbcType=INTEGER})
     </insert>
     <insert id="insertSelective" parameterType="com.sec.pojo.entity.User">
         <!--@mbg.generated-->

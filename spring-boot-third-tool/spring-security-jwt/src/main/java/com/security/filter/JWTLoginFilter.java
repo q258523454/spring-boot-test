@@ -3,8 +3,10 @@ package com.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.security.constant.CONSTANT;
 import com.security.entity.User;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,6 +18,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -67,7 +70,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
             token = Jwts.builder()
                     .setSubject(auth.getName() + "-" + roleList)
                     .setExpiration(time)
-                    .signWith(SignatureAlgorithm.HS512, CONSTANT.SIGN_KEY) //采用 HS512 算法(自选)
+                    .signWith(SignatureAlgorithm.HS512, CONSTANT.SIGN_KEY) // 采用 HS512 算法(自选)
                     .compact();
             // 登录成功后，返回token到header里面
             response.addHeader("MyAuthorization", "MyToken " + token);

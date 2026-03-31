@@ -2,8 +2,10 @@ package com.upzip.scanner.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.github.junrar.Archive;
 import com.github.junrar.rarfile.FileHeader;
+
 import net.lingala.zip4j.core.ZipFile;
 
 import java.io.File;
@@ -56,11 +58,11 @@ public class UnPackeUtil {
                 // 防止文件名中文乱码问题的处理
                 String fileName = fileHeader.getFileNameW().isEmpty() ? fileHeader.getFileNameString() : fileHeader.getFileNameW();
                 if (fileHeader.isDirectory()) {
-                    //是文件夹
+                    // 是文件夹
                     file = new File(destPath + File.separator + fileName);
                     file.mkdirs();
                 } else {
-                    //不是文件夹
+                    // 不是文件夹
                     file = new File(destPath + File.separator + fileName.trim());
                     if (!file.exists()) {
                         if (!file.getParentFile().exists()) {

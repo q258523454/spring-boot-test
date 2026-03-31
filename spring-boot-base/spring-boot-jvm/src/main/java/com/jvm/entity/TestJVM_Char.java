@@ -1,8 +1,6 @@
 package com.jvm.entity;
 
 
-
-
 public class TestJVM_Char {
 
     // 2字节
