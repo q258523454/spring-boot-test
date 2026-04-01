@@ -1,16 +1,11 @@
 package com.trans.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.trans.entity.Student;
 import com.trans.service.OtherService;
 import com.trans.service.StudentService;
 import com.trans.service.TransactionalService;
-import com.trans.util.MultiByZero;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @Service

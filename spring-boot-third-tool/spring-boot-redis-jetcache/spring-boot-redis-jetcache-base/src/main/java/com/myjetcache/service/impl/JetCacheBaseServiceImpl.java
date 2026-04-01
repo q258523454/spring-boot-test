@@ -2,8 +2,6 @@ package com.myjetcache.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alicp.jetcache.anno.CacheInvalidate;
-import com.alicp.jetcache.anno.CachePenetrationProtect;
-import com.alicp.jetcache.anno.CacheRefresh;
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.CacheUpdate;
 import com.alicp.jetcache.anno.Cached;
@@ -15,9 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 @Service

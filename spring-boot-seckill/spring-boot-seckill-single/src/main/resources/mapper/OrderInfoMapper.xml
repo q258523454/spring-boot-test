@@ -23,26 +23,26 @@
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         <!--@mbg.generated-->
-        select
+        SELECT
         <include refid="Base_Column_List"/>
-        from sk_order_info
-        where id = #{id,jdbcType=BIGINT}
+        FROM sk_order_info
+        WHERE id = #{id,jdbcType=BIGINT}
     </select>
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sec.pojo.entity.OrderInfo"
             useGeneratedKeys="true">
-        insert into sk_order_info (user_id, goods_id, delivery_addr_id,
+        INSERT INTO sk_order_info (user_id, goods_id, delivery_addr_id,
         goods_name, goods_count, goods_price,
         order_channel, `status`, create_date,
         pay_date)
-        values (#{userId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{deliveryAddrId,jdbcType=BIGINT},
+        VALUES (#{userId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{deliveryAddrId,jdbcType=BIGINT},
         #{goodsName,jdbcType=VARCHAR}, #{goodsCount,jdbcType=INTEGER}, #{goodsPrice,jdbcType=DECIMAL},
-        #{orderChannel,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, current_timestamp ,
+        #{orderChannel,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, CURRENT_TIMESTAMP ,
         #{payDate,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sec.pojo.entity.OrderInfo"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
-        insert into sk_order_info
+        INSERT INTO sk_order_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">
                 user_id,
@@ -109,8 +109,8 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.sec.pojo.entity.OrderInfo">
-        update sk_order_info
-        set user_id = #{userId,jdbcType=BIGINT},
+        UPDATE sk_order_info
+        SET user_id = #{userId,jdbcType=BIGINT},
         goods_id = #{goodsId,jdbcType=BIGINT},
         delivery_addr_id = #{deliveryAddrId,jdbcType=BIGINT},
         goods_name = #{goodsName,jdbcType=VARCHAR},
@@ -120,6 +120,6 @@
         `status` = #{status,jdbcType=TINYINT},
         create_date = #{createDate,jdbcType=TIMESTAMP},
         pay_date = #{payDate,jdbcType=TIMESTAMP}
-        where id = #{id,jdbcType=BIGINT}
+        WHERE id = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

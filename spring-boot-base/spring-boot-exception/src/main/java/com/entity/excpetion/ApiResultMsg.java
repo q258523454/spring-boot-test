@@ -2,10 +2,10 @@ package com.inter.entity.excpetion;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.io.Serializable;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.io.Serializable;
 
 /**
  * Created by

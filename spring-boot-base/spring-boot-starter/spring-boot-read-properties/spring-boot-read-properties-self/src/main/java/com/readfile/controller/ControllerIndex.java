@@ -5,13 +5,12 @@ import com.readfile.config.B_PropertiesConfig;
 import com.readfile.config.C_JsonConfig;
 import com.readfile.config.C_JsonConfig2;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import jakarta.annotation.PostConstruct;
 
 
 @Slf4j

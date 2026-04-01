@@ -7,6 +7,7 @@ import com.ratelimitbase.strategy.AbstractRateLimiterStrategy;
 import com.ratelimitbase.strategy.factory.RateLimiterStrategyFactory;
 import com.ratelimitbase.utils.RateLimiterKeyUtils;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.lang3.ObjectUtils;
@@ -23,8 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jakarta.annotation.PostConstruct;
 
 @Slf4j
 @Service

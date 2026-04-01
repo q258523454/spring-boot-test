@@ -1,19 +1,14 @@
 package com.example.springbootexcel.util;
 
 
-import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.annotation.ExcelProperty;
-import com.alibaba.excel.enums.CellExtraTypeEnum;
 import com.alibaba.excel.metadata.CellExtra;
-import com.example.springbootexcel.listener.ExtraListener;
 import com.example.springbootexcel.pojo.ExcelExtraData;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 

@@ -6,9 +6,9 @@ import com.alibaba.fastjson.parser.Feature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
-
 import java.io.Serializable;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Date: 2019-05-27

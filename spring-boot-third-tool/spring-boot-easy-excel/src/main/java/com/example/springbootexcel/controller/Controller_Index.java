@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 /**
  * @date 2022-07-28 11:26
  */

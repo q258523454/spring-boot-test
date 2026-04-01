@@ -2,11 +2,11 @@ package com.myjetcachekryo.config;
 
 import com.alicp.jetcache.anno.support.SpringConfigProvider;
 import com.alicp.jetcache.support.DecoderMap;
-import com.myjetcachekryo.config.convertor.GsonKeyConvertor;
 import com.myjetcachekryo.config.codex.KryoValueProDecoder;
 import com.myjetcachekryo.config.codex.KryoValueProEncoder;
 import com.myjetcachekryo.config.codex.ProtoStuffValueDecoder;
 import com.myjetcachekryo.config.codex.ProtoStuffValueEncoder;
+import com.myjetcachekryo.config.convertor.GsonKeyConvertor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

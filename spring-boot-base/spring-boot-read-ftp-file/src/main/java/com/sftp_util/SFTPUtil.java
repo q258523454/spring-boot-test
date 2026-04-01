@@ -1,7 +1,8 @@
 package com.sftp_util;
 
-import com.jcraft.jsch.*;
 import com.ftp_util.MapSortUtil;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.SftpException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +12,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 /**
  * @Date: 2019-06-19

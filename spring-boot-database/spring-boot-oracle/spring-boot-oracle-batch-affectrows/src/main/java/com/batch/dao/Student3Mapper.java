@@ -1,10 +1,10 @@
 package com.batch.dao;
 
-import java.util.List;
-
 import com.batch.entity.Student3;
 
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface Student3Mapper {
     int deleteByPrimaryKey(Long id);

@@ -6,9 +6,9 @@ import com.ack.common.serivce.BrokerMessageLogService;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 import java.util.List;
+
+import javax.annotation.Resource;
 
 @Service
 public class BrokerMessageLogServiceImpl implements BrokerMessageLogService {

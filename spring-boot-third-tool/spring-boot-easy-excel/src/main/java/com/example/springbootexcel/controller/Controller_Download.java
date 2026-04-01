@@ -1,10 +1,8 @@
 package com.example.springbootexcel.controller;
 
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.util.ListUtils;
 import com.alibaba.excel.util.MapUtils;
-import com.alibaba.excel.write.builder.ExcelWriterBuilder;
 import com.alibaba.fastjson.JSON;
 import com.example.springbootexcel.pojo.DownloadData;
 
@@ -13,13 +11,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @date 2022-07-28 11:26

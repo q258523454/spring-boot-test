@@ -3,9 +3,7 @@ package com.shardinginline.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.shardinginline.entity.NotSharding;
-import com.shardinginline.entity.Student;
 import com.shardinginline.service.NotShardingService;
-import com.shardinginline.utils.StudentUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Random;
 
 

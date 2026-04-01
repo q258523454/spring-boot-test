@@ -7,11 +7,11 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.Valid;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.Valid;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)

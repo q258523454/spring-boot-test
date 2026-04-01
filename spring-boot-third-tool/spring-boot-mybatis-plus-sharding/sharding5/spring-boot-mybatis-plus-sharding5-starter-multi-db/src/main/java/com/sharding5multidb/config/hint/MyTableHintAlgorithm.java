@@ -2,7 +2,6 @@ package com.sharding5multidb.config.hint;
 
 import com.alibaba.fastjson.JSON;
 
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.shardingsphere.sharding.api.sharding.hint.HintShardingAlgorithm;

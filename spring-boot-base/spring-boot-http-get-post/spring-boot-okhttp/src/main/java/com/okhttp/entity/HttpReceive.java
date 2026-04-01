@@ -4,7 +4,6 @@ import okhttp3.Headers;
 import okhttp3.ResponseBody;
 
 import java.io.Serializable;
-import java.util.Map;
 
 public class HttpReceive implements Serializable {
 

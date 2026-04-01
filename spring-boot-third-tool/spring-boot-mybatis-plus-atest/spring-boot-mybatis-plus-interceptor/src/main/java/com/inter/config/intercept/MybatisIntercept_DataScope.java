@@ -4,8 +4,8 @@ package com.inter.config.intercept;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.inter.uti.ScopeThreadUtils;
 import com.inter.uti.ScopeConstants;
+import com.inter.uti.ScopeThreadUtils;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,6 @@ import org.apache.ibatis.session.RowBounds;
 import java.io.StringReader;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Intercepts({@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}), @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}),})
 @Slf4j

@@ -4,6 +4,7 @@ package com.autouse.controller;
 import com.autouse.service.OrderService;
 import com.order.entity.AutoConfigOrderBean;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import jakarta.annotation.PostConstruct;
 
 /**
  * @Description

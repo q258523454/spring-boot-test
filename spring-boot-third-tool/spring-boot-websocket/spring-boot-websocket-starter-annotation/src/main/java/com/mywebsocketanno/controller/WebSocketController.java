@@ -1,7 +1,7 @@
 package com.mywebsocketanno.controller;
 
-import com.mywebsocketanno.manager.SessionManager;
 import com.mywebsocketanno.handler.WebSocketHandlerServer;
+import com.mywebsocketanno.manager.SessionManager;
 
 import lombok.extern.slf4j.Slf4j;
 

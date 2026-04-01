@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UrlPathHelper;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 
 /**
  * Created By

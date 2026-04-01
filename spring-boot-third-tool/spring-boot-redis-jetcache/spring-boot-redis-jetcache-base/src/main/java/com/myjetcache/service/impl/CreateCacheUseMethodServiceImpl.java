@@ -7,6 +7,7 @@ import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.template.QuickConfig;
 import com.myjetcache.service.CreateCacheUseMethodService;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.util.UUID;
-
-import jakarta.annotation.PostConstruct;
 
 @Slf4j
 @Service

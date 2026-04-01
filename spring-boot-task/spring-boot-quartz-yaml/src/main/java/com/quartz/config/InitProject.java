@@ -2,6 +2,8 @@ package com.quartz.config;
 
 import com.quartz.job.InitCronJob;
 
+import jakarta.annotation.PostConstruct;
+
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.JobBuilder;
@@ -19,8 +21,6 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
-import jakarta.annotation.PostConstruct;
 
 /**
  * @Date: 2019-05-29

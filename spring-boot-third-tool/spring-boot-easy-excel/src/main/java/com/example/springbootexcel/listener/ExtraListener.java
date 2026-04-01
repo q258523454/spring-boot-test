@@ -7,7 +7,6 @@ import com.alibaba.fastjson.JSON;
 import com.example.springbootexcel.pojo.ExcelExtraData;
 
 import lombok.Data;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import org.junit.Assert;

@@ -1,15 +1,24 @@
 package com.inter.service.impl;
 
+import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
+
+import com.inter.service.JobService;
 import com.job.AsyncJob;
 import com.job.CronJob;
-import com.inter.service.JobService;
 
-import org.quartz.*;
+import org.quartz.CronScheduleBuilder;
+import org.quartz.CronTrigger;
+import org.quartz.JobBuilder;
+import org.quartz.JobDetail;
+import org.quartz.JobKey;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
+import org.quartz.TriggerKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Service;
-
-import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
 /**
  * @Date: 2019-05-29

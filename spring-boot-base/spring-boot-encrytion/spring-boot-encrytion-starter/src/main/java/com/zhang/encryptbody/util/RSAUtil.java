@@ -7,8 +7,6 @@ import com.zhang.encryptbody.enums.RSASignTypeEnum;
 
 import lombok.extern.slf4j.Slf4j;
 
-import javax.crypto.Cipher;
-
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -23,6 +21,8 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.crypto.Cipher;
 
 /**
  * @author zj

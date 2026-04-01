@@ -1,12 +1,12 @@
 package com.upzip.scanner.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.github.junrar.Archive;
 import com.github.junrar.rarfile.FileHeader;
 
 import net.lingala.zip4j.core.ZipFile;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;

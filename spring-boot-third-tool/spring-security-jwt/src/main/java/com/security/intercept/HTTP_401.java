@@ -3,11 +3,11 @@ package com.security.intercept;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
+import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
 
 
 // 自定义登录失败(或者是没有登录)-拦截器， 401-未授权访问拦截器

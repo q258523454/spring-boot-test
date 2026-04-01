@@ -16,24 +16,24 @@
         id, goods_name, goods_title, goods_img, goods_detail, goods_price, goods_stock
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select
+        SELECT
         <include refid="Base_Column_List"/>
-        from sk_goods
-        where id = #{id,jdbcType=BIGINT}
+        FROM sk_goods
+        WHERE id = #{id,jdbcType=BIGINT}
     </select>
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sec.pojo.entity.Goods"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
-        insert into sk_goods (goods_name, goods_title, goods_img,
+        INSERT INTO sk_goods (goods_name, goods_title, goods_img,
         goods_detail, goods_price, goods_stock
         )
-        values (#{goodsName,jdbcType=VARCHAR}, #{goodsTitle,jdbcType=VARCHAR}, #{goodsImg,jdbcType=VARCHAR},
+        VALUES (#{goodsName,jdbcType=VARCHAR}, #{goodsTitle,jdbcType=VARCHAR}, #{goodsImg,jdbcType=VARCHAR},
         #{goodsDetail,jdbcType=LONGVARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, #{goodsStock,jdbcType=INTEGER}
         )
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sec.pojo.entity.Goods"
             useGeneratedKeys="true">
-        insert into sk_goods
+        INSERT INTO sk_goods
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="goodsName != null and goodsName != ''">
                 goods_name,
@@ -77,13 +77,13 @@
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.sec.pojo.entity.Goods">
         <!--@mbg.generated-->
-        update sk_goods
-        set goods_name = #{goodsName,jdbcType=VARCHAR},
+        UPDATE sk_goods
+        SET goods_name = #{goodsName,jdbcType=VARCHAR},
         goods_title = #{goodsTitle,jdbcType=VARCHAR},
         goods_img = #{goodsImg,jdbcType=VARCHAR},
         goods_detail = #{goodsDetail,jdbcType=LONGVARCHAR},
         goods_price = #{goodsPrice,jdbcType=DECIMAL},
         goods_stock = #{goodsStock,jdbcType=INTEGER}
-        where id = #{id,jdbcType=BIGINT}
+        WHERE id = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

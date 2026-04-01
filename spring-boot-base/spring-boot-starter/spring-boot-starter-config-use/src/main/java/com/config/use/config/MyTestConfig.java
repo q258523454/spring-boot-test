@@ -14,13 +14,11 @@ import com.example.use3_selector_bean2.entity.SelectBean2;
 import com.example.use4_nested_properties.config.DatabaseAutoConfig;
 import com.example.use4_nested_properties.entity.AllInfo;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
-
-import jakarta.annotation.PostConstruct;
 
 @Configuration
 @Slf4j

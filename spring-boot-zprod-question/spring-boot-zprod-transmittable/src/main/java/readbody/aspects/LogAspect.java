@@ -2,22 +2,14 @@ package readbody.aspects;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 
-import cn.hutool.cache.CacheUtil;
-import cn.hutool.cache.impl.CacheObj;
-import cn.hutool.cache.impl.LRUCache;
 import lombok.extern.slf4j.Slf4j;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
-
-import java.util.Iterator;
-
-import javax.annotation.Resource;
 
 @Slf4j
 @Aspect

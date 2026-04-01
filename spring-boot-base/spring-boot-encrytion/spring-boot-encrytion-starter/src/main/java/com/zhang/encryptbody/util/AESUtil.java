@@ -3,15 +3,15 @@ package com.zhang.encryptbody.util;
 import com.zhang.encryptbody.enums.ModeEnum;
 import com.zhang.encryptbody.enums.PaddingEnum;
 
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 
 
 /**
