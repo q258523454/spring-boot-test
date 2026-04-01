@@ -11,7 +11,7 @@ CREATE TABLE `hibernate_sequence`
 ) ENGINE = MyISAM
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
-  ROW_FORMAT = Fixed;
+  ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of hibernate_sequence
@@ -41,7 +41,7 @@ CREATE TABLE `system_shiro_permission`
 ) ENGINE = MyISAM
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
-  ROW_FORMAT = Dynamic;
+  ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of system_shiro_permission
@@ -69,7 +69,7 @@ CREATE TABLE `system_shiro_role`
 ) ENGINE = MyISAM
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
-  ROW_FORMAT = Dynamic;
+  ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of system_shiro_role
@@ -92,7 +92,7 @@ CREATE TABLE `system_shiro_role_permissions`
 ) ENGINE = MyISAM
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
-  ROW_FORMAT = Fixed;
+  ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of system_shiro_role_permissions
@@ -125,7 +125,7 @@ CREATE TABLE `system_shiro_user`
 ) ENGINE = MyISAM
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
-  ROW_FORMAT = Dynamic;
+  ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of system_shiro_user
@@ -150,7 +150,7 @@ CREATE TABLE `system_shiro_user_roles`
 ) ENGINE = MyISAM
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
-  ROW_FORMAT = Fixed;
+  ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of system_shiro_user_roles

@@ -28,8 +28,8 @@ public class Controller_Index {
     @GetMapping(value = "/get/parameter")
     public @ResponseBody
     String parameter1(HttpServletRequest request, HttpServletResponse response,
-            @RequestParam("key") String key,
-            @RequestBody String body) {
+                      @RequestParam("key") String key,
+                      @RequestBody String body) {
         log.info("------------- 控制层 controller -------------");
         log.info("Controller " + JSONObject.toJSONString(request.getParameterMap()));
         log.info("Controller key name：" + key);
@@ -40,8 +40,8 @@ public class Controller_Index {
     @PostMapping(value = "/post/parameter")
     public @ResponseBody
     String parameter2(HttpServletRequest request, HttpServletResponse response,
-            @RequestParam("key") String key,
-            @RequestBody String body) {
+                      @RequestParam("key") String key,
+                      @RequestBody String body) {
         log.info("------------- 控制层 controller -------------");
         log.info("Controller :" + JSONObject.toJSONString(request.getParameterMap()));
         log.info("Controller key name：" + key);

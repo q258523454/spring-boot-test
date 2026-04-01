@@ -101,7 +101,7 @@ public class DelayRmqConfig {
      */
     @Bean
     public Binding delayBinding(@Qualifier("delayExchange") Exchange exchange,
-            @Qualifier("delayQueue") Queue queue) {
+                                @Qualifier("delayQueue") Queue queue) {
         return BindingBuilder.bind(queue).to(exchange).with(delayRouteKey).noargs();
         // 或者直接调用方法
         // return BindingBuilder.bind(delayQueue()).to(delayExchange()).with(delayRouteKey).noargs();

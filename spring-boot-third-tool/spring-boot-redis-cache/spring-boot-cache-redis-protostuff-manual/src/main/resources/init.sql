@@ -1,4 +1,4 @@
-use zhang;
+USE zhang;
 
 CREATE DATABASE IF NOT EXISTS zhang;
 

@@ -42,9 +42,9 @@ public class StudentController {
      */
     @RequestMapping(value = "/selectAllStudent", method = RequestMethod.GET)
     public String selectAllStudent(@Param("pageNum") Integer pageNum,
-            @Param("pageSize") Integer pageSize,
-            HttpServletRequest request,
-            HttpServletResponse response) {
+                                   @Param("pageSize") Integer pageSize,
+                                   HttpServletRequest request,
+                                   HttpServletResponse response) {
         /**
          * PageHelper.startPage(pageNum, pageSize);
          * List<Student> studentList = studentService.selectAllStudent();
@@ -65,9 +65,9 @@ public class StudentController {
 
     @RequestMapping(value = "/selectAllStudent2", method = RequestMethod.GET)
     public String selectAllStudent2(@Param("offset") Integer offset,
-            @Param("limit") Integer limit,
-            HttpServletRequest request,
-            HttpServletResponse response) {
+                                    @Param("limit") Integer limit,
+                                    HttpServletRequest request,
+                                    HttpServletResponse response) {
         /**
          * PageHelper.startPage(pageNum, pageSize);
          * List<Student> studentList = studentService.selectAllStudent();

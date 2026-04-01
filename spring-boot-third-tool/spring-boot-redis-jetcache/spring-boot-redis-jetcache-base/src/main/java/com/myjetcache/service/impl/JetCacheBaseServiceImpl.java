@@ -42,7 +42,7 @@ public class JetCacheBaseServiceImpl implements JetCacheBaseService {
 
     /**
      * @ 删 @CacheInvalidate
-     * 方法执行后,再删除,作者 huangli 表示也不会增加这个功能选项, 自主控制粒度即可
+     * 方法执行后,再删除,作者 z 表示也不会增加这个功能选项, 自主控制粒度即可
      */
     @Override
     @CacheInvalidate(name = "my:jetcache:", key = "#id")

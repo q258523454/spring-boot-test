@@ -104,7 +104,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
-            Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+                                  Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         // 只对String类型加解密
         if (!(body instanceof String)) {
             throw new EncryptBodyException("encrypt data is not type [java.lang.String]");

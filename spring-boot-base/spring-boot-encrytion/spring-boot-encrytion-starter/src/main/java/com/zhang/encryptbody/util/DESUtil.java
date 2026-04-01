@@ -78,7 +78,7 @@ public enum DESUtil {
      * @param len     IvParameterSpec-从偏移量开始,取字节数目大小,ECB模式无需iv
      */
     public static String encrypt(byte[] data, String desKey, String mode, String padding,
-            byte[] salt, int offset, int len) {
+                                 byte[] salt, int offset, int len) {
         try {
             // "算法/模式/补码方式"
             // eg: method="DES/ECB/PKCS5Padding"
@@ -142,7 +142,7 @@ public enum DESUtil {
      * @param len     IvParameterSpec-偏移量开始,取字节数目大小,ECB模式无需iv
      */
     public static String decrypt(String src, String desKey, String mode, String padding,
-            byte[] salt, int offset, int len) {
+                                 byte[] salt, int offset, int len) {
         String decrypted = "";
         try {
             // "算法/模式/补码方式"

@@ -34,7 +34,7 @@ public class Controller_Quartz {
      */
     @PostMapping(value = "/cron")
     public String startCronJob(@RequestParam("jobName") String jobName, @RequestParam("jobGroup") String jobGroup,
-            @RequestParam("crontab") String crontab) {
+                               @RequestParam("crontab") String crontab) {
         jobService.addCronJob(jobName, jobGroup, crontab);
         return "create cron task success";
     }

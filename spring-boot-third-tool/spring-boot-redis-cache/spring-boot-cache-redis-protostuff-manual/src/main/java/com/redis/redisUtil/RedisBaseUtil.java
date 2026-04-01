@@ -699,7 +699,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static String lBRightPopAndLeftPush(String sourceKey, String destinationKey,
-            long timeout, TimeUnit unit) {
+                                               long timeout, TimeUnit unit) {
         return getRedisTemplate().opsForList().rightPopAndLeftPush(sourceKey,
                 destinationKey, timeout, unit);
     }
@@ -849,7 +849,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Long sIntersectAndStore(String key, Collection<String> otherKeys,
-            String destKey) {
+                                          String destKey) {
         return getRedisTemplate().opsForSet().intersectAndStore(key, otherKeys,
                 destKey);
     }
@@ -897,7 +897,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Long sUnionAndStore(String key, Collection<String> otherKeys,
-            String destKey) {
+                                      String destKey) {
         return getRedisTemplate().opsForSet().unionAndStore(key, otherKeys, destKey);
     }
 
@@ -945,7 +945,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Long sDifference(String key, Collection<String> otherKeys,
-            String destKey) {
+                                   String destKey) {
         return getRedisTemplate().opsForSet().differenceAndStore(key, otherKeys,
                 destKey);
     }
@@ -1088,7 +1088,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Set<ZSetOperations.TypedTuple<String>> zRangeWithScores(String key, long start,
-            long end) {
+                                                                          long end) {
         return getRedisTemplate().opsForZSet().rangeWithScores(key, start, end);
     }
 
@@ -1113,7 +1113,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Set<ZSetOperations.TypedTuple<String>> zRangeByScoreWithScores(String key,
-            double min, double max) {
+                                                                                 double min, double max) {
         return getRedisTemplate().opsForZSet().rangeByScoreWithScores(key, min, max);
     }
 
@@ -1126,7 +1126,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Set<ZSetOperations.TypedTuple<String>> zRangeByScoreWithScores(String key,
-            double min, double max, long start, long end) {
+                                                                                 double min, double max, long start, long end) {
         return getRedisTemplate().opsForZSet().rangeByScoreWithScores(key, min, max,
                 start, end);
     }
@@ -1152,7 +1152,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Set<ZSetOperations.TypedTuple<String>> zReverseRangeWithScores(String key,
-            long start, long end) {
+                                                                                 long start, long end) {
         return getRedisTemplate().opsForZSet().reverseRangeWithScores(key, start, end);
     }
 
@@ -1165,7 +1165,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Set<String> zReverseRangeByScore(String key, double min,
-            double max) {
+                                                   double max) {
         return getRedisTemplate().opsForZSet().reverseRangeByScore(key, min, max);
     }
 
@@ -1191,7 +1191,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Set<String> zReverseRangeByScore(String key, double min,
-            double max, long start, long end) {
+                                                   double max, long start, long end) {
         return getRedisTemplate().opsForZSet().reverseRangeByScore(key, min, max,
                 start, end);
     }
@@ -1282,7 +1282,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Long zUnionAndStore(String key, Collection<String> otherKeys,
-            String destKey) {
+                                      String destKey) {
         return getRedisTemplate().opsForZSet()
                 .unionAndStore(key, otherKeys, destKey);
     }
@@ -1296,7 +1296,7 @@ public class RedisBaseUtil {
      * @return
      */
     public static Long zIntersectAndStore(String key, String otherKey,
-            String destKey) {
+                                          String destKey) {
         return getRedisTemplate().opsForZSet().intersectAndStore(key, otherKey,
                 destKey);
     }

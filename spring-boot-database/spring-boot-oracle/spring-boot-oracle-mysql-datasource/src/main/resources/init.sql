@@ -18,12 +18,12 @@ VALUES ('zhangsan', 18)
 -- oracle
 CREATE TABLE student
 (
-    id number (10) PRIMARY KEY,
+    id NUMBER (10) PRIMARY KEY,
     name varchar(10) NOT NULL,
-    age number (4) NOT NULL
+    age NUMBER (4) NOT NULL
 )
     COMMENT ON COLUMN student.name IS '姓名';
 COMMENT ON COLUMN student.age IS '年龄';
 INSERT INTO STUDENT(id, name, age)
-values (1, '王五', 21);
+VALUES (1, '王五', 21);
 

@@ -77,7 +77,7 @@
                t1.name,
                t2.name2
         FROM student t1
-                 LEFT JOIN student2 t2 on t1.id = t2.id
+             LEFT JOIN student2 t2 on t1.id = t2.id
     </select>
 
     <select id="selectWhereTest" resultMap="BaseResultMap">

@@ -24,18 +24,19 @@ public class SpringContextHolder implements ApplicationContextAware {
 
     /**
      * 实现ApplicationContextAware接口, 注入Context到静态变量中.
-     */ssss's's
+     */
     @Override
+
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         logger.info("ServletContextUtil is init");
         SpringContextHolder.applicationContext = applicationContext;
     }
-22222
+
     /**
      * 获取静态变量中的ApplicationContext.
      */
     public static ApplicationContext getApplicationContext() {
-        assertContextInjected();大萨达
+        assertContextInjected();
         return applicationContext;
     }
 

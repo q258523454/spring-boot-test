@@ -85,14 +85,14 @@ public class RedisZSetController {
 
     @GetMapping(value = "/redisson/zset/get/range/count")
     public String getZSetCountByScoresInclusive(@RequestParam("key") String key, @RequestParam("startScore") double startScore,
-            @RequestParam("endScore") double endScore) {
+                                                @RequestParam("endScore") double endScore) {
         int zSetCountByScoresInclusive = redissonZSetService.getZSetCountByScoresInclusive(key, startScore, endScore);
         return zSetCountByScoresInclusive + "";
     }
 
     @GetMapping(value = "/redisson/zset/get/range/members")
     public String getZSetMembersByScoresInclusive(@RequestParam("key") String key, @RequestParam("startScore") double startScore,
-            @RequestParam("endScore") double endScore) {
+                                                  @RequestParam("endScore") double endScore) {
         Collection<Object> zSetMembersByScoresInclusive = redissonZSetService.getZSetMembersByScoresInclusive(key, startScore, endScore);
         return JSON.toJSONString(zSetMembersByScoresInclusive);
     }

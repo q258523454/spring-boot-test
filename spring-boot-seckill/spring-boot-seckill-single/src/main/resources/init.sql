@@ -56,13 +56,13 @@ CREATE TABLE `sk_user`
   DEFAULT CHARSET = utf8;
 
 INSERT INTO `sk_user`
-VALUES ('11111111111', 'lisi', 'b7797cce01b4b131b433b6acf4add449', '1a2b3c4d', null, '2018-05-21 21:10:21',
+VALUES ('11111111111', 'lisi', 'b7797cce01b4b131b433b6acf4add449', '1a2b3c4d', NULL, '2018-05-21 21:10:21',
         '2018-05-21 21:10:25', '1');
 INSERT INTO `sk_user`
-VALUES ('22222222222', 'wangwu', 'b7797cce01b4b131b433b6acf4add449', '1a2b3c4d', null, '2018-05-21 21:10:21',
+VALUES ('22222222222', 'wangwu', 'b7797cce01b4b131b433b6acf4add449', '1a2b3c4d', NULL, '2018-05-21 21:10:21',
         '2018-05-21 21:10:25', '1');
 INSERT INTO `sk_user`
-VALUES ('18181818181', 'zhangsan', 'b7797cce01b4b131b433b6acf4add449', '1a2b3c4d', null, '2018-05-21 21:10:21',
+VALUES ('18181818181', 'zhangsan', 'b7797cce01b4b131b433b6acf4add449', '1a2b3c4d', NULL, '2018-05-21 21:10:21',
         '2018-05-21 21:10:25', '1');
 
 -- sk_order
@@ -81,7 +81,7 @@ CREATE TABLE `sk_order`
   DEFAULT CHARSET = utf8;
 
 INSERT INTO `sk_order`
-VALUES ('10', '18718185897', '1', '1', '1', current_timestamp);
+VALUES ('10', '18718185897', '1', '1', '1', CURRENT_TIMESTAMP);
 
 -- sk_order_info
 CREATE TABLE `sk_order_info`
@@ -103,7 +103,7 @@ CREATE TABLE `sk_order_info`
   DEFAULT CHARSET = utf8;
 
 INSERT INTO `sk_order_info`
-VALUES ('10', '18718185897', '1', null, 'iphoneX', '1', '7788.00', '1', '0', '2018-05-29 17:02:00', null);
+VALUES ('10', '18718185897', '1', NULL, 'iphoneX', '1', '7788.00', '1', '0', '2018-05-29 17:02:00', NULL);
 
 
 

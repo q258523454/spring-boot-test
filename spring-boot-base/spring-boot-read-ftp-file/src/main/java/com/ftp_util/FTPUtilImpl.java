@@ -198,7 +198,7 @@ public class FTPUtilImpl implements FTPUtil {
      */
     @Override
     public boolean downLoadFTP(FTPClient ftpClient, String filePath, String fileName,
-            String downPath) {
+                               String downPath) {
         // 默认失败
         boolean flag = false;
 

@@ -1,11 +1,11 @@
 DROP TABLE STUDENT;
 CREATE TABLE student
 (
-    id number (20) PRIMARY KEY,
-    name  varchar(20)                not NULL,
+    id NUMBER (20) PRIMARY KEY,
+    name  varchar(20)                NOT NULL,
     name2 char(20) DEFAULT 'default' NOT NULL,
-    age number (5)
-) tablespace TBS_CUR_DAT;
+    age NUMBER (5)
+) TABLESPACE TBS_CUR_DAT;
 
 COMMENT ON COLUMN student.name IS '姓名';
 COMMENT ON COLUMN student.name2 IS '姓名2';
