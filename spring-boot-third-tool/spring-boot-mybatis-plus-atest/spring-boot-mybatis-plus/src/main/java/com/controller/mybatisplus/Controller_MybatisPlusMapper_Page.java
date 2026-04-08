@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.dao.StudentPlusMapper;
+import com.dao.StudentMapper;
 import com.entity.Student;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -24,12 +24,13 @@ import java.util.List;
 
 @Slf4j
 @RestController
-public class Controller_Mybatis_Plus_Page {
+public class Controller_MybatisPlusMapper_Page {
     @Autowired
-    private StudentPlusMapper studentPlusMapper;
+    private StudentMapper studentPlusMapper;
 
     /**
      * mybatis 常规分页查询
+     * 注意 PageHelper 的 jsqlparser 不要冲突
      */
     @GetMapping(value = "/mybatis/plus/select/page1/{pageNum}/{pageSize}")
     public String pageTest1(@PathVariable("pageNum") Integer pageNum, @PathVariable("pageSize") Integer pageSize) {

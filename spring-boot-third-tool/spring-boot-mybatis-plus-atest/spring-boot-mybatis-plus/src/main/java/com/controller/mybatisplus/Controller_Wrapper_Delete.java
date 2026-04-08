@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 public class Controller_Wrapper_Delete {
     @Autowired
-    private StudentService studentService;
+    private StudentService studentPlusService;
 
     /**
      * Lambda and 查询
@@ -24,7 +24,7 @@ public class Controller_Wrapper_Delete {
     public String wrapper1() {
         LambdaQueryWrapper<Student> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(Student::getAge, 3);
-        boolean remove = studentService.remove(lambdaQueryWrapper);
+        boolean remove = studentPlusService.remove(lambdaQueryWrapper);
         return remove + "";
     }
 
@@ -37,7 +37,7 @@ public class Controller_Wrapper_Delete {
         }};
         LambdaQueryWrapper<Student> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.in(Student::getAge, idList);
-        boolean remove = studentService.remove(lambdaQueryWrapper);
+        boolean remove = studentPlusService.remove(lambdaQueryWrapper);
         return remove + "";
     }
 }

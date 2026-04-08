@@ -3,7 +3,7 @@ package com.controller.mybatisplus;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
-import com.dao.StudentPlusMapper;
+import com.dao.StudentMapper;
 import com.entity.Student;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 public class Controller_Wrapper_Select_ChainWrapper {
     @Autowired
-    private StudentPlusMapper studentPlusMapper;
+    private StudentMapper studentPlusMapper;
 
     /**
      * Lambda and 查询

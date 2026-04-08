@@ -16,9 +16,9 @@ import java.util.UUID;
 
 @RestController
 public class Controller_Wrapper_Update {
-    @Autowired
-    private StudentService studentService;
 
+    @Autowired
+    private StudentService studentPlusService;
 
     /**
      * 批量更新测试
@@ -41,10 +41,10 @@ public class Controller_Wrapper_Update {
         // 如果updateTime(ON UPDATE CURRENT_TIMESTAMP) 字段不为空, 则不会自动更新时间
         LambdaQueryWrapper<Student> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(Student::getId, 3);
-        Student student = studentService.getBaseMapper().selectOne(lambdaQueryWrapper);
+        Student student = studentPlusService.getBaseMapper().selectOne(lambdaQueryWrapper);
         student.setName(getRandomName());
         list.add(student);
-        return studentService.updateBatchById(list) + "";
+        return studentPlusService.updateBatchById(list) + "";
     }
 
     private String getRandomName() {

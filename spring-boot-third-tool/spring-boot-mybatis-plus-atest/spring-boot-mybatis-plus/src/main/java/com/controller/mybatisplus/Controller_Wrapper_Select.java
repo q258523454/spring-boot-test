@@ -21,18 +21,18 @@ import java.util.Random;
 @RestController
 public class Controller_Wrapper_Select {
     @Autowired
-    private StudentService studentService;
+    private StudentService studentPlusService;
 
 
     @GetMapping(value = "/mybatis/plus/select/wrapper1")
     @Transactional
     public String wrapper1() {
         Student student = Student.builder().id(new Random().nextInt(100)).name("123").age(18).build();
-        studentService.getBaseMapper().insert(student);
+        studentPlusService.getBaseMapper().insert(student);
         QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
         // 所有 年龄=18 数据
         queryWrapper.eq("age", 18);
-        List<Student> studentList = studentService.selectList(student);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(queryWrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -44,7 +44,7 @@ public class Controller_Wrapper_Select {
         QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
         // 所有 年龄=18,19,20 数据
         queryWrapper.in("age", Arrays.asList(18, 19, 20));
-        List<Student> studentList = studentService.getBaseMapper().selectList(queryWrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(queryWrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -58,7 +58,7 @@ public class Controller_Wrapper_Select {
         queryWrapper.likeRight("name", "wang")
                 .gt("age", 18)
                 .orderByDesc("age");
-        List<Student> studentList = studentService.getBaseMapper().selectList(queryWrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(queryWrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -69,7 +69,7 @@ public class Controller_Wrapper_Select {
     public String wrapperLt() {
         LambdaQueryWrapper<Student> wrapper = new LambdaQueryWrapper<>();
         wrapper.lt(Student::getCreatedAt, new Date());
-        List<Student> studentList = studentService.selectList(wrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(wrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -86,7 +86,7 @@ public class Controller_Wrapper_Select {
         long last30MinutesMill = cur.getTime() - 30 * 60 * 1000L;
         Date left = new Date(last30MinutesMill);
         wrapper.between(Student::getCreatedAt, left, cur);
-        List<Student> studentList = studentService.selectList(wrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(wrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -98,7 +98,7 @@ public class Controller_Wrapper_Select {
     public String wrapper4() {
         LambdaQueryWrapper<Student> wrapper = new LambdaQueryWrapper<>();
         wrapper.select(Student::getId).groupBy(Student::getName);
-        List<Student> studentList = studentService.selectList(wrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(wrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -110,7 +110,7 @@ public class Controller_Wrapper_Select {
         LambdaQueryWrapper<Student> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         // like 会在左右两边加 百分号%
         lambdaQueryWrapper.like(Student::getName, "wang").gt(Student::getAge, 18);
-        List<Student> studentList = studentService.selectList(lambdaQueryWrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(lambdaQueryWrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -122,7 +122,7 @@ public class Controller_Wrapper_Select {
         LambdaQueryWrapper<Student> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.likeRight(Student::getName, "wang")
                 .and(sub -> sub.gt(Student::getAge, 18).or().lt(Student::getAge, 10));
-        List<Student> studentList = studentService.selectList(lambdaQueryWrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(lambdaQueryWrapper);
         return JSON.toJSONString(studentList);
     }
 
@@ -135,7 +135,7 @@ public class Controller_Wrapper_Select {
     public String wrapper7(@PathVariable("flag") boolean flag) {
         LambdaQueryWrapper<Student> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(flag, Student::getName, "zhangsan");
-        List<Student> studentList = studentService.selectList(lambdaQueryWrapper);
+        List<Student> studentList = studentPlusService.getBaseMapper().selectList(lambdaQueryWrapper);
         return JSON.toJSONString(studentList);
     }
 }

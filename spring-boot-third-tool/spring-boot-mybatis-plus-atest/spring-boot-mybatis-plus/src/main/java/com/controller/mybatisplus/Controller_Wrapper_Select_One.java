@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller_Wrapper_Select_One {
 
     @Autowired
-    private StudentService studentService;
+    private StudentService studentPlusService;
 
 
     /**
@@ -27,7 +27,7 @@ public class Controller_Wrapper_Select_One {
         QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
         // 所有 年龄=18 数据
         queryWrapper.eq("age", 18);
-        Student one = studentService.getOne(queryWrapper);
+        Student one = studentPlusService.getOne(queryWrapper);
         return JSON.toJSONString(one);
     }
 
@@ -39,7 +39,7 @@ public class Controller_Wrapper_Select_One {
         QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
         // 所有 年龄=18 数据
         queryWrapper.eq("age", 18);
-        Student one = studentService.getOne(queryWrapper, false);
+        Student one = studentPlusService.getOne(queryWrapper, false);
         return JSON.toJSONString(one);
     }
 
@@ -53,7 +53,7 @@ public class Controller_Wrapper_Select_One {
         QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
         // 所有 年龄=18 数据
         queryWrapper.eq("age", 18);
-        Student one = studentService.getBaseMapper().selectOne(queryWrapper);
+        Student one = studentPlusService.getBaseMapper().selectOne(queryWrapper);
         return JSON.toJSONString(one);
     }
 }
